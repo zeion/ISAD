@@ -1,0 +1,64 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>Register</title>
+    <link href='reset_css.css' rel='stylesheet' type='text/css'>
+    <link href='register.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="AbsCenter container" align="left">
+        <form>
+            <div style="margin: 10px; margin-left: 14.5%">
+                <p>ชื่อ</p>
+                <input type="text" placeholder=ชื่อ style="width: 40%">
+                <input type="text" placeholder=นามสกุล style="width: 40%">
+            </div>                
+            <div style="margin: 10px; margin-left: 14.5%">    
+                <p>อีเมล</p>
+                <input type="text" style="width: 85%">
+            </div>
+            <div style="margin: 10px; margin-left: 14.5%">    
+                <p>รหัสผ่าน</p>
+                <input type="password" maxlength="10" style="width: 40%">
+                <input type="password" maxlength="10" placeholder=ยืนยันรหัสผ่าน style="width: 40%">
+            </div>
+            <div style="margin: 10px; margin-left: 14.5%">    
+                <p>วันเกิด</p>
+                <input type="text" maxlength="2" placeholder=วัน style="width: 15%; margin-right: 0px">
+                <select style="font-size: 1em; width: 40%; margin: 5px">
+                    <option value="" default selected style="display: none">เดือน</option>
+                    <option value="jan">มกราคม</option>
+                    <option value="feb">กุมภาพันธ์</option>
+                    <option value="mar">มีนาคม</option>
+                    <option value="apr">เมษายน</option>
+                    <option value="may">พฤษภาคม</option>
+                    <option value="jun">มิถุนายน</option>
+                    <option value="jul">กรกฎาคม</option>
+                    <option value="aug">สิงหาคม</option>
+                    <option value="sep">กันยายน</option>
+                    <option value="oct">ตุลาคม</option>
+                    <option value="nov">พฤศจิกายน</option>
+                    <option value="dec">ธันวาคม</option>
+                </select>
+                <input type="text" maxlength="4" placeholder=ปี style="width: 25%">
+            </div>
+            <div style="margin: 10px; margin-left: 14.5%">    
+                <p>เพศ</p>
+                 <select style="font-size: 1em; width: 85%; margin-top: 8px">
+                    <option value="" default selected style="display: none">ฉันเป็น...</option>
+                    <option value="male">ชาย</option>
+                    <option value="female">หญิง</option>
+                    <option value="other">อื่นๆ</option>   
+                 </select>
+            </div>
+            <div style="margin: 10px; margin-left: 14.5%; margin-top: 20px">    
+                <p>โทรศัพท์มือถือ</p>
+                <input type="text" maxlength="10" style="width: 85%">
+            </div>
+            <div style="margin: 10px;" align="center">
+                <p><button class = "btn blue" type="submit">สมัครสมาชิก</button></p>
+        </form>
+    </div>
+</body>
+</html>
