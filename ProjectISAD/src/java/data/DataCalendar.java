@@ -46,8 +46,9 @@ public class DataCalendar extends HttpServlet {
 
                 for (int i = 0; i < count; i++) {
                     address = new JSONObject();
-                    jsonString += "{start:"+"\"2015-04-1"+i+"\""+
-                                    ",id:"+"\""+i+"\""+
+                    jsonString +="\""+ i+ "\"," +
+                                    "{start:"+"\"2015-04-1"+i+"\""+
+                                    ",id:"+"\""+i+"0\""+
                                     ",title:"+"\"Event"+i+"\"},";
 //                    addresses.add(address);
                 }
