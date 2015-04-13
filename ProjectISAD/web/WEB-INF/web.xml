@@ -6,6 +6,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>AdminLTE-2.0.4/mainpage.html</welcome-file>
+        <welcome-file>login_html/login.html</welcome-file>
     </welcome-file-list>
 </web-app>
