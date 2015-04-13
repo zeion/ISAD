@@ -6,6 +6,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>login_html/login.html</welcome-file>
+        <welcome-file>userAdmin/mainpage.html</welcome-file>
     </welcome-file-list>
 </web-app>
