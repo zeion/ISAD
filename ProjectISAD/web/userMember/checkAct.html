@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>ตารางกิจกรรม</title>
+        <title>ตรวจสอบสิทธิ์เข้ากิจกรรม</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- Bootstrap 3.3.2 -->
         <link href="../template/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -15,7 +15,7 @@
         <link href="../template/plugins/fullcalendar/fullcalendar.print.css" rel="stylesheet" type="text/css" media='print' />
         <!-- Theme style -->
         <link href="../template/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-        <!-- AdminLTE Skins. Choose a skin from the css/skins 
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
              folder instead of downloading all of them to reduce the load. -->
         <link href="../template/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
@@ -103,12 +103,12 @@
                     <ul class="sidebar-menu">
                         <li class="header">เมนู</li>
                         <li class="active">
-                            <a href="#">
+                            <a href="mainpage.html">
                                 <i class="fa fa-home"></i> <span>ตารางกิจกรรม</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>
                         <li>
-                            <a href="checkAct.html">
+                            <a href="#">
                                 <i class="fa fa-pencil"></i>
                                 <span>ตรวจสอบสิทธิ์เข้ากิจกรรม</span><i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -134,21 +134,64 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        ตารางกิจกรรม
-                    </h1>                  
+                        ตรวจสอบสิทธิ์เข้ากิจกรรม
+                    </h1>
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
-                    <div class="row">
-                        <div class="col-md-1"></div>
-                        <div class="col-md-10">
-                            <div class="box box-primary">
-                                <div class="box-body no-padding">
-                                    <!-- THE CALENDAR -->
-                                    <div id="calendar"></div>
-                                </div><!-- /.box-body -->
-                            </div><!-- /. box -->
+                    <div class="box">
+                                <div class="box-header">
+                                    <h3 class="box-title">รายชื่อกิจกรรมที่ร้องขอ</h3>
+                                </div><!-- /.box-header -->
+                                <form role="form">
+                                    <div class="box-body">
+                                        <table id="example1" class="table table-bordered table-hover">
+                                            <col style="width:10%">
+                                            <col style="width:14%">
+                                            <col style="width:14%">
+                                            <col style="width:13%">
+                                            <col style="width:45%">
+                                            <thead>
+                                                    <th style="text-align: center;">ชื่อกิจกรรม</th>
+                                                    <th style="text-align: center;">เริ่มวันที่</th>
+                                                    <th style="text-align: center;">วันที่สมัคร</th>
+                                                    <th style="text-align: center;">จำนวนคนที่สมัคร</th>
+                                                    <th style="text-align: center;">รายละเอียด</th>
+                                                    <th style="text-align: center;">สถานะ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>หมิงเต้าปัน1</td>
+                                                    <td>1 มกราคม 2558</td>
+                                                    <td>20 ธันวาคม 2557</td>
+                                                    <td style="text-align: center;">7</td>
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>
+                                                    <td><p class="text-success">ผ่าน</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>หมิงเต้าปัน2</td>
+                                                    <td>2 กุมภาพันธ์ 2558</td>
+                                                    <td>27 มกราคม 2558</td>
+                                                    <td style="text-align: center;">15</td>
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>
+                                                    <td><p class="text-muted">รอ</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>หมิงเต้าปัน10</td>
+                                                    <td>4 มีนาคม 2558</td>
+                                                    <td>14 กุมภาพันธ์ 2558</td>
+                                                    <td style="text-align: center;">9</td>
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>
+                                                    <td><p class="text-danger">ไม่ผ่าน</p></td>
+                                                </tr>
+                                            </tbody>
+                                            </table>
+                                            <button type="button" class="btn btn-default" style="margin: 10px; margin-left: 91.5%;">ล้างข้อมูล</button>
+                                    </div><!-- /.box-body -->
+                                </form>
+                            </div><!-- /.box -->
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </section><!-- /.content -->
