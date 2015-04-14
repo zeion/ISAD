@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>กิจกรรมที่กำลังดำเนินการ</title>
+        <title>รายชื่อสมาชิก</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- Bootstrap 3.3.2 -->
         <link href="../template/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -116,7 +116,7 @@
                             <ul class="treeview-menu">
                                 <li><a href="createAct.html"><i class="fa fa-circle-o"></i> สร้างกิจกรรม</a></li>
                                 <li><a href="listAct.html"><i class="fa fa-circle-o"></i> กิจกรรมที่กำลังดำเนินการ</a></li>
-                                <li class="active"><a href="confirmAct.html"><i class="fa fa-circle-o"></i> ยืนยันการเข้าร่วมกิจกรรม</a></li>
+                                <li><a href="confirmAct.html"><i class="fa fa-circle-o"></i> ยืนยันการเข้าร่วมกิจกรรม</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -127,7 +127,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="listMem.html"><i class="fa fa-circle-o"></i> รายชื่อสมาชิก</a></li>
-                                <li><a href="confirmMem.html"><i class="fa fa-circle-o"></i> ยืนยันการสมัครสมาชิก</a></li>
+                                <li class="active"><a href="confirmMem.html"><i class="fa fa-circle-o"></i> ยืนยันการสมัครสมาชิก</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -151,47 +151,44 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        กิจกรรมที่กำลังดำเนินการ
+                        รายชื่อสมาชิก
                     </h1>                    
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
-                        <div class="col-xs-12">
+                        <div class="col-xs-12" >
                             <div class="box">
                                 <div class="box-header">
-                                    <h3 class="box-title">รายชื่อกิจกรรมที่กำลังดำเนินการ</h3>
+                                    <h3 class="box-title">รายชื่อสมาชิก</h3>
                                 </div><!-- /.box-header -->
                                 <form role="form">
                                     <div class="box-body">
                                         <table id="example1" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>ชื่อกิจกรรม</th>
-                                                    <th>เริ่มวันที่</th>
                                                     <th>ชื่อ</th>
                                                     <th>นามสกุล</th>
                                                     <th>ชื่อเล่น</th>
                                                     <th>อายุ</th>
                                                     <th>จังหวัด</th>
-                                                    <th>สมัคร</th>
-                                                    <th>รับ</th>
-                                                    <th>ยืนยัน</th>
+                                                    <th>อาชีพ</th>
+                                                    <th>ตัวเลือก</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>หมิงเต้าปัน1</td>
-                                                    <td>1 มกราคม 2558</td>
-                                                    <td>ธีระพล</td>
-                                                    <td>เทศเวทินากร</td>
-                                                    <td>ต้น</td>
-                                                    <td>35</td>
-                                                    <td>ปธุมธานี</td>
-                                                    <td>0</td>
-                                                    <td>10</td>
-                                                    <td>
+                                                    <td>วีระ</td>
+                                                    <td>แย้มเดช</td>
+                                                    <td>นัท</td>
+                                                    <td>20</td>
+                                                    <td>กรุงเทพ</td>
+                                                    <td>วิศวกร</td>
+<td>
+                                                        <button type="submit" class="btn btn-box-tool">
+                                                            <i class="fa fa-info-circle"></i>
+                                                        </button>
                                                         <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
                                                             <i class="fa fa-check-circle"></i>
                                                         </button> 
@@ -200,16 +197,16 @@
                                                         </button>
                                                     </td>                                                </tr>
                                                 <tr>
-                                                    <td>หมิงเต้าปัน2</td>
-                                                    <td>2 กุมภาพันธ์ 2558</td>
                                                     <td>ธีระพล</td>
                                                     <td>เทศเวทินากร</td>
                                                     <td>ต้น</td>
                                                     <td>35</td>
                                                     <td>ปธุมธานี</td>
-                                                    <td>0</td>
-                                                    <td>20</td>
-                                                    <td>
+                                                    <td>รับจ้าง</td>
+<td>
+                                                        <button type="submit" class="btn btn-box-tool">
+                                                            <i class="fa fa-info-circle"></i>
+                                                        </button>
                                                         <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
                                                             <i class="fa fa-check-circle"></i>
                                                         </button> 
@@ -218,178 +215,178 @@
                                                         </button>
                                                     </td>                                                </tr>  
                                                 <tr>
-                                                    <td>หมิงเต้าปัน3</td>
-                                                    <td>3 มีนาคม 2558</td>
                                                     <td>กิติคุณ</td>
                                                     <td>ขาวล้ำเลิศ</td>
                                                     <td>ตาล</td>
                                                     <td>18</td>
                                                     <td>กรุงเทพ</td>
-                                                    <td>0</td>
-                                                    <td>30</td>
-                                                    <td>
+                                                    <td>นักเรียน</td>
+<td>
+                                                        <button type="submit" class="btn btn-box-tool">
+                                                            <i class="fa fa-info-circle"></i>
+                                                        </button>
                                                         <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
                                                             <i class="fa fa-check-circle"></i>
                                                         </button> 
                                                         <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
                                                             <i class="fa fa-times-circle"></i>
                                                         </button>
-                                                    </td>                                                </tr>  
+                                                    </td>                                                </tr>
                                                 <tr>
-                                                    <td>หมิงเต้าปัน4</td>
-                                                    <td>4 มีนาคม 2558</td>
+                                                    <td>วีระ</td>
+                                                    <td>แย้มเดช</td>
+                                                    <td>นัท</td>
+                                                    <td>20</td>
+                                                    <td>กรุงเทพ</td>
+                                                    <td>วิศวกร</td>
+<td>
+                                                        <button type="submit" class="btn btn-box-tool">
+                                                            <i class="fa fa-info-circle"></i>
+                                                        </button>
+                                                        <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
+                                                            <i class="fa fa-check-circle"></i>
+                                                        </button> 
+                                                        <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
+                                                            <i class="fa fa-times-circle"></i>
+                                                        </button>
+                                                    </td>                                                </tr>
+                                                <tr>
+                                                    <td>ธีระพล</td>
+                                                    <td>เทศเวทินากร</td>
+                                                    <td>ต้น</td>
+                                                    <td>35</td>
+                                                    <td>ปธุมธานี</td>
+                                                    <td>รับจ้าง</td>
+<td>
+                                                        <button type="submit" class="btn btn-box-tool">
+                                                            <i class="fa fa-info-circle"></i>
+                                                        </button>
+                                                        <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
+                                                            <i class="fa fa-check-circle"></i>
+                                                        </button> 
+                                                        <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
+                                                            <i class="fa fa-times-circle"></i>
+                                                        </button>
+                                                    </td>                                                </tr> 
+                                                <tr>
                                                     <td>กิติคุณ</td>
                                                     <td>ขาวล้ำเลิศ</td>
                                                     <td>ตาล</td>
                                                     <td>18</td>
                                                     <td>กรุงเทพ</td>
-                                                    <td>0</td>
-                                                    <td>40</td>
-                                                    <td>
+                                                    <td>นักเรียน</td>
+<td>
+                                                        <button type="submit" class="btn btn-box-tool">
+                                                            <i class="fa fa-info-circle"></i>
+                                                        </button>
                                                         <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
                                                             <i class="fa fa-check-circle"></i>
                                                         </button> 
                                                         <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
                                                             <i class="fa fa-times-circle"></i>
                                                         </button>
-                                                    </td>                                                </tr>  
+                                                    </td>                                                </tr>
                                                 <tr>
-                                                    <td>หมิงเต้าปัน5</td>
-                                                    <td>4 มีนาคม 2558</td>
-                                                    <td>กิติคุณ</td>
-                                                    <td>ขาวล้ำเลิศ</td>
-                                                    <td>ตาล</td>
-                                                    <td>18</td>
-                                                    <td>กรุงเทพ</td>
-                                                    <td>0</td>
-                                                    <td>10</td>
-                                                    <td>
-                                                        <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
-                                                            <i class="fa fa-check-circle"></i>
-                                                        </button> 
-                                                        <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
-                                                            <i class="fa fa-times-circle"></i>
-                                                        </button>
-                                                    </td>                                                </tr>  
-                                                <tr>
-                                                    <td>หมิงเต้าปัน6</td>
-                                                    <td>4 มีนาคม 2558</td>
                                                     <td>วีระ</td>
                                                     <td>แย้มเดช</td>
                                                     <td>นัท</td>
                                                     <td>20</td>
                                                     <td>กรุงเทพ</td>
-                                                    <td>6</td>
-                                                    <td>10</td>
-                                                    <td>
+                                                    <td>วิศวกร</td>
+<td>
+                                                        <button type="submit" class="btn btn-box-tool">
+                                                            <i class="fa fa-info-circle"></i>
+                                                        </button>
                                                         <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
                                                             <i class="fa fa-check-circle"></i>
                                                         </button> 
                                                         <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
                                                             <i class="fa fa-times-circle"></i>
                                                         </button>
-                                                    </td>                                                </tr>  
+                                                    </td>                                                </tr>
                                                 <tr>
-                                                    <td>หมิงเต้าปัน7</td>
-                                                    <td>4 มีนาคม 2558</td>
                                                     <td>วีระ</td>
                                                     <td>แย้มเดช</td>
                                                     <td>นัท</td>
                                                     <td>20</td>
                                                     <td>กรุงเทพ</td>
-                                                    <td>7</td>
-                                                    <td>10</td>
-                                                    <td>
+                                                    <td>วิศวกร</td>
+<td>
+                                                        <button type="submit" class="btn btn-box-tool">
+                                                            <i class="fa fa-info-circle"></i>
+                                                        </button>
                                                         <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
                                                             <i class="fa fa-check-circle"></i>
                                                         </button> 
                                                         <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
                                                             <i class="fa fa-times-circle"></i>
                                                         </button>
-                                                    </td>                                                </tr>  
+                                                    </td>                                                </tr>
                                                 <tr>
-                                                    <td>หมิงเต้าปัน8</td>
-                                                    <td>4 มีนาคม 2558</td>
                                                     <td>วีระ</td>
                                                     <td>แย้มเดช</td>
                                                     <td>นัท</td>
                                                     <td>20</td>
                                                     <td>กรุงเทพ</td>
-                                                    <td>8</td>
-                                                    <td>10</td>
-                                                    <td>
+                                                    <td>วิศวกร</td>
+<td>
+                                                        <button type="submit" class="btn btn-box-tool">
+                                                            <i class="fa fa-info-circle"></i>
+                                                        </button>
                                                         <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
                                                             <i class="fa fa-check-circle"></i>
                                                         </button> 
                                                         <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
                                                             <i class="fa fa-times-circle"></i>
                                                         </button>
-                                                    </td>                                                </tr>  
+                                                    </td>                                                </tr>
                                                 <tr>
-                                                    <td>หมิงเต้าปัน9</td>
-                                                    <td>4 มีนาคม 2558</td>
                                                     <td>วีระ</td>
                                                     <td>แย้มเดช</td>
                                                     <td>นัท</td>
                                                     <td>20</td>
                                                     <td>กรุงเทพ</td>
-                                                    <td>9</td>
-                                                    <td>10</td>
-                                                    <td>
+                                                    <td>วิศวกร</td>
+<td>
+                                                        <button type="submit" class="btn btn-box-tool">
+                                                            <i class="fa fa-info-circle"></i>
+                                                        </button>
                                                         <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
                                                             <i class="fa fa-check-circle"></i>
                                                         </button> 
                                                         <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
                                                             <i class="fa fa-times-circle"></i>
                                                         </button>
-                                                    </td>                                                </tr>  
+                                                    </td>                                                </tr>
                                                 <tr>
-                                                    <td>หมิงเต้าปัน10</td>
-                                                    <td>4 มีนาคม 2558</td>
                                                     <td>วีระ</td>
                                                     <td>แย้มเดช</td>
                                                     <td>นัท</td>
                                                     <td>20</td>
                                                     <td>กรุงเทพ</td>
-                                                    <td>10</td>
-                                                    <td>10</td>
-                                                    <td>
+                                                    <td>วิศวกร</td>
+<td>
+                                                        <button type="submit" class="btn btn-box-tool">
+                                                            <i class="fa fa-info-circle"></i>
+                                                        </button>
                                                         <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
                                                             <i class="fa fa-check-circle"></i>
                                                         </button> 
                                                         <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
                                                             <i class="fa fa-times-circle"></i>
                                                         </button>
-                                                    </td>                                                </tr>  
+                                                    </td>                                                </tr>
                                                 <tr>
-                                                    <td>หมิงเต้าปัน11</td>
-                                                    <td>4 มีนาคม 2558</td>
                                                     <td>วีระ</td>
                                                     <td>แย้มเดช</td>
                                                     <td>นัท</td>
                                                     <td>20</td>
                                                     <td>กรุงเทพ</td>
-                                                    <td>11</td>
-                                                    <td>11</td>
+                                                    <td>วิศวกร</td>
                                                     <td>
-                                                        <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
-                                                            <i class="fa fa-check-circle"></i>
-                                                        </button> 
-                                                        <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
-                                                            <i class="fa fa-times-circle"></i>
+                                                        <button type="submit" class="btn btn-box-tool">
+                                                            <i class="fa fa-info-circle"></i>
                                                         </button>
-                                                    </td>                                                </tr>  
-                                                <tr>
-                                                    <td>หมิงเต้าปัน10</td>
-                                                    <td>4 มีนาคม 2558</td>
-                                                    <td>วีระ</td>
-                                                    <td>แย้มเดช</td>
-                                                    <td>นัท</td>
-                                                    <td>20</td>
-                                                    <td>กรุงเทพ</td>
-                                                    <td>12</td>
-                                                    <td>12</td>
-                                                    <td>
                                                         <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
                                                             <i class="fa fa-check-circle"></i>
                                                         </button> 
@@ -397,20 +394,17 @@
                                                             <i class="fa fa-times-circle"></i>
                                                         </button>
                                                     </td>
-                                                </tr>  
+                                                </tr>
                                             </tbody>
                                             <tfoot>
                                                 <tr>
-                                                    <th>ชื่อกิจกรรม</th>
-                                                    <th>เริ่มวันที่</th>
                                                     <th>ชื่อ</th>
                                                     <th>นามสกุล</th>
                                                     <th>ชื่อเล่น</th>
                                                     <th>อายุ</th>
                                                     <th>จังหวัด</th>
-                                                    <th>สมัคร</th>
-                                                    <th>รับ</th>
-                                                    <th>ยืนยัน</th>
+                                                    <th>อาชีพ</th>
+                                                    <th>ตัวเลือก</th>
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -466,8 +460,8 @@
 
                 //Red color scheme for iCheck
                 $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-                    checkboxClass: 'icheckbox_minimal-red',
-                    radioClass: 'iradio_minimal-red'
+                  checkboxClass: 'icheckbox_minimal-red',
+                  radioClass: 'iradio_minimal-red'
                 });
             });
 
