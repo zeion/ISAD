@@ -243,11 +243,22 @@
                         day: 'day'
                     },
                     //Random default events
-                    events: {url: 'DataCendar.java'},
-                    editable: true,
-                    droppable: true, // this allows things to be dropped onto the calendar !!!
-                    drop: function (date, allDay) { // this function is called when something is dropped
+                    events: "/ProjectISAD/DataCalendar",
+                    editable: false,
+                    droppable: false, // this allows things to be dropped onto the calendar !!!
+                    eventClick: function(calEvent, jsEvent, view) {
+                        alert('Event: ' + calEvent.title);
+                        alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+                        alert('View: ' + view.name);
 
+                        // change the border color just for fun
+                        $(this).css('border-color', 'red');
+                    },
+                    drop: function (date, allDay) { // this function is called when something is dropped
+                           
+//                        console.log(date);   
+//                        console.log(allDay);
+                           
                         // retrieve the dropped element's stored Event Object
                         var originalEventObject = $(this).data('eventObject');
 
