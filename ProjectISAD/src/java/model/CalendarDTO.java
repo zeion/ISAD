@@ -15,6 +15,15 @@ public class CalendarDTO {
     public String start;
     public String end;
     public String color;
+    public String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
     public String getColor() {
         return color;
     }

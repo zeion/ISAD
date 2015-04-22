@@ -117,12 +117,14 @@ public class DataCalendar extends HttpServlet {
         c.setStart("2015-04-15");
         c.setEnd("2015-05-29");
         c.setTitle("ติดแล้วววว");
+        c.setUrl("/ProjectISAD/DetailCalendar?id=1");
 
         CalendarDTO d = new CalendarDTO();
         d.setId(2);
         d.setStart("2015-03-26");
         d.setEnd("2015-04-20");
         d.setTitle("โว้ยยยยยยยยยย");
+        d.setUrl("/ProjectISAD/DetailCalendar?id=2");
 
         l.add(c);
         l.add(d);
