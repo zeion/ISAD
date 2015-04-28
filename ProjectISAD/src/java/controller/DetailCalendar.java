@@ -7,6 +7,9 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +44,12 @@ public class DetailCalendar extends HttpServlet {
             out.println("<title>Servlet DetailCalendar</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("อันที่: "+request.getParameter("id"));
+//            out.println("อันที่: "+request.getParameter("id"));
+            
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = new Date(2015-1900,4-1,29);
+            String sdate = df.format(date.getTime());
+            out.println(sdate);
             out.println("</body>");
             out.println("</html>");
             

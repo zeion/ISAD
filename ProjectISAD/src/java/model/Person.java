@@ -17,7 +17,7 @@ public class Person {
     private String pass;
     private String type;
     private boolean status;
-    private String id;
+    private int id;
     private String firstname;
     private String lastname;
     private String nickname;
@@ -62,11 +62,11 @@ public class Person {
         this.status = status;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

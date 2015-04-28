@@ -42,6 +42,7 @@ public class Register extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            request.setCharacterEncoding("UTF-8");
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
             String email = request.getParameter("email");
@@ -53,12 +54,12 @@ public class Register extends HttpServlet {
             int year = Integer.parseInt(request.getParameter("year"));
             String sex = request.getParameter("sex");
             
-            Date birthday = new Date(year, month, day);
+            Date birthday = new Date(year-1900, month-1, day);
             
             Member person = new Member(email,password,"1",true,firstname,lastname,"nick",birthday ,sex,"12/23 road","bkk",phone,email,"IT", "job", conn);
             
             person.regMem();
-            out.println("sucess");
+//            out.println("sucess");
             
         }
     }

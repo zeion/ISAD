@@ -8,6 +8,9 @@ package data;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +26,12 @@ import model.CalendarDTO;
  */
 @WebServlet(name = "DataCalendar", urlPatterns = {"/DataCalendar"})
 public class DataCalendar extends HttpServlet {
+    
+    Connection conn;
+    
+    public void init() {
+        conn = (Connection) getServletContext().getAttribute("connection");
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,16 +47,6 @@ public class DataCalendar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
             
 //            JSONObject json = new JSONObject();
 //            JSONArray addresses = new JSONArray();
@@ -111,6 +110,8 @@ public class DataCalendar extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List l = new ArrayList();
+        
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
         CalendarDTO c = new CalendarDTO();
         c.setId(1);
@@ -121,7 +122,7 @@ public class DataCalendar extends HttpServlet {
 
         CalendarDTO d = new CalendarDTO();
         d.setId(2);
-        d.setStart("2015-03-26");
+        d.setStart(df.format(new Date(2015-1900,4-1,29).getTime()));
         d.setEnd("2015-04-20");
         d.setTitle("โว้ยยยยยยยยยย");
         d.setUrl("/ProjectISAD/DetailCalendar?id=2");

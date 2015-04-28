@@ -7,11 +7,9 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -44,7 +42,7 @@ public class Member extends Person{
         this.conn = conn;
     }
     
-    public void regMem() {
+    public boolean regMem() {
         try {
             String sqlUP = "INSERT INTO  Member_User values(null,?,?,?,?)";//INSERT INTO  Member_User(member_user,member_pass,member_type,member_status) values("lalala","lalala",0,true)
             
@@ -59,13 +57,14 @@ public class Member extends Person{
             
             String sql = "SELECT member_id FROM Member_User WHERE member_user =\""+this.getUser()+"\"";
             Statement stmt = conn.createStatement();
-            this.setId(String.valueOf(stmt.execute(sql)));
-            
+            ResultSet resultSet = stmt.executeQuery(sql);
+            resultSet.next();
+            this.setId(resultSet.getInt("member_id"));
+                                 
             sqlUP = "INSERT INTO  Member_Data values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
             pstmtup = conn.prepareStatement(sqlUP);
-            
-            
-            pstmtup.setInt(1,10);
+                        
+            pstmtup.setInt(1,this.getId());
             pstmtup.setInt(2,1);
             pstmtup.setString(3,this.getFirstname());
             pstmtup.setString(4,this.getLastname());
@@ -80,9 +79,11 @@ public class Member extends Person{
             pstmtup.setString(13,this.getJob());
             pstmtup.executeUpdate();
             
+            return true;
             
         } catch (Exception ex) {
             ex.printStackTrace();
+            return false;
         }
     }
 }
