@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/ProjectISAD"/>
+<Context antiJARLocking="true" path="/ProjectISAD">
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="test" password="nzud9OU5Mt" type="javax.sql.DataSource" url="jdbc:mysql://database.it.kmitl.ac.th:3306/it_56070048?zeroDateTimeBehavior=convertToNull" username="it_56070048"/>
+</Context>
