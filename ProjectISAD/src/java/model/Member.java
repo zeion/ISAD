@@ -82,7 +82,7 @@ public class Member extends Person{
             resultSet.next();
             this.setId(resultSet.getInt("member_id"));
                                  
-            sqlUP = "INSERT INTO  Member_Data values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            sqlUP = "INSERT INTO  Member_Data values(?,?,?,?,?,?,?,null,?,?,?,null,null)";
             pstmtup = conn.prepareStatement(sqlUP);
                         
             pstmtup.setInt(1,this.getId());
