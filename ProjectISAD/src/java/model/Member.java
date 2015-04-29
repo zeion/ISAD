@@ -22,12 +22,13 @@ public class Member extends Person{
         
     }
     
-    public Member(String user,String pass,String type,boolean status,String firstname,String lastname,String nickname,
+    public Member(String user,String pass,String type,boolean status,String location,String firstname,String lastname,String nickname,
             Date birthday ,String Sex,String address,String province,String phone,String email,String edu,String job,Connection conn){
         this.setUser(user);
         this.setPass(pass);
         this.setType(type);
         this.setStatus(status);
+        this.setLocation(location);
         this.setFirstname(firstname);
         this.setLastname(lastname);
         this.setNickname(nickname);
@@ -41,6 +42,26 @@ public class Member extends Person{
         this.setJob(job);
         this.conn = conn;
     }
+    
+    public Member(String user,String pass,String type,boolean status,String firstname,String lastname,String nickname,
+            Date birthday ,String Sex,String province,String phone,String email,Connection conn){
+        this.setUser(user);
+        this.setPass(pass);
+        this.setType(type);
+        this.setStatus(status);
+        this.setFirstname(firstname);
+        this.setLastname(lastname);
+        this.setNickname(nickname);
+        this.setBirthday(birthday);
+        this.setSex(Sex);
+        this.setProvince(province);
+        this.setPhone(phone);
+        this.setEmail(email);
+        this.conn = conn;
+    }
+    
+    
+    
     
     public boolean regMem() {
         try {

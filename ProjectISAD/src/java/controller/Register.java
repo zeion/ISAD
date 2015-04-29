@@ -45,6 +45,7 @@ public class Register extends HttpServlet {
             request.setCharacterEncoding("UTF-8");
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
+            String nickname = request.getParameter("nickname");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String repassword = request.getParameter("repassword");
@@ -56,7 +57,7 @@ public class Register extends HttpServlet {
             
             Date birthday = new Date(year-1900, month-1, day);
             
-            Member person = new Member(email,password,"1",true,firstname,lastname,"nick",birthday ,sex,"12/23 road","bkk",phone,email,"IT", "job", conn);
+            Member person = new Member(email,password,"1",true,firstname,lastname,nickname,birthday ,sex,"bkk",phone,email, conn);
             
             person.regMem();
 //            out.println("sucess");

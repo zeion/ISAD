@@ -12,12 +12,13 @@ import java.util.Date;
  * @author Admin
  */
 public class Person {
-    
+
     private String user;
     private String pass;
     private String type;
     private boolean status;
     private int id;
+    private String location;
     private String firstname;
     private String lastname;
     private String nickname;
@@ -68,6 +69,14 @@ public class Person {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getFirstname() {
@@ -156,6 +165,6 @@ public class Person {
 
     public void setJob(String job) {
         this.job = job;
-    }   
-    
+    }
+
 }
