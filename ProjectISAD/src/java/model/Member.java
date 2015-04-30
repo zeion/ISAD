@@ -43,6 +43,27 @@ public class Member extends Person{
         this.conn = conn;
     }
     
+        public Member(int id,String user,String pass,String type,boolean status,String location,String firstname,String lastname,String nickname,
+            Date birthday ,String Sex,String address,String province,String phone,String email,String edu,String job){
+        this.setId(id);
+        this.setUser(user);
+        this.setPass(pass);
+        this.setType(type);
+        this.setStatus(status);
+        this.setLocation(location);
+        this.setFirstname(firstname);
+        this.setLastname(lastname);
+        this.setNickname(nickname);
+        this.setBirthday(birthday);
+        this.setSex(Sex);
+        this.setAddress(address);
+        this.setProvince(province);
+        this.setPhone(phone);
+        this.setEmail(email);
+        this.setEdu(edu);
+        this.setJob(job);
+    }
+    
     public Member(String user,String pass,String type,boolean status,String firstname,String lastname,String nickname,
             Date birthday ,String Sex,String province,String phone,String email,Connection conn){
         this.setUser(user);
@@ -105,6 +126,23 @@ public class Member extends Person{
         } catch (Exception ex) {
             ex.printStackTrace();
             return false;
+        }       
+    }
+    
+    public static ResultSet showMem(String location,Connection conn){
+        try{
+            String sql = "SELECT * FROM Member_User JOIN Member_Data USING (member_id)";
+            
+//            if(!location.isEmpty()){
+//                sql += "WHERE location_ID =\""+location+"\"";
+//            }
+            Statement stmt = conn.createStatement();
+            ResultSet member = stmt.executeQuery(sql);
+            return member;
+        }catch(Exception e){
+            e.printStackTrace();
         }
+        
+        return null;
     }
 }

@@ -1,3 +1,9 @@
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.util.Date"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
@@ -184,8 +190,27 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <sql:query dataSource="test" var ="memlist">
+                                                    SELECT * 
+                                                    FROM Member_User 
+                                                    JOIN Member_Data 
+                                                    USING (member_id)
+                                                </sql:query>
+                                                    
+                                                <c:forEach var="member" items="${Member.showMem('1',applicationScope['connection'])}">
+                                                    <tr>
+                                                        <td>${member.member_firstname}</td>
+                                                        <td>${member.member_lastname}</td>
+                                                        <td>${member.member_nickname}</td>
+                                                        <td></td>
+                                                        <td>กรุงเทพ</td>
+                                                        <td>วิศวกร</td>
+                                                        <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
+                                                    </tr>
+                                                </c:forEach>
+                                                   
                                                 <tr>
-                                                    <td>วีระ</td>
+                                                    <td>ธีระพล</td>
                                                     <td>แย้มเดช</td>
                                                     <td>นัท</td>
                                                     <td>20</td>
@@ -361,10 +386,6 @@
                   radioClass: 'iradio_minimal-red'
                 });
             });
-
-
-
-
         </script>
     </body>
 </html>
