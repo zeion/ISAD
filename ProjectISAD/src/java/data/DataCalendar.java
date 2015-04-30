@@ -113,22 +113,22 @@ public class DataCalendar extends HttpServlet {
         
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
-        CalendarDTO c = new CalendarDTO();
-        c.setId(1);
-        c.setStart("2015-04-15");
-        c.setEnd("2015-05-29");
-        c.setTitle("ติดแล้วววว");
-        c.setUrl("/ProjectISAD/DetailCalendar?id=1");
-
-        CalendarDTO d = new CalendarDTO();
-        d.setId(2);
-        d.setStart(df.format(new Date(2015-1900,4-1,29).getTime()));
-        d.setEnd("2015-04-20");
-        d.setTitle("โว้ยยยยยยยยยย");
-        d.setUrl("/ProjectISAD/DetailCalendar?id=2");
-
-        l.add(c);
-        l.add(d);
+//        CalendarDTO c = new CalendarDTO();
+//        c.setId(1);
+//        c.setStart("2015-04-15");
+//        c.setEnd("2015-05-29");
+//        c.setTitle("ติดแล้วววว");
+//        c.setUrl("/ProjectISAD/DetailCalendar?id=1");
+//
+//        CalendarDTO d = new CalendarDTO();
+//        d.setId(2);
+//        d.setStart(df.format(new Date(2015-1900,4-1,29).getTime()));
+//        d.setEnd("2015-04-20");
+//        d.setTitle("โว้ยยยยยยยยยย");
+//        d.setUrl("/ProjectISAD/DetailCalendar?id=2");
+//
+//        l.add(c);
+//        l.add(d);
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
