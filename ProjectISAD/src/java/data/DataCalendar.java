@@ -133,7 +133,8 @@ public class DataCalendar extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
-        out.write(new Gson().toJson(l));
+//        out.write(new Gson().toJson(l));
+        out.write(new Gson().toJson(model.CalendarDTO.getEvent(conn)));
     }    
 
     /**
