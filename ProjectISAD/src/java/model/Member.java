@@ -133,12 +133,9 @@ public class Member extends Person{
             pstmtup.setString(5,this.getNickname());
             pstmtup.setDate(6, new java.sql.Date(this.getBirthday().getTime()));
             pstmtup.setInt(7,this.getSex().equals("male") ? 0 : 1);
-            pstmtup.setString(8,this.getAddress());
-            pstmtup.setString(9,this.getProvince());
-            pstmtup.setString(10,this.getPhone());
-            pstmtup.setString(11,this.getEmail());
-            pstmtup.setString(12,this.getEdu());
-            pstmtup.setString(13,this.getJob());
+            pstmtup.setString(8,this.getProvince());
+            pstmtup.setString(9,this.getPhone());
+            pstmtup.setString(10,this.getEmail());
             pstmtup.executeUpdate();
             
             return true;
