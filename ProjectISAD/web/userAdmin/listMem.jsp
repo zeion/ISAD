@@ -134,7 +134,7 @@
                                 <i class="fa fa-users"></i>
                                 <span>จัดการสมาชิก</span>
                                 <i class="fa fa-angle-left pull-right"></i>
-                                
+
                                 ${user}
                             </a>
                             <ul class="treeview-menu">
@@ -149,8 +149,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> รายงานส่วนบุคคล</a></li>
-                                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i>รายงานตามรูปแบบ</a></li>
+                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> รายงานข้อมูลส่วนบุคคล</a></li>
+                                <li><a href="listReport.html"><i class="fa fa-circle-o"></i>รายงานกิจกรรม</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -196,7 +196,7 @@
                                                     JOIN Member_Data 
                                                     USING (member_id)
                                                 </sql:query>
-                                                    
+
                                                 <c:forEach var="member" items="${Member.showMem('1',applicationScope['connection'])}">
                                                     <tr>
                                                         <td>${member.member_firstname}</td>
@@ -208,7 +208,7 @@
                                                         <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
                                                     </tr>
                                                 </c:forEach>
-                                                   
+
                                                 <tr>
                                                     <td>ธีระพล</td>
                                                     <td>แย้มเดช</td>
@@ -382,8 +382,8 @@
 
                 //Red color scheme for iCheck
                 $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-                  checkboxClass: 'icheckbox_minimal-red',
-                  radioClass: 'iradio_minimal-red'
+                    checkboxClass: 'icheckbox_minimal-red',
+                    radioClass: 'iradio_minimal-red'
                 });
             });
         </script>
