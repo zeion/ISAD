@@ -5,6 +5,9 @@
  */
 package model;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Date;
 
 /**
@@ -31,6 +34,20 @@ public class Person {
     private String edu;
     private String job;
 
+    public Person() {
+    }
+
+    public Person(String type, boolean status, int id, String firstname, String lastname, String email) {
+        this.type = type;
+        this.status = status;
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+    }
+
+    
+    
     public String getUser() {
         return user;
     }
@@ -167,4 +184,18 @@ public class Person {
         this.job = job;
     }
 
+    public static Person getLoginData(int id ,Connection conn){
+        try{
+            String sql = "SELECT * FROM Member_User JOIN Member_Data USING (member_id) JOIN Location USING (location_id)";
+            Statement stmt = conn.createStatement();
+            ResultSet member = stmt.executeQuery(sql);
+            member.next();
+            Person person = new Person(member.getString("member_type"),member.getBoolean("member_status"), member.getInt("member_ID"), member.getString("member_firstname"),member.getString("member_lastname"), member.getString("member_email"));
+            return person;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        return null;
+    }
 }
