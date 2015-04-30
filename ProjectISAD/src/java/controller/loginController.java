@@ -7,27 +7,19 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.util.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Member;
 
 /**
  *
  * @author Admin
  */
-@WebServlet(name = "Register", urlPatterns = {"/Register.do"})
-public class Register extends HttpServlet {
+@WebServlet(name = "loginController", urlPatterns = {"/loginController"})
+public class loginController extends HttpServlet {
 
-    Connection conn;
-    
-    public void init() {
-        conn = (Connection) getServletContext().getAttribute("connection");
-    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,34 +33,7 @@ public class Register extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            request.setCharacterEncoding("UTF-8");
-            String firstname = request.getParameter("firstname");
-            String lastname = request.getParameter("lastname");
-            String nickname = request.getParameter("nickname");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            String repassword = request.getParameter("repassword");
-            String phone = request.getParameter("phone");
-            int day = Integer.parseInt(request.getParameter("day"));
-            int month = Integer.parseInt(request.getParameter("month"));
-            int year = Integer.parseInt(request.getParameter("year"));
-            String sex = request.getParameter("sex");
-            
-            Date birthday = new Date(year-1900, month-1, day);
-            
-            Member person = new Member(email,password,"1",true,firstname,lastname,nickname,birthday ,sex,"bkk",phone,email, conn);
-            
-            boolean sucess = person.regMem();
-            
-            if(sucess){
-                response.sendRedirect("login.html");
-            }else{
-                response.sendRedirect("register.html");
-            }
-            
-            
-//            out.println("sucess");
+            /* TODO output your page here. You may use following sample code. */
             
         }
     }
