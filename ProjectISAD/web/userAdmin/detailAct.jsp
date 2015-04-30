@@ -3,9 +3,21 @@
     Created on : Apr 30, 2015, 8:41:57 PM
     Author     : Admin
 --%>
+
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<sql:query dataSource="test" var ="event">
+    SELECT * 
+    FROM Event_Active
+    JOIN Event_List
+    USING (event_ID)
+    JOIN Location
+    USING (location_ID)
+    WHERE event_active_ID = ${param.id}
+</sql:query>
+    
 
 <!DOCTYPE html>
 <html>
@@ -166,37 +178,39 @@
 
                 <!-- Main content -->
                 <section class="content">
-                  <div class="col-md-12">
-                  <div class="box box-solid">
-                    <div class="box-header with-border">
-                      <h3 class="box-title">หมิงเต้าปัน 2</h3>
-                    </div><!-- /.box-header -->
-                    <div class="box-body">
-                      <dl class="dl-horizontal">
-                        <dt><span class="glyphicon glyphicon-time"></span></dt>
-                        <dd>1 มกราคม 2558 เวลา 9.00 - 17.00</dd>
-                        <dt><span class="glyphicon glyphicon-map-marker"></span></dt>
-                        <dd>มูลนิธิธรรมกิจไพศาล</dd>
-                        <dd class="text-muted">มูลนิธิธรรมกิจไพศาล เลขที่ 19 ซ.เฉลิมพระเกียรติ ร.9 47 แยก 1 หนองบอน เขตประเวศ  กรุงเทพมหานคร</dd>
-                        <dt><span class="glyphicon glyphicon-exclamation-sign" style="color:red;"></span></dt>
-                        <dd>ผ่านหมิงเต้าปัน 1</dd>
-                        <dt>สมัคร / ทั้งหมด</dt>
-                        <dd><span class="text-success">10</span> / <span class="text-danger">20</span></dd>
-                      </dl>
-                    </div><!-- /.box-body -->
-                  </div><!-- /.box -->
-                </div>
-                <div class="col-md-12">
-                  <div class="box box-solid">
-                    <div class="box-body">
-                      <dl class="dl-horizontal">
-                        <dt>รายละเอียด</dt>
-                        <dd>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรก โดยจะมีการอธิบายเกี่ยวกับสถานธรรม</dd>
-                      </dl>
-                    </div><!-- /.box-body -->
-                  </div><!-- /.box -->
-                  <a class="btn btn-primary pull-right" href="editActDetail.html">แก้ไข</a>
-                </div>
+                    <div class="col-md-12">
+                        <div class="box box-solid">
+                            <c:forEach var="row" items="${event.rows}">                     
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">${row.event_name}</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <dl class="dl-horizontal">
+                                        <dt><span class="glyphicon glyphicon-calendar"></span></dt>
+                                        <dd>1 มกราคม 2558</dd>
+                                        <dt><span class="glyphicon glyphicon-time"></span></dt>
+                                        <dd>ระยะเวลา 1 วัน</dd>
+                                        <dt><span class="glyphicon glyphicon-map-marker"></span></dt>
+                                        <dd>มูลนิธิธรรมกิจไพศาล</dd>
+                                        <dd class="text-muted">มูลนิธิธรรมกิจไพศาล เลขที่ 19 ซ.เฉลิมพระเกียรติ ร.9 47 แยก 1 หนองบอน เขตประเวศ  กรุงเทพมหานคร</dd>
+                                        <dt>สมัคร / ทั้งหมด</dt>
+                                        <dd><span class="text-success">10</span> / <span class="text-danger">20</span></dd>
+                                    </dl>
+                                </div><!-- /.box-body -->
+                            </c:forEach>
+                        </div><!-- /.box -->
+                    </div>
+                    <div class="col-md-12">
+                        <div class="box box-solid">
+                            <div class="box-body">
+                                <dl class="dl-horizontal">
+                                    <dt>รายละเอียด</dt>
+                                    <dd>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรก โดยจะมีการอธิบายเกี่ยวกับสถานธรรม</dd>
+                                </dl>
+                            </div><!-- /.box-body -->
+                        </div><!-- /.box -->
+                        <a class="btn btn-primary pull-right" href="editActDetail.html">แก้ไข</a>
+                    </div>
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
         </div><!-- ./wrapper -->
@@ -242,11 +256,6 @@
                     radioClass: 'iradio_flat-green'
                 });
             });
-
-
-
-
         </script>
     </body>
 </html>
-

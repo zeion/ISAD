@@ -111,7 +111,7 @@ public class CalendarDTO {
                 c.setTime(df.parse(start));
                 c.add(Calendar.DATE, day);
                 String end = df.format(c.getTime());
-                String url = "/ProjectISAD/DetailCalendar?id=\"" + id + "\"";
+                String url = "detailAct.jsp?id=\"" + id + "\"";
 
                 l.add(new CalendarDTO(id, title, start, end, url));
 
