@@ -18,7 +18,17 @@ import java.util.Date;
 public class Member extends Person{
     
     private Connection conn;
-    Member(){
+    private int age;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
+    public Member(){
         
     }
     
@@ -81,6 +91,16 @@ public class Member extends Person{
         this.conn = conn;
     }
     
+        public Member(int id,String firstname,String lastname,String nickname,
+            Date birthday ,String province,String job){
+        this.setId(id);
+        this.setFirstname(firstname);
+        this.setLastname(lastname);
+        this.setNickname(nickname);
+        this.setBirthday(birthday);
+        this.setProvince(province);
+        this.setJob(job);
+    }
     
     
     
@@ -131,7 +151,7 @@ public class Member extends Person{
     
     public static ResultSet showMem(String location,Connection conn){
         try{
-            String sql = "SELECT * FROM Member_User JOIN Member_Data USING (member_id)";
+            String sql = "SELECT * FROM Member_User JOIN Member_Data USING (member_id) WHERE member_status = true AND member_type = 0;";
             
 //            if(!location.isEmpty()){
 //                sql += "WHERE location_ID =\""+location+"\"";

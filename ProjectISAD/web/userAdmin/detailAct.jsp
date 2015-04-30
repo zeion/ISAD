@@ -18,6 +18,13 @@
     WHERE event_active_ID = ${param.id}
 </sql:query>
     
+<sql:query dataSource="test" var ="ev_num">
+    SELECT count(*) AS count
+    FROM Event_Request
+    GROUP BY event_active_ID
+    HAVING event_active_ID = ${param.id}
+</sql:query>
+    
 
 <!DOCTYPE html>
 <html>
@@ -187,14 +194,14 @@
                                 <div class="box-body">
                                     <dl class="dl-horizontal">
                                         <dt><span class="glyphicon glyphicon-calendar"></span></dt>
-                                        <dd>1 มกราคม 2558</dd>
+                                        <dd>${row.e_enable_date}</dd>
                                         <dt><span class="glyphicon glyphicon-time"></span></dt>
-                                        <dd>ระยะเวลา 1 วัน</dd>
+                                        <dd>ระยะเวลา ${row.event_day} วัน</dd>
                                         <dt><span class="glyphicon glyphicon-map-marker"></span></dt>
-                                        <dd>มูลนิธิธรรมกิจไพศาล</dd>
-                                        <dd class="text-muted">มูลนิธิธรรมกิจไพศาล เลขที่ 19 ซ.เฉลิมพระเกียรติ ร.9 47 แยก 1 หนองบอน เขตประเวศ  กรุงเทพมหานคร</dd>
+                                        <dd>${row.location_name} - ${row.location_area}</dd>
+                                        <dd class="text-muted">${row.location_address} ${row.location_province}</dd>
                                         <dt>สมัคร / ทั้งหมด</dt>
-                                        <dd><span class="text-success">10</span> / <span class="text-danger">20</span></dd>
+                                        <dd><span class="text-success"><c:forEach var="num" items="${ev_num.rows}">${num.count}</c:forEach></span> / <span class="text-danger">${row.e_enable_num}</span></dd>
                                     </dl>
                                 </div><!-- /.box-body -->
                             </c:forEach>

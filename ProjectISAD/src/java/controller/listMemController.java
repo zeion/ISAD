@@ -7,11 +7,20 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Member;
 
 /**
  *
@@ -20,6 +29,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "listMemController", urlPatterns = {"/listMemController"})
 public class listMemController extends HttpServlet {
 
+    Connection conn;
+    
+    public void init() {
+        conn = (Connection) getServletContext().getAttribute("connection");
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,15 +48,23 @@ public class listMemController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet listMemController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet listMemController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            List l = new ArrayList();
+            
+             ResultSet members = model.Member.showMem("1",conn);
+            try {
+                while(members.next()){
+                    Member mem = new Member(members.getInt("member_id"),members.getString("member_firstname"),members.getString("member_lastname"),
+                            members.getString("member_nickname"),members.getDate("member_bd") ,members.getString("member_province"),members.getString("member_job"));
+                    Date now = new Date();
+                    mem.setAge(now.getYear()-members.getDate("member_bd").getYear());
+                    l.add(mem);
+                }
+                request.setAttribute("members", l);
+                request.getRequestDispatcher("userAdmin/listMem.jsp").forward(request, response);
+            } catch (SQLException ex) {
+                Logger.getLogger(listMemController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
     }
 
