@@ -50,16 +50,10 @@ public class editProfileController extends HttpServlet {
             String province = request.getParameter("province");
             String phone = request.getParameter("phone");
             int id = Integer.parseInt(request.getParameter("id"));
-            
-            out.println(nickname+edu+job+address+province+phone+id);
-            
+                       
             Member mem = new Member(id,nickname, edu, job, address, province, phone,conn);
-//            if(mem.editMem()){
-//                out.println("success");
-//            }else{
-//                out.println("failed");
-//            }
             out.print(mem.editMem());
+            response.sendRedirect("userAdmin/showProfile.jsp?id="+id);
         }
     }
 
