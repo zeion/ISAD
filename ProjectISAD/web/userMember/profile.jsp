@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <html>
-   <head>
+    <head>
         <meta charset="UTF-8">
         <title>ข้อมูลส่วนตัว</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -53,13 +53,13 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-<!--                                    <img src="../template/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>-->
+                                    <img src="../template/dist/img/user0.jpg" class="user-image" alt="User Image"/>
                                     <span class="hidden-xs">สมหมาย ขายหอยทะเล</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-<!--                                        <img src="../template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
+                                        <img src="../template/dist/img/user0.jpg" class="img-circle" alt="User Image" />
                                         <p>
                                             สมหมาย ขายหอยทะเล
                                             <small>สมาชิก</small>
@@ -99,7 +99,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-<!--                            <img src="../template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
+                            <img src="../template/dist/img/user0.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <p>สมหมาย ขายหอยทะเล</p>
@@ -111,7 +111,7 @@
                     <ul class="sidebar-menu">
                         <li class="header">เมนู</li>
                         <li class="active">
-                            <a href="#">
+                            <a href="mainpage.html">
                                 <i class="fa fa-home"></i> <span>ตารางกิจกรรม</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>
@@ -153,65 +153,65 @@
                             <div class="box">
                                 <form class="form-horizontal" role="form">
                                     <div class="box-body">
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="fname">ชื่อ:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">สมหมาย</p>
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="lname">นามสกุล:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">ขายหอยทะเล</p>
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="memberID">ชื่อเล่น:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">สายไหม</p>
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="sex">เพศ:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">ชาย</p>
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="birth">วันเกิด:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">01/11/1994</p>
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="email">อีเมล:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">sommhai01@gmail.com</p>
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="educate">การศึกษา:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">ปริญญาเอก</p>
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="ocupation">อาชีพ:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">นักวิชาการ</p>
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="address">ที่อยู่:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">123/4 ต.บ้านเสย อ.เมือง จ.บุรัมรีย์ 2010</p>
-                                        </div>
-                                      </div>
                                         <div class="form-group">
-                                          <label class="control-label col-sm-2" for="phone">โทรศัพท์:</label>
-                                          <div class="col-sm-10">
-                                            <p class="form-control-static">099-9998888</p>
-                                          </div>
+                                            <label class="control-label col-sm-2" for="fname">ชื่อ:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">สมหมาย</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="lname">นามสกุล:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">ขายหอยทะเล</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="memberID">ชื่อเล่น:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">สายไหม</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="sex">เพศ:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">ชาย</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="birth">วันเกิด:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">01/11/1994</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="email">อีเมล:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">sommhai01@gmail.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="educate">การศึกษา:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">ปริญญาเอก</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="ocupation">อาชีพ:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">นักวิชาการ</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="address">ที่อยู่:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">123/4 ต.บ้านเสย อ.เมือง จ.บุรัมรีย์ 2010</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="phone">โทรศัพท์:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">099-9998888</p>
+                                            </div>
                                         </div>
                                     </div><!-- /.box-body -->
                                 </form>

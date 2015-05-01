@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-   <head>
+    <head>
         <meta charset="UTF-8">
         <title>รายละเอียดกิจกรรม</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -52,13 +52,13 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-<!--                                    <img src="../template/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>-->
+                                    <img src="../template/dist/img/user0.jpg" class="user-image" alt="User Image"/>
                                     <span class="hidden-xs">สมหมาย ขายหอยทะเล</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-<!--                                        <img src="../template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
+                                        <img src="../template/dist/img/user0.jpg" class="img-circle" alt="User Image" />
                                         <p>
                                             สมหมาย ขายหอยทะเล
                                             <small>สมาชิก</small>
@@ -98,7 +98,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-<!--                            <img src="../template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
+                            <img src="../template/dist/img/user0.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <p>สมหมาย ขายหอยทะเล</p>
@@ -110,7 +110,7 @@
                     <ul class="sidebar-menu">
                         <li class="header">เมนู</li>
                         <li class="active">
-                            <a href="#">
+                            <a href="mainpage.html">
                                 <i class="fa fa-home"></i> <span>ตารางกิจกรรม</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>

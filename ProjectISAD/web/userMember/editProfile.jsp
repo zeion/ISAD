@@ -53,13 +53,13 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-<!--                                    <img src="../template/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>-->
+                                    <img src="../template/dist/img/user0.jpg" class="user-image" alt="User Image"/>
                                     <span class="hidden-xs">สมหมาย ขายหอยทะเล</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-<!--                                        <img src="../template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
+                                        <img src="../template/dist/img/user0.jpg" class="img-circle" alt="User Image" />
                                         <p>
                                             สมหมาย ขายหอยทะเล
                                             <small>สมาชิก</small>
@@ -99,7 +99,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-<!--                            <img src="../template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />-->
+                            <img src="../template/dist/img/user0.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <p>สมหมาย ขายหอยทะเล</p>
@@ -111,7 +111,7 @@
                     <ul class="sidebar-menu">
                         <li class="header">เมนู</li>
                         <li class="active">
-                            <a href="#">
+                            <a href="mainpage.html">
                                 <i class="fa fa-home"></i> <span>ตารางกิจกรรม</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>
@@ -153,179 +153,179 @@
                             <div class="box">
                                 <form class="form-horizontal" role="form">
                                     <div class="box-body">
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="fname">ชื่อ:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">สมหมาย</p>
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="lname">นามสกุล:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">ขายหอยทะเล</p>
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="memberID">ชื่อเล่น:</label>
-                                        <div class="col-sm-2">
-                                          <input type="text" class="form-control" placeholder="สายไหม">
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="sex">เพศ:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">ชาย</p>
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="birth">วันเกิด:</label>
-                                        <div class="col-sm-10">
-                                          <p class="form-control-static">01/11/1994</p>
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="email">อีเมล:</label>
-                                        <div class="col-sm-3">
-                                          <input type="text" class="form-control" placeholder="sommhai01@gmail.com">
-                                        </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="educate">รหัสผ่าน:</label>
-                                          <div class="col-sm-5">
-                                            <div class="form-inline">
-                                              <input type="password" class="form-control" placeholder="รหัสผ่าน">
-                                              <input type="password" class="form-control" placeholder="ยืนยันรหัสผ่าน">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="fname">ชื่อ:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">สมหมาย</p>
                                             </div>
-                                          </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="educate">การศึกษา:</label>
-                                        <div class="col-sm-2">
-                                          <input type="text" class="form-control" placeholder="ปริญญาเอก">
                                         </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="ocupation">อาชีพ:</label>
-                                        <div class="col-sm-3">
-                                          <input type="text" class="form-control" placeholder="นักวิชาการ">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="lname">นามสกุล:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">ขายหอยทะเล</p>
+                                            </div>
                                         </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="address">ที่อยู่:</label>
-                                        <div class="col-sm-5">
-                                          <textarea class="form-control" rows="3">123/4 ต.บ้านเสย อ.เมือง จ.บุรัมรีย์ 2010</textarea>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="memberID">ชื่อเล่น:</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" placeholder="สายไหม">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="sex">เพศ:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">ชาย</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="birth">วันเกิด:</label>
+                                            <div class="col-sm-10">
+                                                <p class="form-control-static">01/11/1994</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="email">อีเมล:</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" placeholder="sommhai01@gmail.com">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="educate">รหัสผ่าน:</label>
+                                            <div class="col-sm-5">
+                                                <div class="form-inline">
+                                                    <input type="password" class="form-control" placeholder="รหัสผ่าน">
+                                                    <input type="password" class="form-control" placeholder="ยืนยันรหัสผ่าน">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="educate">การศึกษา:</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" placeholder="ปริญญาเอก">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="ocupation">อาชีพ:</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" placeholder="นักวิชาการ">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="address">ที่อยู่:</label>
+                                            <div class="col-sm-5">
+                                                <textarea class="form-control" rows="3">123/4 ต.บ้านเสย อ.เมือง จ.บุรัมรีย์ 2010</textarea>
 
+                                            </div>
                                         </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="address">ตำบล/แขวง:</label>
-                                        <div class="col-sm-3">
-                                          <input type="text" class="form-control" placeholder="บ้านเสย">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="address">ตำบล/แขวง:</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" placeholder="บ้านเสย">
+                                            </div>
                                         </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="address">อำเภอ/เขต:</label>
-                                        <div class="col-sm-3">
-                                          <input type="text" class="form-control" placeholder="เมือง">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="address">อำเภอ/เขต:</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" placeholder="เมือง">
+                                            </div>
                                         </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="ocupation">จังหวัด:</label>
-                                        <div class="col-sm-2">
-                                          <select class="form-control">
-                                            <option selected="selected" style="display: none;">เลือก...</option>
-                                            <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
-                                            <option value="กระบี่">กระบี่ </option>
-                                            <option value="กาญจนบุรี">กาญจนบุรี </option>
-                                            <option value="กาฬสินธุ์">กาฬสินธุ์ </option>
-                                            <option value="กำแพงเพชร">กำแพงเพชร </option>
-                                            <option value="ขอนแก่น">ขอนแก่น</option>
-                                            <option value="จันทบุรี">จันทบุรี</option>
-                                            <option value="ฉะเชิงเทรา">ฉะเชิงเทรา </option>
-                                            <option value="ชัยนาท">ชัยนาท </option>
-                                            <option value="ชัยภูมิ">ชัยภูมิ </option>
-                                            <option value="ชุมพร">ชุมพร </option>
-                                            <option value="ชลบุรี">ชลบุรี </option>
-                                            <option value="เชียงใหม่">เชียงใหม่ </option>
-                                            <option value="เชียงราย">เชียงราย </option>
-                                            <option value="ตรัง">ตรัง </option>
-                                            <option value="ตราด">ตราด </option>
-                                            <option value="ตาก">ตาก </option>
-                                            <option value="นครนายก">นครนายก </option>
-                                            <option value="นครปฐม">นครปฐม </option>
-                                            <option value="นครพนม">นครพนม </option>
-                                            <option value="นครราชสีมา">นครราชสีมา </option>
-                                            <option value="นครศรีธรรมราช">นครศรีธรรมราช </option>
-                                            <option value="นครสวรรค์">นครสวรรค์ </option>
-                                            <option value="นราธิวาส">นราธิวาส </option>
-                                            <option value="น่าน">น่าน </option>
-                                            <option value="นนทบุรี">นนทบุรี </option>
-                                            <option value="บึงกาฬ">บึงกาฬ</option>
-                                            <option value="บุรีรัมย์">บุรีรัมย์</option>
-                                            <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์ </option>
-                                            <option value="ปทุมธานี">ปทุมธานี </option>
-                                            <option value="ปราจีนบุรี">ปราจีนบุรี </option>
-                                            <option value="ปัตตานี">ปัตตานี </option>
-                                            <option value="พะเยา">พะเยา </option>
-                                            <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา </option>
-                                            <option value="พังงา">พังงา </option>
-                                            <option value="พิจิตร">พิจิตร </option>
-                                            <option value="พิษณุโลก">พิษณุโลก </option>
-                                            <option value="เพชรบุรี">เพชรบุรี </option>
-                                            <option value="เพชรบูรณ์">เพชรบูรณ์ </option>
-                                            <option value="แพร่">แพร่ </option>
-                                            <option value="พัทลุง">พัทลุง </option>
-                                            <option value="ภูเก็ต">ภูเก็ต </option>
-                                            <option value="มหาสารคาม">มหาสารคาม </option>
-                                            <option value="มุกดาหาร">มุกดาหาร </option>
-                                            <option value="แม่ฮ่องสอน">แม่ฮ่องสอน </option>
-                                            <option value="ยโสธร">ยโสธร </option>
-                                            <option value="ยะลา">ยะลา </option>
-                                            <option value="ร้อยเอ็ด">ร้อยเอ็ด </option>
-                                            <option value="ระนอง">ระนอง </option>
-                                            <option value="ระยอง">ระยอง </option>
-                                            <option value="ราชบุรี">ราชบุรี</option>
-                                            <option value="ลพบุรี">ลพบุรี </option>
-                                            <option value="ลำปาง">ลำปาง </option>
-                                            <option value="ลำพูน">ลำพูน </option>
-                                            <option value="เลย">เลย </option>
-                                            <option value="ศรีสะเกษ">ศรีสะเกษ</option>
-                                            <option value="สกลนคร">สกลนคร</option>
-                                            <option value="สงขลา">สงขลา </option>
-                                            <option value="สมุทรสาคร">สมุทรสาคร </option>
-                                            <option value="สมุทรปราการ">สมุทรปราการ </option>
-                                            <option value="สมุทรสงคราม">สมุทรสงคราม </option>
-                                            <option value="สระแก้ว">สระแก้ว </option>
-                                            <option value="สระบุรี">สระบุรี </option>
-                                            <option value="สิงห์บุรี">สิงห์บุรี </option>
-                                            <option value="สุโขทัย">สุโขทัย </option>
-                                            <option value="สุพรรณบุรี">สุพรรณบุรี </option>
-                                            <option value="สุราษฎร์ธานี">สุราษฎร์ธานี </option>
-                                            <option value="สุรินทร์">สุรินทร์ </option>
-                                            <option value="สตูล">สตูล </option>
-                                            <option value="หนองคาย">หนองคาย </option>
-                                            <option value="หนองบัวลำภู">หนองบัวลำภู </option>
-                                            <option value="อำนาจเจริญ">อำนาจเจริญ </option>
-                                            <option value="อุดรธานี">อุดรธานี </option>
-                                            <option value="อุตรดิตถ์">อุตรดิตถ์ </option>
-                                            <option value="อุทัยธานี">อุทัยธานี </option>
-                                            <option value="อุบลราชธานี">อุบลราชธานี</option>
-                                            <option value="อ่างทอง">อ่างทอง </option>
-                                          </select>
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="ocupation">จังหวัด:</label>
+                                            <div class="col-sm-2">
+                                                <select class="form-control">
+                                                    <option selected="selected" style="display: none;">เลือก...</option>
+                                                    <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                                                    <option value="กระบี่">กระบี่ </option>
+                                                    <option value="กาญจนบุรี">กาญจนบุรี </option>
+                                                    <option value="กาฬสินธุ์">กาฬสินธุ์ </option>
+                                                    <option value="กำแพงเพชร">กำแพงเพชร </option>
+                                                    <option value="ขอนแก่น">ขอนแก่น</option>
+                                                    <option value="จันทบุรี">จันทบุรี</option>
+                                                    <option value="ฉะเชิงเทรา">ฉะเชิงเทรา </option>
+                                                    <option value="ชัยนาท">ชัยนาท </option>
+                                                    <option value="ชัยภูมิ">ชัยภูมิ </option>
+                                                    <option value="ชุมพร">ชุมพร </option>
+                                                    <option value="ชลบุรี">ชลบุรี </option>
+                                                    <option value="เชียงใหม่">เชียงใหม่ </option>
+                                                    <option value="เชียงราย">เชียงราย </option>
+                                                    <option value="ตรัง">ตรัง </option>
+                                                    <option value="ตราด">ตราด </option>
+                                                    <option value="ตาก">ตาก </option>
+                                                    <option value="นครนายก">นครนายก </option>
+                                                    <option value="นครปฐม">นครปฐม </option>
+                                                    <option value="นครพนม">นครพนม </option>
+                                                    <option value="นครราชสีมา">นครราชสีมา </option>
+                                                    <option value="นครศรีธรรมราช">นครศรีธรรมราช </option>
+                                                    <option value="นครสวรรค์">นครสวรรค์ </option>
+                                                    <option value="นราธิวาส">นราธิวาส </option>
+                                                    <option value="น่าน">น่าน </option>
+                                                    <option value="นนทบุรี">นนทบุรี </option>
+                                                    <option value="บึงกาฬ">บึงกาฬ</option>
+                                                    <option value="บุรีรัมย์">บุรีรัมย์</option>
+                                                    <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์ </option>
+                                                    <option value="ปทุมธานี">ปทุมธานี </option>
+                                                    <option value="ปราจีนบุรี">ปราจีนบุรี </option>
+                                                    <option value="ปัตตานี">ปัตตานี </option>
+                                                    <option value="พะเยา">พะเยา </option>
+                                                    <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา </option>
+                                                    <option value="พังงา">พังงา </option>
+                                                    <option value="พิจิตร">พิจิตร </option>
+                                                    <option value="พิษณุโลก">พิษณุโลก </option>
+                                                    <option value="เพชรบุรี">เพชรบุรี </option>
+                                                    <option value="เพชรบูรณ์">เพชรบูรณ์ </option>
+                                                    <option value="แพร่">แพร่ </option>
+                                                    <option value="พัทลุง">พัทลุง </option>
+                                                    <option value="ภูเก็ต">ภูเก็ต </option>
+                                                    <option value="มหาสารคาม">มหาสารคาม </option>
+                                                    <option value="มุกดาหาร">มุกดาหาร </option>
+                                                    <option value="แม่ฮ่องสอน">แม่ฮ่องสอน </option>
+                                                    <option value="ยโสธร">ยโสธร </option>
+                                                    <option value="ยะลา">ยะลา </option>
+                                                    <option value="ร้อยเอ็ด">ร้อยเอ็ด </option>
+                                                    <option value="ระนอง">ระนอง </option>
+                                                    <option value="ระยอง">ระยอง </option>
+                                                    <option value="ราชบุรี">ราชบุรี</option>
+                                                    <option value="ลพบุรี">ลพบุรี </option>
+                                                    <option value="ลำปาง">ลำปาง </option>
+                                                    <option value="ลำพูน">ลำพูน </option>
+                                                    <option value="เลย">เลย </option>
+                                                    <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                                                    <option value="สกลนคร">สกลนคร</option>
+                                                    <option value="สงขลา">สงขลา </option>
+                                                    <option value="สมุทรสาคร">สมุทรสาคร </option>
+                                                    <option value="สมุทรปราการ">สมุทรปราการ </option>
+                                                    <option value="สมุทรสงคราม">สมุทรสงคราม </option>
+                                                    <option value="สระแก้ว">สระแก้ว </option>
+                                                    <option value="สระบุรี">สระบุรี </option>
+                                                    <option value="สิงห์บุรี">สิงห์บุรี </option>
+                                                    <option value="สุโขทัย">สุโขทัย </option>
+                                                    <option value="สุพรรณบุรี">สุพรรณบุรี </option>
+                                                    <option value="สุราษฎร์ธานี">สุราษฎร์ธานี </option>
+                                                    <option value="สุรินทร์">สุรินทร์ </option>
+                                                    <option value="สตูล">สตูล </option>
+                                                    <option value="หนองคาย">หนองคาย </option>
+                                                    <option value="หนองบัวลำภู">หนองบัวลำภู </option>
+                                                    <option value="อำนาจเจริญ">อำนาจเจริญ </option>
+                                                    <option value="อุดรธานี">อุดรธานี </option>
+                                                    <option value="อุตรดิตถ์">อุตรดิตถ์ </option>
+                                                    <option value="อุทัยธานี">อุทัยธานี </option>
+                                                    <option value="อุบลราชธานี">อุบลราชธานี</option>
+                                                    <option value="อ่างทอง">อ่างทอง </option>
+                                                </select>
+                                            </div>
                                         </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="address">รหัสไปรษณีย์:</label>
-                                        <div class="col-sm-3">
-                                          <input type="text" class="form-control" placeholder="2010">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="address">รหัสไปรษณีย์:</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" class="form-control" placeholder="2010">
+                                            </div>
                                         </div>
-                                      </div>
-                                      <div class="form-group">
-                                        <label class="control-label col-sm-2" for="phone">โทรศัพท์:</label>
-                                        <div class="col-sm-2">
-                                          <input type="text" class="form-control" placeholder="099-9998888">
+                                        <div class="form-group">
+                                            <label class="control-label col-sm-2" for="phone">โทรศัพท์:</label>
+                                            <div class="col-sm-2">
+                                                <input type="text" class="form-control" placeholder="099-9998888">
+                                            </div>
                                         </div>
-                                      </div>
                                     </div><!-- /.box-body -->
                                 </form>
                             </div><!-- /.box -->
@@ -358,32 +358,32 @@
         <script src="../template/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
         <!-- page script -->
         <script type="text/javascript">
-            $(function () {
-                $("#example1").dataTable();
-                $('#example2').dataTable({
-                    "bPaginate": true,
-                    "bLengthChange": false,
-                    "bFilter": false,
-                    "bSort": true,
-                    "bInfo": true,
-                    "bAutoWidth": false
-                });
+                                $(function () {
+                                    $("#example1").dataTable();
+                                    $('#example2').dataTable({
+                                        "bPaginate": true,
+                                        "bLengthChange": false,
+                                        "bFilter": false,
+                                        "bSort": true,
+                                        "bInfo": true,
+                                        "bAutoWidth": false
+                                    });
 
-                //Datemask dd/mm/yyyy
-                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                                    //Datemask dd/mm/yyyy
+                                    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
 
-                //Red color scheme for iCheck
-                $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-                    checkboxClass: 'icheckbox_minimal-red',
-                    radioClass: 'iradio_minimal-red'
-                });
-            });
+                                    //Red color scheme for iCheck
+                                    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                                        checkboxClass: 'icheckbox_minimal-red',
+                                        radioClass: 'iradio_minimal-red'
+                                    });
+                                });
         </script>
         <!-- Alert Dialog -->
         <script>
-          function notAllow() {
-            alert("ยังใช้งานไม่ได้");
-        }
+            function notAllow() {
+                alert("ยังใช้งานไม่ได้");
+            }
         </script>
     </body>
 </html>

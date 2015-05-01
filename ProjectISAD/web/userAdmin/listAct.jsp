@@ -39,7 +39,7 @@
     <body class="skin-blue">
         <div class="wrapper">
 
-            <header class="main-header">
+           <header class="main-header">
                 <!-- Logo -->
                 <a href="mainpage.html" class="logo">มูลนิธิธรรมกิจไพศาล</a>
                 <!-- Header Navbar: style can be found in header.less -->
@@ -55,13 +55,13 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="../template/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
+                                    <img src="../template/dist/img/admin.jpg" class="user-image" alt="User Image"/>
                                     <span class="hidden-xs">สมหมาย ใจดีจัง</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="../template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                                        <img src="../template/dist/img/admin.jpg" class="img-circle" alt="User Image" />
                                         <p>
                                             สมหมาย ใจดีจัง
                                             <small>เจ้าหน้าที่ส่วนกลาง</small>
@@ -81,9 +81,9 @@
                                     </li> -->
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
+<!--                                        <div class="pull-left">
                                             <a href="#" class="btn btn-default btn-flat">ข้อมูลส่วนตัว</a>
-                                        </div>
+                                        </div>-->
                                         <div class="pull-right">
                                             <a href="#" class="btn btn-default btn-flat">ออกจากระบบ</a>
                                         </div>
@@ -101,7 +101,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="../template/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                            <img src="../template/dist/img/admin.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <p>สมหมาย ใจดีจัง</p>
@@ -112,7 +112,7 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="header">เมนู</li>
-                        <li>
+                        <li class="active">
                             <a href="mainpage.html">
                                 <i class="fa fa-home"></i> <span>ตารางกิจกรรม</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
@@ -123,9 +123,9 @@
                                 <span>จัดการกิจกรรม</span><i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="createAct.html"><i class="fa fa-circle-o"></i> สร้างกิจกรรม</a></li>
-                                <li class="active"><a href="listAct.html"><i class="fa fa-circle-o"></i> กิจกรรมที่กำลังดำเนินการ</a></li>
-                                <li><a href="confirmAct.html"><i class="fa fa-circle-o"></i> ยืนยันการเข้าร่วมกิจกรรม</a></li>
+                                <li><a href="createAct.jsp"><i class="fa fa-circle-o"></i> สร้างกิจกรรม</a></li>
+                                <li><a href="listAct.jsp"><i class="fa fa-circle-o"></i> กิจกรรมที่กำลังดำเนินการ</a></li>
+                                <li><a href="confirmAct.jsp"><i class="fa fa-circle-o"></i> ยืนยันการเข้าร่วมกิจกรรม</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -135,8 +135,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="listMem.html"><i class="fa fa-circle-o"></i> รายชื่อสมาชิก</a></li>
-                                <li><a href="confirmMem.html"><i class="fa fa-circle-o"></i> ยืนยันการสมัครสมาชิก</a></li>
+                                <li><a href="listMem.jsp"><i class="fa fa-circle-o"></i> รายชื่อสมาชิก</a></li>
+                                <li><a href="confirmMem.jsp"><i class="fa fa-circle-o"></i> ยืนยันการสมัครสมาชิก</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -146,8 +146,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="listMemReport.html"><i class="fa fa-circle-o"></i> รายงานข้อมูลส่วนบุคคล</a></li>
-                                <li><a href="listActReport.html"><i class="fa fa-circle-o"></i>รายงานกิจกรรม</a></li>
+                                <li><a href="listMemReport.jsp"><i class="fa fa-circle-o"></i> รายงานข้อมูลส่วนบุคคล</a></li>
+                                <li><a href="listActReport.jsp"><i class="fa fa-circle-o"></i>รายงานกิจกรรม</a></li>
                             </ul>
                         </li>
                     </ul>
