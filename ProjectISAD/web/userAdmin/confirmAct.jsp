@@ -201,7 +201,7 @@
                                                 JOIN Event_List
                                                 USING (event_id);
                                             </sql:query>
-                                           
+                  
                                             <tbody>
                                                 <c:forEach var="act" items="${act.rows}">
                                                     <tr>
