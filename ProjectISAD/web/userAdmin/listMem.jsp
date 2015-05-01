@@ -180,6 +180,7 @@
                                         <table id="example1" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
+                                                    <th>รหัส</th>
                                                     <th>ชื่อ</th>
                                                     <th>นามสกุล</th>
                                                     <th>ชื่อเล่น</th>
@@ -192,143 +193,21 @@
                                             <tbody>
                                                 <sql:query dataSource="test" var ="memlist">
                                                     SELECT * 
-                                                    FROM Member_User 
-                                                    JOIN Member_Data 
-                                                    USING (member_id)
+                                                    FROM Member_Data;
                                                 </sql:query>
-
-                                                <c:forEach var="member" items="${Member.showMem('1',applicationScope['connection'])}">
+                                                    
+                                                <c:forEach var="member" items="${memlist.rows}">
                                                     <tr>
+                                                        <td>${member.member_id}</td>
                                                         <td>${member.member_firstname}</td>
                                                         <td>${member.member_lastname}</td>
                                                         <td>${member.member_nickname}</td>
-                                                        <td></td>
-                                                        <td>กรุงเทพ</td>
-                                                        <td>วิศวกร</td>
+                                                        <td>18</td>
+                                                        <td>${member.member_province}</td>
+                                                        <td>ว${member.member_job}</td>
                                                         <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
                                                     </tr>
                                                 </c:forEach>
-
-                                                <tr>
-                                                    <td>ธีระพล</td>
-                                                    <td>แย้มเดช</td>
-                                                    <td>นัท</td>
-                                                    <td>20</td>
-                                                    <td>กรุงเทพ</td>
-                                                    <td>วิศวกร</td>
-                                                    <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>ธีระพล</td>
-                                                    <td>เทศเวทินากร</td>
-                                                    <td>ต้น</td>
-                                                    <td>35</td>
-                                                    <td>ปธุมธานี</td>
-                                                    <td>รับจ้าง</td>
-                                                    <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
-                                                </tr>  
-                                                <tr>
-                                                    <td>กิติคุณ</td>
-                                                    <td>ขาวล้ำเลิศ</td>
-                                                    <td>ตาล</td>
-                                                    <td>18</td>
-                                                    <td>กรุงเทพ</td>
-                                                    <td>นักเรียน</td>
-                                                    <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>วีระ</td>
-                                                    <td>แย้มเดช</td>
-                                                    <td>นัท</td>
-                                                    <td>20</td>
-                                                    <td>กรุงเทพ</td>
-                                                    <td>วิศวกร</td>
-                                                    <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>ธีระพล</td>
-                                                    <td>เทศเวทินากร</td>
-                                                    <td>ต้น</td>
-                                                    <td>35</td>
-                                                    <td>ปธุมธานี</td>
-                                                    <td>รับจ้าง</td>
-                                                    <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
-                                                </tr> 
-                                                <tr>
-                                                    <td>กิติคุณ</td>
-                                                    <td>ขาวล้ำเลิศ</td>
-                                                    <td>ตาล</td>
-                                                    <td>18</td>
-                                                    <td>กรุงเทพ</td>
-                                                    <td>นักเรียน</td>
-                                                    <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>วีระ</td>
-                                                    <td>แย้มเดช</td>
-                                                    <td>นัท</td>
-                                                    <td>20</td>
-                                                    <td>กรุงเทพ</td>
-                                                    <td>วิศวกร</td>
-                                                    <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>วีระ</td>
-                                                    <td>แย้มเดช</td>
-                                                    <td>นัท</td>
-                                                    <td>20</td>
-                                                    <td>กรุงเทพ</td>
-                                                    <td>วิศวกร</td>
-                                                    <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>วีระ</td>
-                                                    <td>แย้มเดช</td>
-                                                    <td>นัท</td>
-                                                    <td>20</td>
-                                                    <td>กรุงเทพ</td>
-                                                    <td>วิศวกร</td>
-                                                    <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>วีระ</td>
-                                                    <td>แย้มเดช</td>
-                                                    <td>นัท</td>
-                                                    <td>20</td>
-                                                    <td>กรุงเทพ</td>
-                                                    <td>วิศวกร</td>
-                                                    <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>วีระ</td>
-                                                    <td>แย้มเดช</td>
-                                                    <td>นัท</td>
-                                                    <td>20</td>
-                                                    <td>กรุงเทพ</td>
-                                                    <td>วิศวกร</td>
-                                                    <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>วีระ</td>
-                                                    <td>แย้มเดช</td>
-                                                    <td>นัท</td>
-                                                    <td>20</td>
-                                                    <td>กรุงเทพ</td>
-                                                    <td>วิศวกร</td>
-                                                    <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
-                                                </tr>
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>ชื่อ</th>
-                                                    <th>นามสกุล</th>
-                                                    <th>ชื่อเล่น</th>
-                                                    <th>อายุ</th>
-                                                    <th>จังหวัด</th>
-                                                    <th>อาชีพ</th>
-                                                    <th>ตัวเลือก</th>
-                                                </tr>
-                                            </tfoot>
                                         </table>
                                     </div><!-- /.box-body -->
                                 </form>
