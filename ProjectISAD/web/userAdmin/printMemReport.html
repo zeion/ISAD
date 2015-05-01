@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>รายงานข้อมูลส่วนบุคคล</title>
+        <title>รายงาน</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- Bootstrap 3.3.2 -->
         <link href="../template/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -151,7 +151,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        จัดทำรายงานส่วนบุคคล
+                        รายงานข้อส่วนบุคคล
                     </h1>
                 </section>
 
@@ -160,53 +160,51 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="box box-primary box-success">
-                                <div class="box-header">
-                                    <h3 class="box-title">รายชื่อสมาชิก</h3>
-                                </div><!-- /.box-header -->
-                                <form role="form">
+                                <div class="box-body" id="printableArea">
+                                    <h1 style="text-align: center;">รายงานข้อมูลส่วนบุคคล</h1>
                                     <div class="box-body">
-                                        <table id="example2" class="table table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th class="col-xs-1" style="text-align: center;">เลือก</th>
-                                                    <th class="col-xs-1" style="text-align: center;">รหัส</th>
-                                                    <th class="col-xs-2" style="text-align: center;">ชื่อ</th>
-                                                    <th class="col-xs-2" style="text-align: center;">นามสกุล</th>
-                                                    <th class="col-xs-1" style="text-align: center;">อายุ</th>
-                                                    <th class="col-xs-1" style="text-align: center;">จังหวัด</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody style="text-align: center;">
-                                                <tr>
-                                                    <td><input type="radio" name="act" class="flat-red" value="1" checked/></td>
-                                                    <td>01</td>
-                                                    <td>วีระ</td>
-                                                    <td>แย้มเดช</td>
-                                                    <td>20</td>
-                                                    <td>กรุงเทพ</td>          
-                                                </tr>
-                                                <tr>
-                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>02</td>
-                                                    <td>ธีระพล</td>
-                                                    <td>เทศเวทินากร</td>
-                                                    <td>35</td>
-                                                    <td>ปธุมธานี</td>                         
-                                                </tr>  
-                                                <tr>
-                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>03</td>
-                                                    <td>กิติคุณ</td>
-                                                    <td>ขาวล้ำเลิศ</td>
-                                                    <td>18</td>
-                                                    <td>กรุงเทพ</td>                              
-                                                </tr>  
-                                            </tbody>
-                                        </table>                                     
-                                    </div><!-- /.box-body -->       
-                                </form>
+                                        <dl class="dl-horizontal">
+                                            <dt>รหัสสมาชิก :</dt>
+                                            <dd>01</dd>
+                                            
+                                            <dt>เขต :</dt>
+                                            <dd>ตะวันออก</dd>
+                                            
+                                            <dt>ชื่อ :</dt>
+                                            <dd>สมเกียรติ</dd>
+                                            
+                                            <dt>นามสกุล :</dt>
+                                            <dd>อาสาดี</dd>
+                                                                       
+                                            <dt>ชื่อเล่น :</dt>
+                                            <dd>เกียรติ</dd>
+                                            
+                                            <dt>เพศ :</dt>
+                                            <dd>ชาย</dd>
+                                            
+                                            <dt>วันเกิด :</dt>
+                                            <dd>11-พ.ย.-2537</dd>
+                                            
+                                            <dt>การศึกษา :</dt>
+                                            <dd>ปริญญาตรี</dd>
+                                            
+                                            <dt>อาชีพ :</dt>
+                                            <dd>พนักงานบริษัท</dd>
+                                            
+                                            <dt>E-mail :</dt>
+                                            <dd>somkiet@live.com</dd>
+                                            
+                                            <dt>ที่อยู่ :</dt>
+                                            <dd>345/6 ต.บางพระ อ.เมือง จ.ลพบุรี 1234</dd>
+                                            
+                                            <dt>จังหวัด :</dt>
+                                            <dd>ลพบุรี</dd>
+                                        </dl>                 
+                                    </div>
+                                </div><!-- /.box-body -->       
                             </div><!-- /.box -->
-                            <a class="btn btn-primary pull-right" href="printMemReport.html">จัดทำรายงาน</a>
+                            <button type="submit" class="btn btn-primary pull-right" style="margin-left: 1%;" onclick="printDiv('printableArea')">พิมพ์รายงาน</button>
+                            <a class="btn btn-default pull-right" href="listMemReport.html">ยกเลิก</a>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </section><!-- /.content -->
@@ -236,26 +234,38 @@
         <script src="../template/dist/js/combodate.js"></script>
         <!-- combodate -->
         <script type="text/javascript">
-            $(function () {
-                $("#example1").dataTable();
-                $('#example2').dataTable({
-                    "bPaginate": true,
-                    "bLengthChange": false,
-                    "bFilter": false,
-                    "bSort": true,
-                    "bInfo": true,
-                    "bAutoWidth": false
-                });
+                                $(function () {
+                                    $("#example1").dataTable();
+                                    $('#example2').dataTable({
+                                        "bPaginate": true,
+                                        "bLengthChange": false,
+                                        "bFilter": false,
+                                        "bSort": true,
+                                        "bInfo": true,
+                                        "bAutoWidth": false
+                                    });
 
-                //Datemask dd/mm/yyyy
-                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                                    //Datemask dd/mm/yyyy
+                                    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
 
-                //Flat red color scheme for iCheck
-                $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-                    checkboxClass: 'icheckbox_flat-green',
-                    radioClass: 'iradio_flat-green'
-                });
-            });
+                                    //Flat red color scheme for iCheck
+                                    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+                                        checkboxClass: 'icheckbox_flat-green',
+                                        radioClass: 'iradio_flat-green'
+                                    });
+                                });
+        </script>
+        <script>
+            function printDiv(divName) {
+                var printContents = document.getElementById(divName).innerHTML;
+                var originalContents = document.body.innerHTML;
+
+                document.body.innerHTML = printContents;
+
+                window.print();
+
+                document.body.innerHTML = originalContents;
+            }
         </script>
     </body>
 </html>
