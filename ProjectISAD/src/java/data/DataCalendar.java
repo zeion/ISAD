@@ -17,8 +17,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.CalendarDTO;
-
 
 /**
  *
@@ -48,52 +46,6 @@ public class DataCalendar extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
-//            JSONObject json = new JSONObject();
-//            JSONArray addresses = new JSONArray();
-//            JSONObject address;
-//            
-//            
-//            try {
-//
-//                int count = 5;
-//
-//                for (int i = 0; i < count; i++) {
-//                    address = new JSONObject();
-//                    address.put("CustomerName", "Decepticons" + i);
-//                    address.put("AccountId", "1999" + i);
-//                    address.put("SiteId", "1888" + i);
-//                    address.put("Number", "7" + i);
-//                    address.put("Building", "StarScream Skyscraper" + i);
-//                    address.put("Street", "Devestator Avenue" + i);
-//                    address.put("City", "Megatron City" + i);
-//                    address.put("ZipCode", "ZZ00 XX1" + i);
-//                    address.put("Country", "CyberTron" + i);
-//                    addresses.add(address);
-//                }
-//                json.put("Addresses", addresses);
-
-//                int count = 5;
-//
-//                for (int i = 0; i < count; i++) {
-//                    address = new JSONObject();
-//                    jsonString +=   "{start:"+"\"2015-04-1"+i+"\""+
-////                                    ",id:"+"\""+i+"0\""+
-//                                    ",title:"+"\"Event"+i+"\"}";
-////                    addresses.add(address);
-//                    if(count-1!=i){
-//                        jsonString += ",";
-//                    }
-//                }
-//                jsonString += "]";
-//                json.put("event", addresses);
-//            } catch (Exception jse) {
-//
-//            }
-//            response.setContentType("application/json");
-//            response.setCharacterEncoding("UTF-8");
-//            response.getWriter().write(addresses.toString());
-
-//            response.getWriter().write(jsonString);
         }
     }
 
