@@ -7,7 +7,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-
+<sql:query dataSource="test" var ="user">
+    SELECT * 
+    FROM Member_User
+    JOIN Member_Data
+    USING (member_id)
+    WHERE member_status = 0
+</sql:query>
 <!DOCTYPE html>
 <html>
     <head>
@@ -181,37 +187,29 @@
                                                     <th>ชื่อ</th>
                                                     <th>นามสกุล</th>
                                                     <th>ชื่อเล่น</th>
-                                                    <th>อายุ</th>
+                                                    <th>เพศ</th>
                                                     <th>จังหวัด</th>
                                                     <th>อาชีพ</th>
                                                     <th>ตัวเลือก</th>
                                                 </tr>
-                                            </thead>
-                                            <sql:query dataSource="test" var ="user">
-                                                SELECT * 
-                                                FROM Member_User
-                                                LEFT JOIN Member_Data
-                                                USING (member_id);
-                                            </sql:query> 
+                                            </thead>                                            
                                             <tbody>
                                                 <c:forEach var="user" items="${user.rows}">
                                                     <tr>
                                                         <td>${user.member_firstname}</td>
                                                         <td>${user.member_lastname}</td>
                                                         <td>${user.member_nickname}</td>
-                                                        <td>20</td>
+                                                        <td>${user.member_sex}</td>
                                                         <td>${user.member_province}</td>
                                                         <td>${user.member_job}</td>
                                                         <td>
-                                                            <button type="submit" class="btn btn-box-tool">
-                                                                <i class="fa fa-info-circle"></i>
-                                                            </button>
-                                                            <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
-                                                                <i class="fa fa-check-circle"></i>
-                                                            </button> 
-                                                            <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
-                                                                <i class="fa fa-times-circle"></i>
-                                                            </button>
+                                                            <a class="btn btn-default btn-xs" href="showProfile.jsp?id=${user.member_id}" target="_blank"><i class="fa fa-info-circle"></i></a>
+                                                            <a class="btn btn-success btn-xs" href="../confirmMem.do?button=yes&id=${user.member_ID}">
+                                                                <i class="fa fa-check"></i>
+                                                            </a> 
+                                                            <a class="btn btn-danger btn-xs" href="../confirmMem.do?button=no&id=${user.member_ID}">
+                                                                <i class="fa fa-times"></i>
+                                                            </a>
                                                         </td>                                                
                                                     </tr>
                                                 </c:forEach>
