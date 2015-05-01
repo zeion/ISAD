@@ -167,9 +167,9 @@
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
-                        <div class="col-xs-12">
-                            <div class="box">
-                                <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" action="../editProfile.do" method="post">
+                            <div class="col-xs-12">
+                                <div class="box">
                                     <div class="box-body">
                                         <div class="form-group">
                                             <label class="control-label col-sm-2">ชื่อ:</label>
@@ -186,7 +186,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" >ชื่อเล่น:</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" value="${member.rows[0].member_nickname}">
+                                                <input type="text" class="form-control" name="nickname" value="${member.rows[0].member_nickname}">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -216,26 +216,26 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" >การศึกษา:</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" value="${member.rows[0].member_edu}">
+                                                <input type="text" class="form-control" name="edu" value="${member.rows[0].member_edu}">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" >อาชีพ:</label>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" value="${member.rows[0].member_job}">
+                                                <input type="text" class="form-control" name="job" value="${member.rows[0].member_job}">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" >ที่อยู่:</label>
                                             <div class="col-sm-5">
-                                                <textarea class="form-control" rows="3">${member.rows[0].member_address}</textarea>
+                                                <textarea class="form-control" name="address" rows="3">${member.rows[0].member_address}</textarea>
 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="ocupation">จังหวัด:</label>
+                                            <label class="control-label col-sm-2" >จังหวัด:</label>
                                             <div class="col-sm-2">
-                                                <select class="form-control">
+                                                <select class="form-control" name="province">
                                                     <option selected="selected" style="display: none;" value="${member.rows[0].member_address}">${member.rows[0].member_province}</option>
                                                     <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
                                                     <option value="กระบี่">กระบี่ </option>
@@ -318,17 +318,17 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="phone">โทรศัพท์:</label>
+                                            <label class="control-label col-sm-2" >โทรศัพท์:</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" value="${member.rows[0].member_phone}">
+                                                <input type="text" class="form-control" name="phone" value="${member.rows[0].member_phone}">
                                             </div>
                                         </div>
-                                    </div><!-- /.box-body -->
-                                </form>
-                            </div><!-- /.box -->
-                            <button type="button" class="btn btn-primary pull-right" style="margin-left: 1%;" onclick="notAllow();">ยืนยัน</button>
-                            <a class="btn btn-default pull-right" href="showProfile.jsp?id=${param.id}">ยกเลิก</a>
-                        </div><!-- /.col -->
+                                    </div><!-- /.box-body -->                               
+                                </div><!-- /.box -->
+                                <button type="submit" class="btn btn-primary pull-right" style="margin-left: 1%;"  name="id" value="${param.id}">ยืนยัน</button>
+                                <a class="btn btn-default pull-right" href="showProfile.jsp?id=${param.id}">ยกเลิก</a>
+                            </div><!-- /.col -->
+                        </form>
                     </div><!-- /.row -->
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
@@ -355,26 +355,26 @@
         <script src="../template/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
         <!-- page script -->
         <script type="text/javascript">
-                                $(function () {
-                                    $("#example1").dataTable();
-                                    $('#example2').dataTable({
-                                        "bPaginate": true,
-                                        "bLengthChange": false,
-                                        "bFilter": false,
-                                        "bSort": true,
-                                        "bInfo": true,
-                                        "bAutoWidth": false
-                                    });
+            $(function () {
+                $("#example1").dataTable();
+                $('#example2').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
 
-                                    //Datemask dd/mm/yyyy
-                                    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
 
-                                    //Red color scheme for iCheck
-                                    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-                                        checkboxClass: 'icheckbox_minimal-red',
-                                        radioClass: 'iradio_minimal-red'
-                                    });
-                                });
+                //Red color scheme for iCheck
+                $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                    checkboxClass: 'icheckbox_minimal-red',
+                    radioClass: 'iradio_minimal-red'
+                });
+            });
 
 
 
