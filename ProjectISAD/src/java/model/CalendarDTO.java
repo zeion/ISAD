@@ -94,7 +94,7 @@ public class CalendarDTO {
         List l = new ArrayList();
 
         try {
-            String sql = "SELECT event_active_ID, event_name, event_day,e_enable_date FROM Event_Active JOIN Event_List USING (event_ID)";//INSERT INTO  Member_User(member_user,member_pass,member_type,member_status) values("lalala","lalala",0,true)
+            String sql = "SELECT event_active_ID, event_name, event_day,event_start FROM Event_Active JOIN Event_List USING (event_ID)";//INSERT INTO  Member_User(member_user,member_pass,member_type,member_status) values("lalala","lalala",0,true)
 
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             
@@ -106,7 +106,7 @@ public class CalendarDTO {
                 int id = member.getInt("event_active_ID");
                 String title = member.getString("event_name");
                 int day = member.getInt("event_day");
-                String start = df.format(member.getDate("e_enable_date"));
+                String start = df.format(member.getDate("event_start"));
                 Calendar c = Calendar.getInstance();
                 c.setTime(df.parse(start));
                 c.add(Calendar.DATE, day);
