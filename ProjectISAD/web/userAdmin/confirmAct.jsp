@@ -7,7 +7,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-
+<sql:query dataSource="test" var ="act">
+    SELECT * 
+    FROM Event_Request
+    JOIN Member_Data
+    USING (member_id)
+    JOIN Event_Active
+    USING (event_active_id)
+    JOIN Event_List
+    USING (event_id)
+    WHERE Request_status = 0
+</sql:query>
 <!DOCTYPE html>
 <html>
     <head>
@@ -183,44 +193,43 @@
                                                     <th>ชื่อ</th>
                                                     <th>นามสกุล</th>
                                                     <th>ชื่อเล่น</th>
-                                                    <th>อายุ</th>
                                                     <th>จังหวัด</th>
                                                     <th>สมัคร</th>
                                                     <th>รับ</th>
                                                     <th>ยืนยัน</th>
                                                 </tr>
                                             </thead>
-
-                                            <sql:query dataSource="test" var ="act">
-                                                SELECT * 
-                                                FROM Event_Request
-                                                LEFT OUTER JOIN Member_Data
-                                                USING (member_id)
-                                                JOIN Event_Active
-                                                USING (event_active_id)
-                                                JOIN Event_List
-                                                USING (event_id);
-                                            </sql:query>
-
                                             <tbody>
                                                 <c:forEach var="act" items="${act.rows}">
+                                                    <sql:query dataSource="test" var ="ev_num">
+                                                        SELECT count(*) AS count
+                                                        FROM Event_Request
+                                                        GROUP BY event_active_ID
+                                                        HAVING event_active_ID = ${act.event_active_ID}
+                                                    </sql:query>
                                                     <tr>
                                                         <td>${act.event_name}</td>
                                                         <td>${act.event_start}</td>
                                                         <td>${act.member_firstname}</td>
                                                         <td>${act.member_lastname}</td>
                                                         <td>${act.member_nickname}</td>
-                                                        <td>35</td>
                                                         <td>${act.member_province}</td>
-                                                        <td>0</td>
+                                                        <td>
+                                                            <c:if test="${not empty ev_num.rows[0].count}">
+                                                                ${ev_num.rows[0].count}
+                                                            </c:if>
+                                                            <c:if test="${empty ev_num.rows[0].count}">
+                                                                0
+                                                            </c:if>
+                                                        </td>
                                                         <td>${act.event_amount}</td>
                                                         <td>
-                                                            <button type="submit" class="btn btn-success btn-xs">
+                                                            <a class="btn btn-success btn-xs" href="../confirmAct.do?button=yes&id=${act.request_ID}">
                                                                 <i class="fa fa-check"></i>
-                                                            </button> 
-                                                            <button type="submit" class="btn btn-danger btn-xs">
+                                                            </a> 
+                                                            <a class="btn btn-danger btn-xs" href="../confirmAct.do?button=no&id=${act.request_ID}">
                                                                 <i class="fa fa-times"></i>
-                                                            </button>
+                                                            </a>
                                                         </td>                                                
                                                     </tr>
                                                 </c:forEach>

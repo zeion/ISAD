@@ -8,6 +8,10 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +23,11 @@ import static model.Event.deleteAct;
  *
  * @author Admin
  */
-@WebServlet(name = "listActController", urlPatterns = {"/listAct.do"})
-public class listActController extends HttpServlet {
+@WebServlet(name = "confirmActController", urlPatterns = {"/confirmAct.do"})
+public class confirmActController extends HttpServlet {
 
     Connection conn;
+
     public void init() {
         conn = (Connection) getServletContext().getAttribute("connection");
     }
@@ -41,16 +46,34 @@ public class listActController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-
             String button = request.getParameter("button");
             String id = request.getParameter("id");
-            if (button.equals("delete")) {
-                deleteAct(id, conn);
-            } else {
-                out.println(id);
-                response.sendRedirect("userAdmin/editActDetail.jsp?id=" + id);
-            }
+            if (button.equals("no")) {
 
+                try {
+                    PreparedStatement pstmtup;
+                    String sql = "DELETE FROM Event_Request WHERE request_ID = ?;";
+                    pstmtup = conn.prepareStatement(sql);
+                    pstmtup.setString(1, id);
+                    pstmtup.executeUpdate();
+                } catch (SQLException ex) {
+                    Logger.getLogger(confirmActController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            } else {
+                
+                 try {
+                    PreparedStatement pstmtup;
+                    String sql = "UPDATE Event_Request SET Request_status = ? WHERE request_ID = ?;";
+                    pstmtup = conn.prepareStatement(sql);
+                    pstmtup.setBoolean(1, true);
+                    pstmtup.setString(2, id);
+                    pstmtup.executeUpdate();
+                } catch (SQLException ex) {
+                    Logger.getLogger(confirmActController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            response.sendRedirect("userAdmin/confirmAct.jsp");
         }
     }
 
