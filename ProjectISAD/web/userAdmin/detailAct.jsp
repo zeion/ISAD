@@ -17,14 +17,14 @@
     USING (location_ID)
     WHERE event_active_ID = ${param.id}
 </sql:query>
-    
+
 <sql:query dataSource="test" var ="ev_num">
     SELECT count(*) AS count
     FROM Event_Request
     GROUP BY event_active_ID
     HAVING event_active_ID = ${param.id}
 </sql:query>
-    
+
 
 <!DOCTYPE html>
 <html>
@@ -185,39 +185,40 @@
 
                 <!-- Main content -->
                 <section class="content">
-                    <div class="col-md-12">
-                        <div class="box box-solid">
-                            <c:forEach var="row" items="${event.rows}">                     
+                    <c:forEach var="row" items="${event.rows}"> 
+                        <div class="col-md-12">
+                            <div class="box box-solid">                    
                                 <div class="box-header with-border">
                                     <h3 class="box-title">${row.event_name}</h3>
                                 </div><!-- /.box-header -->
                                 <div class="box-body">
                                     <dl class="dl-horizontal">
                                         <dt><span class="glyphicon glyphicon-calendar"></span></dt>
-                                        <dd>${row.e_enable_date}</dd>
+                                        <dd>${row.event_start}</dd>
                                         <dt><span class="glyphicon glyphicon-time"></span></dt>
                                         <dd>ระยะเวลา ${row.event_day} วัน</dd>
                                         <dt><span class="glyphicon glyphicon-map-marker"></span></dt>
                                         <dd>${row.location_name} - ${row.location_area}</dd>
                                         <dd class="text-muted">${row.location_address} ${row.location_province}</dd>
                                         <dt>สมัคร / ทั้งหมด</dt>
-                                        <dd><span class="text-success"><c:forEach var="num" items="${ev_num.rows}">${num.count}</c:forEach></span> / <span class="text-danger">${row.e_enable_num}</span></dd>
-                                    </dl>
-                                </div><!-- /.box-body -->
-                            </c:forEach>                           
-                        </div><!-- /.box -->
-                    </div>
-                    <div class="col-md-12">
-                        <div class="box box-solid">
-                            <div class="box-body">
-                                <dl class="dl-horizontal">
-                                    <dt>รายละเอียด</dt>
-                                    <dd>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรก โดยจะมีการอธิบายเกี่ยวกับสถานธรรม</dd>
-                                </dl>
-                            </div><!-- /.box-body -->
-                        </div><!-- /.box -->
-                        <a class="btn btn-primary pull-right" href="editActDetail.html">แก้ไข</a>
-                    </div>
+                                        <dd><span class="text-success"><c:forEach var="num" items="${ev_num.rows}">${num.count}</c:forEach></span> / <span class="text-danger">${row.event_amount}</span></dd>
+                                        </dl>
+                                    </div><!-- /.box-body -->
+
+                                </div><!-- /.box -->
+                            </div>
+                            <div class="col-md-12">
+                                <div class="box box-solid">
+                                    <div class="box-body">
+                                        <dl class="dl-horizontal">
+                                            <dt>รายละเอียด</dt>
+                                            <dd>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรก โดยจะมีการอธิบายเกี่ยวกับสถานธรรม</dd>
+                                        </dl>
+                                    </div><!-- /.box-body -->
+                                </div><!-- /.box -->
+                                <a class="btn btn-primary pull-right" href="editActDetail.html">แก้ไข</a>
+                            </div>
+                    </c:forEach> 
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
         </div><!-- ./wrapper -->
