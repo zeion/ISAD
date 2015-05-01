@@ -48,8 +48,8 @@ public class listActController extends HttpServlet {
             if(button.equals("delete")){
                 deleteAct(id,conn);
             }else{
-                request.setAttribute("id", id);
-                request.getRequestDispatcher("userAdmin/listAct.jsp").forward(request, response);
+                out.println(id);
+                response.sendRedirect("userAdmin/editActDetail.jsp?id="+id);
             }
             
         }

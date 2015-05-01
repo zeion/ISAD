@@ -174,7 +174,6 @@
                                 </div><!-- /.box-header -->
                                 <form role="form">
                                     <div class="box-body">
-                                        <a class="btn btn-default btn-xs" href="../listAct.do?button=\"edit\"&id=\"1\""><i class="fa fa-wrench"></i></a>
                                         <table id="example1" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
@@ -202,13 +201,13 @@
                                                     </sql:query>      
                                                     <tr>
                                                         <td>${event.event_name}</td>
-                                                        <td>${event.e_enable_date}</td>
+                                                        <td>${event.event_start}</td>
                                                         <td>0${ev_num.rows[0].count}</td>
-                                                        <td>${event.e_enable_num}</td>
+                                                        <td>${event.event_amount}</td>
                                                         <td>${event.event_detail}</td>
                                                         <td>                                                            
-                                                            <a class="btn btn-default btn-xs" href="../listAct.do?button=\"edit\"&id=\"${event.event_active_ID}\""><i class="fa fa-wrench"></i></a>
-                                                            <a class="btn btn-default btn-xs" href="../listAct.do?button=\"delete\"&id=\"${event.event_active_ID}\"" onclick="return confirm('Are you sure!?')"><i class="fa fa-trash"></i></a>
+                                                            <a class="btn btn-default btn-xs" href="../listAct.do?button=edit&id=${event.event_active_ID}"><i class="fa fa-wrench"></i></a>
+                                                            <a class="btn btn-default btn-xs" href="../listAct.do?button=delete&id=${event.event_active_ID}" onclick="return confirm('Are you sure!?')"><i class="fa fa-trash"></i></a>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>                                               
