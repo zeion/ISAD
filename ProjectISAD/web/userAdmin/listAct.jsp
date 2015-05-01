@@ -174,6 +174,7 @@
                                 </div><!-- /.box-header -->
                                 <form role="form">
                                     <div class="box-body">
+                                        <a class="btn btn-default btn-xs" href="../listAct.do?button=\"edit\"&id=\"1\""><i class="fa fa-wrench"></i></a>
                                         <table id="example1" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>

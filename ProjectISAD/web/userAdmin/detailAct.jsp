@@ -204,9 +204,7 @@
                                         <dd><span class="text-success"><c:forEach var="num" items="${ev_num.rows}">${num.count}</c:forEach></span> / <span class="text-danger">${row.e_enable_num}</span></dd>
                                     </dl>
                                 </div><!-- /.box-body -->
-                            </c:forEach>
-                                
-                            
+                            </c:forEach>                           
                         </div><!-- /.box -->
                     </div>
                     <div class="col-md-12">

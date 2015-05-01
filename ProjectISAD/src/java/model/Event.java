@@ -69,5 +69,20 @@ public class Event {
             return false;
         }
     }
+    
+    public static boolean deleteAct(String id,Connection conn){
+        try {
+            PreparedStatement pstmtup;
+            String sql = "DELETE FROM Event_Active WHERE event_active_ID = ?";
+            pstmtup = conn.prepareStatement(sql);
+            pstmtup.setString(1,id);
+            pstmtup.executeUpdate();
+            
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Event.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 
 }

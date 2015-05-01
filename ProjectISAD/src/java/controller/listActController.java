@@ -7,11 +7,13 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import static model.Event.deleteAct;
 
 /**
  *
@@ -19,6 +21,12 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "listActController", urlPatterns = {"/listAct.do"})
 public class listActController extends HttpServlet {
+
+        Connection conn;
+
+    public void init() {
+        conn = (Connection) getServletContext().getAttribute("connection");
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,15 +45,13 @@ public class listActController extends HttpServlet {
             
             String button = request.getParameter("button");
             String id = request.getParameter("id");
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet listActController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet listActController at " + request.getContextPath() +id+button+ "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            if(button.equals("delete")){
+                deleteAct(id,conn);
+            }else{
+                request.setAttribute("id", id);
+                request.getRequestDispatcher("userAdmin/listAct.jsp").forward(request, response);
+            }
+            
         }
     }
 
