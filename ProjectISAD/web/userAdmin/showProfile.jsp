@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>กิจกรรมที่กำลังดำเนินการ</title>
+        <title>ข้อมูลส่วนตัว</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- Bootstrap 3.3.2 -->
         <link href="../template/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -159,6 +159,11 @@
                     </h1>
                 </section>
 
+                <sql:query dataSource="test" var ="member">
+                    SELECT * 
+                    FROM Member_Data
+                    WHERE member_id = ${param.id};
+                </sql:query>
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
@@ -169,61 +174,68 @@
                                       <div class="form-group">
                                         <label class="control-label col-sm-2" for="fname">ชื่อ:</label>
                                         <div class="col-sm-10">
-                                          <p class="form-control-static">สมหมาย</p>
+                                          <p class="form-control-static">${member.rows[0].member_firstname}</p>
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <label class="control-label col-sm-2" for="lname">นามสกุล:</label>
                                         <div class="col-sm-10">
-                                          <p class="form-control-static">ขายหอยทะเล</p>
+                                          <p class="form-control-static">${member.rows[0].member_lastname}</p>
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <label class="control-label col-sm-2" for="memberID">ชื่อเล่น:</label>
                                         <div class="col-sm-10">
-                                          <p class="form-control-static">สายไหม</p>
+                                          <p class="form-control-static">${member.rows[0].member_nickname}</p>
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <label class="control-label col-sm-2" for="sex">เพศ:</label>
                                         <div class="col-sm-10">
-                                          <p class="form-control-static">ชาย</p>
+                                            <p class="form-control-static">
+                                                <c:if test="${member.rows[0].member_sex == 1}">
+                                                    ชาย
+                                                </c:if>
+                                                    <c:if test="${member.rows[0].member_sex == 0}">
+                                                    หญิง
+                                                </c:if>
+                                          </p>
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <label class="control-label col-sm-2" for="birth">วันเกิด:</label>
                                         <div class="col-sm-10">
-                                          <p class="form-control-static">01/11/1994</p>
+                                          <p class="form-control-static">${member.rows[0].member_bd}</p>
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <label class="control-label col-sm-2" for="email">อีเมล:</label>
                                         <div class="col-sm-10">
-                                          <p class="form-control-static">sommhai01@gmail.com</p>
+                                          <p class="form-control-static">${member.rows[0].member_email}</p>
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <label class="control-label col-sm-2" for="educate">การศึกษา:</label>
                                         <div class="col-sm-10">
-                                          <p class="form-control-static">ปริญญาเอก</p>
+                                          <p class="form-control-static">${member.rows[0].member_edu}</p>
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <label class="control-label col-sm-2" for="ocupation">อาชีพ:</label>
                                         <div class="col-sm-10">
-                                          <p class="form-control-static">นักวิชาการ</p>
+                                          <p class="form-control-static">${member.rows[0].member_job}</p>
                                         </div>
                                       </div>
                                       <div class="form-group">
                                         <label class="control-label col-sm-2" for="address">ที่อยู่:</label>
                                         <div class="col-sm-10">
-                                          <p class="form-control-static">123/4 ต.บ้านเสย อ.เมือง จ.บุรัมรีย์ 2010</p>
+                                          <p class="form-control-static">${member.rows[0].member_address} ${member.rows[0].member_province}</p>
                                         </div>
                                       </div>
                                         <div class="form-group">
                                           <label class="control-label col-sm-2" for="phone">โทรศัพท์:</label>
                                           <div class="col-sm-10">
-                                            <p class="form-control-static">099-9998888</p>
+                                            <p class="form-control-static">${member.rows[0].member_phone}</p>
                                           </div>
                                         </div>
                                     </div><!-- /.box-body -->
