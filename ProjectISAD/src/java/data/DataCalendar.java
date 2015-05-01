@@ -12,11 +12,16 @@ import java.sql.Connection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -61,10 +66,10 @@ public class DataCalendar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List l = new ArrayList();
-        
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-
+            List l = new ArrayList();
+            
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            
 //        CalendarDTO c = new CalendarDTO();
 //        c.setId(1);
 //        c.setStart("2015-04-15");
@@ -81,12 +86,21 @@ public class DataCalendar extends HttpServlet {
 //
 //        l.add(c);
 //        l.add(d);
-
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        PrintWriter out = response.getWriter();
+//            JSONParser parser=new JSONParser();
+//            String s = "{\"comment\":\"test_comment\"}";
+//            Object obj = parser.parse(s);
+//            JSONObject obj2 = (JSONObject)obj;
+//            response.getWriter().println(obj2.get("comment"));
+//            
+//            
+            
+            
+            
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            PrintWriter out = response.getWriter();
 //        out.write(new Gson().toJson(l));
-        out.write(new Gson().toJson(model.CalendarDTO.getEvent(conn)));
+            out.write(new Gson().toJson(model.CalendarDTO.getEvent(conn)));
     }    
 
     /**
