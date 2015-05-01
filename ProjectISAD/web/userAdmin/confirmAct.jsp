@@ -1,6 +1,6 @@
 <%-- 
     Document   : confirmAct
-    Created on : May 2, 2015, 12:29:29 AM
+    Created on : May 2, 2015, 12:48:44 AM
     Author     : Nichnon
 --%>
 
@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>รายชื่อสมาชิก</title>
+        <title>กิจกรรมที่กำลังดำเนินการ</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- Bootstrap 3.3.2 -->
         <link href="../template/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -126,7 +126,7 @@
                             <ul class="treeview-menu">
                                 <li><a href="createAct.html"><i class="fa fa-circle-o"></i> สร้างกิจกรรม</a></li>
                                 <li><a href="listAct.html"><i class="fa fa-circle-o"></i> กิจกรรมที่กำลังดำเนินการ</a></li>
-                                <li><a href="confirmAct.html"><i class="fa fa-circle-o"></i> ยืนยันการเข้าร่วมกิจกรรม</a></li>
+                                <li class="active"><a href="confirmAct.html"><i class="fa fa-circle-o"></i> ยืนยันการเข้าร่วมกิจกรรม</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -137,7 +137,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="listMem.html"><i class="fa fa-circle-o"></i> รายชื่อสมาชิก</a></li>
-                                <li class="active"><a href="confirmMem.html"><i class="fa fa-circle-o"></i> ยืนยันการสมัครสมาชิก</a></li>
+                                <li><a href="confirmMem.html"><i class="fa fa-circle-o"></i> ยืนยันการสมัครสมาชิก</a></li>
                             </ul>
                         </li>
                         <li class="treeview">
@@ -161,56 +161,65 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        รายชื่อสมาชิก
+                        กิจกรรมที่กำลังดำเนินการ
                     </h1>                    
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
-                        <div class="col-xs-12" >
+                        <div class="col-xs-12">
                             <div class="box">
                                 <div class="box-header">
-                                    <h3 class="box-title">รายชื่อสมาชิก</h3>
+                                    <h3 class="box-title">รายชื่อกิจกรรมที่กำลังดำเนินการ</h3>
                                 </div><!-- /.box-header -->
                                 <form role="form">
                                     <div class="box-body">
                                         <table id="example1" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
+                                                    <th>ชื่อกิจกรรม</th>
+                                                    <th>เริ่มวันที่</th>
                                                     <th>ชื่อ</th>
                                                     <th>นามสกุล</th>
                                                     <th>ชื่อเล่น</th>
                                                     <th>อายุ</th>
                                                     <th>จังหวัด</th>
-                                                    <th>อาชีพ</th>
-                                                    <th>ตัวเลือก</th>
+                                                    <th>สมัคร</th>
+                                                    <th>รับ</th>
+                                                    <th>ยืนยัน</th>
                                                 </tr>
                                             </thead>
-                                            <sql:query dataSource="test" var ="user">
+
+                                            <sql:query dataSource="test" var ="act">
                                                 SELECT * 
-                                                FROM Member_User
-                                                LEFT JOIN Member_Data
-                                                USING (member_id);
-                                            </sql:query> 
+                                                FROM Event_Request
+                                                LEFT OUTER JOIN Member_Data
+                                                USING (member_id)
+                                                JOIN Event_Active
+                                                USING (event_active_id)
+                                                JOIN Event_List
+                                                USING (event_id);
+                                            </sql:query>
+                                           
                                             <tbody>
-                                                <c:forEach var="user" items="${user.rows}">
+                                                <c:forEach var="act" items="${act.rows}">
                                                     <tr>
-                                                        <td>${user.member_firstname}</td>
-                                                        <td>${user.member_lastname}</td>
-                                                        <td>${user.member_nickname}</td>
-                                                        <td>20</td>
-                                                        <td>${user.member_province}</td>
-                                                        <td>${user.member_job}</td>
+                                                        <td>${act.event_name}</td>
+                                                        <td>${act.event_start}</td>
+                                                        <td>${act.member_firstname}</td>
+                                                        <td>${act.member_lastname}</td>
+                                                        <td>${act.member_nickname}</td>
+                                                        <td>35</td>
+                                                        <td>${act.member_province}</td>
+                                                        <td>0</td>
+                                                        <td>${act.event_amount}</td>
                                                         <td>
-                                                            <button type="submit" class="btn btn-box-tool">
-                                                                <i class="fa fa-info-circle"></i>
-                                                            </button>
-                                                            <button type="submit" class="btn btn-box-tool" style="color: #4cae4c">
-                                                                <i class="fa fa-check-circle"></i>
+                                                            <button type="submit" class="btn btn-success btn-xs">
+                                                                <i class="fa fa-check"></i>
                                                             </button> 
-                                                            <button type="submit" class="btn btn-box-tool" style="color: #d43f3a">
-                                                                <i class="fa fa-times-circle"></i>
+                                                            <button type="submit" class="btn btn-danger btn-xs">
+                                                                <i class="fa fa-times"></i>
                                                             </button>
                                                         </td>                                                
                                                     </tr>
