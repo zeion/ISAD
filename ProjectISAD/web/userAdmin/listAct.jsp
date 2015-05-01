@@ -202,7 +202,14 @@
                                                     <tr>
                                                         <td>${event.event_name}</td>
                                                         <td>${event.event_start}</td>
-                                                        <td>0${ev_num.rows[0].count}</td>
+                                                        <td>
+                                                            <c:if test="${not empty ev_num.rows[0].count}">
+                                                                ${ev_num.rows[0].count}
+                                                            </c:if>
+                                                            <c:if test="${empty ev_num.rows[0].count}">
+                                                                0
+                                                            </c:if>
+                                                        </td>
                                                         <td>${event.event_amount}</td>
                                                         <td>${event.event_detail}</td>
                                                         <td>                                                            

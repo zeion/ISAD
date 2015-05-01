@@ -1,19 +1,30 @@
 <%-- 
-    Document   : listActReport
-    Created on : May 2, 2015, 2:49:14 AM
+    Document   : printActReport
+    Created on : May 2, 2015, 3:23:15 AM
     Author     : Admin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<sql:query dataSource="test" var ="evlist">
+<sql:query dataSource="test" var ="event">
     SELECT * 
     FROM Event_List
     JOIN Event_Active
     USING (event_ID)
+    WHERE event_active_ID = ${param.act}
+</sql:query>
+<sql:query dataSource="test" var ="members">
+    SELECT * 
+    FROM Event_Request
+    JOIN Member_User
+    USING (member_ID)
+    JOIN Member_Data
+    USING (member_ID)
     JOIN Location
     USING (location_ID)
+    WHERE event_active_ID = ${param.act}
+    ORDER BY member_ID
 </sql:query>
 <!DOCTYPE html>
 <html>
@@ -168,7 +179,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        จัดทำรายงาน
+                        ${event.rows[0].event_name}
                     </h1>
                 </section>
 
@@ -177,38 +188,46 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="box box-primary box-success">
-                                <div class="box-header">
-                                    <h3 class="box-title">รายชื่อกิจกรรม</h3>
-                                </div><!-- /.box-header -->
-                                    <form action="printActReport.jsp">
-                                        <div class="box-body">
-                                            <table id="example2" class="table table-bordered table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th> เลือก </th>
-                                                        <th>ชื่อกิจกรรม</th>
-                                                        <th>วันที่เริ่ม</th>
-                                                        <th>สถานที่จัด</th>
-                                                        <th>รายละเอียด</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <c:forEach var="event" items="${evlist.rows}">
-                                                        <tr>
-                                                            <td><input type="radio" name="act" class="flat-red" value="${event.event_active_ID}" /></td>
-                                                            <td>${event.event_name}</td>
-                                                            <td>${event.event_start}</td>
-                                                            <td>${event.location_name}</td>
-                                                            <td>${event.event_detail}</td>                                  
-                                                        </tr>
-                                                    </c:forEach>
-                                                </tbody>
-                                            </table>                 
-                                        </div><!-- /.box-body -->
-                                        <button class="btn btn-primary pull-right" type="submit" style="margin-top: 1%;"> จัดทำรายงาน</button>
-                                    </form>
-                                </form>
-                            </div><!-- /.box -->                           
+                                <div class="box-body" id="printableArea">
+                                    <h1 style="text-align: center;">รายงานผู้เข้าร่วมกิจกรรม</h1>
+                                    <h1 style="text-align: center;">${event.rows[0].event_name}</h1>
+                                    <div class="box-body">
+                                        <table class="table table-bordered" align="center">
+                                            <thead style="background-color: #0099FF; color: white;" >
+                                                <tr>
+                                                    <th style="text-align: center;" class="col-xs-1">รหัส</th>
+                                                    <th style="text-align: center;" class="col-xs-2">ชื่อ</th>
+                                                    <th style="text-align: center;" class="col-xs-2">นามสกุล</th>
+                                                    <th style="text-align: center;" class="col-xs-1">เพศ</th>
+                                                    <th style="text-align: center;" class="col-xs-1">วันเกิด</th>
+                                                    <th style="text-align: center;" class="col-xs-2">เบอร์โทรศัพท์ </th>
+                                                    <th style="text-align: center;" class="col-xs-2">เขต</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="text-align: center;">
+                                                <c:forEach var="member" items="${members.rows}">
+                                                <tr>
+                                                    <td>${member.member_ID}</td>
+                                                    <td>${member.member_firstname}</td>
+                                                    <td>${member.member_lastname}</td>
+                                                    <td> <c:if test="${member.member_sex == 1}">
+                                                        ชาย
+                                                    </c:if>
+                                                    <c:if test="${member.member_sex == 0}">
+                                                        หญิง
+                                                    </c:if></td>
+                                                    <td>${member.member_bd}</td> 
+                                                    <td>${member.member_phone}</td> 
+                                                    <td>${member.location_area}</td> 
+                                                </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>                                     
+                                    </div>
+                                </div><!-- /.box-body -->       
+                            </div><!-- /.box -->
+                            <button type="submit" class="btn btn-primary pull-right" style="margin-left: 1%;" onclick="printDiv('printableArea')">พิมพ์รายงาน</button>
+                            <a class="btn btn-default pull-right" href="listActReport.html">ยกเลิก</a>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </section><!-- /.content -->
@@ -238,26 +257,39 @@
         <script src="../template/dist/js/combodate.js"></script>
         <!-- combodate -->
         <script type="text/javascript">
-            $(function () {
-                $("#example1").dataTable();
-                $('#example2').dataTable({
-                    "bPaginate": true,
-                    "bLengthChange": false,
-                    "bFilter": false,
-                    "bSort": true,
-                    "bInfo": true,
-                    "bAutoWidth": false
-                });
+                                $(function () {
+                                    $("#example1").dataTable();
+                                    $('#example2').dataTable({
+                                        "bPaginate": true,
+                                        "bLengthChange": false,
+                                        "bFilter": false,
+                                        "bSort": true,
+                                        "bInfo": true,
+                                        "bAutoWidth": false
+                                    });
 
-                //Datemask dd/mm/yyyy
-                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                                    //Datemask dd/mm/yyyy
+                                    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
 
-                //Flat red color scheme for iCheck
-                $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-                    checkboxClass: 'icheckbox_flat-green',
-                    radioClass: 'iradio_flat-green'
-                });
-            });
+                                    //Flat red color scheme for iCheck
+                                    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+                                        checkboxClass: 'icheckbox_flat-green',
+                                        radioClass: 'iradio_flat-green'
+                                    });
+                                });
+        </script>
+        <script>
+            function printDiv(divName) {
+                var printContents = document.getElementById(divName).innerHTML;
+                var originalContents = document.body.innerHTML;
+
+                document.body.innerHTML = printContents;
+
+                window.print();
+
+                document.body.innerHTML = originalContents;
+            }
         </script>
     </body>
 </html>
+

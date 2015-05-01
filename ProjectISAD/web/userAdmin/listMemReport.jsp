@@ -176,7 +176,7 @@
                                                     <th class="col-xs-1" style="text-align: center;">รหัส</th>
                                                     <th class="col-xs-2" style="text-align: center;">ชื่อ</th>
                                                     <th class="col-xs-2" style="text-align: center;">นามสกุล</th>
-                                                    <th class="col-xs-1" style="text-align: center;">อายุ</th>
+                                                    <th class="col-xs-1" style="text-align: center;">วันเกิด</th>
                                                     <th class="col-xs-1" style="text-align: center;">จังหวัด</th>
                                                 </tr>
                                             </thead>
@@ -192,7 +192,7 @@
                                                         <td>${member.member_id}</td>
                                                         <td>${member.member_firstname}</td>
                                                         <td>${member.member_lastname}</td>
-                                                        <td>20</td>
+                                                        <td>${member.member_bd}</td>
                                                         <td>${member.member_province}</td>          
                                                     </tr>
                                                 </c:forEach>
