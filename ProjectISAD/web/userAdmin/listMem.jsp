@@ -184,7 +184,6 @@
                                                     <th>ชื่อ</th>
                                                     <th>นามสกุล</th>
                                                     <th>ชื่อเล่น</th>
-                                                    <th>อายุ</th>
                                                     <th>จังหวัด</th>
                                                     <th>อาชีพ</th>
                                                     <th>ตัวเลือก</th>
@@ -202,7 +201,6 @@
                                                         <td>${member.member_firstname}</td>
                                                         <td>${member.member_lastname}</td>
                                                         <td>${member.member_nickname}</td>
-                                                        <td>18</td>
                                                         <td>${member.member_province}</td>
                                                         <td>ว${member.member_job}</td>
                                                         <td><button type="submit" class="btn btn-box-tool"><i class="fa fa-info-circle"></i></button> <button type="submit" class="btn btn-box-tool"><i class="fa fa-wrench"></i></button></td>
