@@ -241,7 +241,7 @@
                                     </div><!-- /.box-body -->
                                 </form>
                             </div><!-- /.box -->
-                            <a class="btn btn-primary pull-right" href="editProfile.html">แก้ไข</a>
+                            <a class="btn btn-primary pull-right" href="editProfile.jsp?id=${param.id}">แก้ไข</a>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </section><!-- /.content -->
