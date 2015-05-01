@@ -1,36 +1,18 @@
 <%-- 
-    Document   : detailAct
-    Created on : Apr 30, 2015, 8:41:57 PM
+    Document   : createAct
+    Created on : May 1, 2015, 12:50:38 PM
     Author     : Admin
 --%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<sql:query dataSource="test" var ="event">
-    SELECT * 
-    FROM Event_Active
-    JOIN Event_List
-    USING (event_ID)
-    JOIN Location
-    USING (location_ID)
-    WHERE event_active_ID = ${param.id}
-</sql:query>
-    
-<sql:query dataSource="test" var ="ev_num">
-    SELECT count(*) AS count
-    FROM Event_Request
-    GROUP BY event_active_ID
-    HAVING event_active_ID = ${param.id}
-</sql:query>
-    
-
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>รายละเอียดกิจกรรม</title>
+        <title>สร้างกิจกรรม</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- Bootstrap 3.3.2 -->
         <link href="../template/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -165,8 +147,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> รายงานส่วนบุคคล</a></li>
-                                <li><a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i>รายงานตามรูปแบบ</a></li>
+                                <li><a href="listMemReport.html"><i class="fa fa-circle-o"></i> รายงานข้อมูลส่วนบุคคล</a></li>
+                                <li><a href="listActReport.html"><i class="fa fa-circle-o"></i>รายงานกิจกรรม</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -179,47 +161,86 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        รายละเอียดกิจกรรม
+                        สร้างกิจกรรม
                     </h1>
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
-                    <div class="col-md-12">
-                        <div class="box box-solid">
-                            <c:forEach var="row" items="${event.rows}">                     
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">${row.event_name}</h3>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box box-primary box-success">
+                                <div class="box-header">
+                                    <h3 class="box-title">รายชื่อกิจกรรม</h3>
                                 </div><!-- /.box-header -->
-                                <div class="box-body">
-                                    <dl class="dl-horizontal">
-                                        <dt><span class="glyphicon glyphicon-calendar"></span></dt>
-                                        <dd>${row.e_enable_date}</dd>
-                                        <dt><span class="glyphicon glyphicon-time"></span></dt>
-                                        <dd>ระยะเวลา ${row.event_day} วัน</dd>
-                                        <dt><span class="glyphicon glyphicon-map-marker"></span></dt>
-                                        <dd>${row.location_name} - ${row.location_area}</dd>
-                                        <dd class="text-muted">${row.location_address} ${row.location_province}</dd>
-                                        <dt>สมัคร / ทั้งหมด</dt>
-                                        <dd><span class="text-success"><c:forEach var="num" items="${ev_num.rows}">${num.count}</c:forEach></span> / <span class="text-danger">${row.e_enable_num}</span></dd>
-                                    </dl>
-                                </div><!-- /.box-body -->
-                            </c:forEach>
-                                
-                            
-                        </div><!-- /.box -->
-                    </div>
-                    <div class="col-md-12">
-                        <div class="box box-solid">
-                            <div class="box-body">
-                                <dl class="dl-horizontal">
-                                    <dt>รายละเอียด</dt>
-                                    <dd>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรก โดยจะมีการอธิบายเกี่ยวกับสถานธรรม</dd>
-                                </dl>
-                            </div><!-- /.box-body -->
-                        </div><!-- /.box -->
-                        <a class="btn btn-primary pull-right" href="editActDetail.html">แก้ไข</a>
-                    </div>
+                                <form action="../createAct.do" method="post">
+                                    <div class="box-body">
+                                        <table id="example2" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th> เลือก </th>
+                                                    <th>ชื่อกิจกรรม</th>
+                                                    <th>ระยะเวลา(วัน)</th>
+                                                    <th>รายละเอียด</th>
+                                                </tr>
+                                            </thead>
+                                            <sql:query dataSource="test" var ="memlist">
+                                                SELECT * 
+                                                FROM Event_List
+                                            </sql:query>
+                                            <tbody>
+                                            <c:forEach var="event" items="${memlist.rows}">
+                                                <tr>
+                                                    <td><input type="radio" name="act" class="flat-red" value="${event.event_ID}" checked/></td>
+                                                    <td>${event.event_name}</td>
+                                                    <td>${event.event_day}</td>
+                                                    <td>${event.event_detail}</td>                                  
+                                                </tr>
+                                            </c:forEach>  
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th> เลือก </th>
+                                                    <th>ชื่อกิจกรรม</th>
+                                                    <th>ระยะเวลา(วัน)</th>
+                                                    <th>รายละเอียด</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <div class="row">           
+                                            <div class="col-xs-4">
+                                                <div class="form-group">
+                                                    <label>Date masks:</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                        </div>
+                                                        <input type="text" name="start" class="form-control" placeholder="dd-mm-yyyy"/>
+                                                    </div><!-- /.input group -->
+                                                </div><!-- /.form group -->
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <div class="form-group">
+                                                    <label>จำนวนคนที่รับ</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">
+                                                            <i class="fa fa-users"></i>
+                                                        </div>
+                                                        <input type="text" name="amount" class="form-control" />
+                                                    </div>
+                                                </div> 
+                                            </div>
+                                        </div>                                      
+
+                                    </div><!-- /.box-body -->
+
+                                    <div class="box-footer">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div><!-- /.box -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
         </div><!-- ./wrapper -->
@@ -244,6 +265,8 @@
         <script src="../template/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
         <script src="../template/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
         <!-- page script -->
+        <script src="../template/dist/js/combodate.js"></script>
+        <!-- combodate -->
         <script type="text/javascript">
             $(function () {
                 $("#example1").dataTable();
@@ -268,3 +291,4 @@
         </script>
     </body>
 </html>
+

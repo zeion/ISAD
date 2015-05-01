@@ -37,10 +37,11 @@ public class Person {
     public Person() {
     }
 
-    public Person(String type, boolean status, int id, String firstname, String lastname, String email) {
+    public Person(String type, boolean status, int id,String location, String firstname, String lastname, String email) {
         this.type = type;
         this.status = status;
         this.id = id;
+        this.location = location;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -190,7 +191,7 @@ public class Person {
             Statement stmt = conn.createStatement();
             ResultSet member = stmt.executeQuery(sql);
             member.next();
-            Person person = new Person(member.getString("member_type"),member.getBoolean("member_status"), member.getInt("member_ID"), member.getString("member_firstname"),member.getString("member_lastname"), member.getString("member_email"));
+            Person person = new Person(member.getString("member_type"),member.getBoolean("member_status"), member.getInt("member_ID"),member.getString("location_ID"), member.getString("member_firstname"),member.getString("member_lastname"), member.getString("member_email"));
             return person;
         }catch(Exception e){
             e.printStackTrace();

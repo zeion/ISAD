@@ -8,27 +8,28 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Event;
 import model.Person;
 
 /**
  *
  * @author Admin
  */
-@WebServlet(name = "loginController", urlPatterns = {"/loginController"})
-public class loginController extends HttpServlet {
+@WebServlet(name = "createActController", urlPatterns = {"/createAct.do"})
+public class createActController extends HttpServlet {
 
     Connection conn;
+
     public void init() {
         conn = (Connection) getServletContext().getAttribute("connection");
     }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,24 +44,16 @@ public class loginController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            try{
-            String sql = "SELECT member_ID FROM Member_User WHERE member_user =\""+username+"\" AND member_pass =\""+password+"\" AND member_status = true";
-            Statement stmt = conn.createStatement();
-            ResultSet resultSet = stmt.executeQuery(sql);
-            if(resultSet.next()){
-                Person person = model.Person.getLoginData(resultSet.getInt("member_ID"),conn);
-                HttpSession session = request.getSession();
-                session.setAttribute("person", person);
-                response.sendRedirect("userAdmin/mainpage.html");
-            }else{
-                response.sendRedirect("login.html");
-            }
-                
-            }catch(Exception e){
-                e.printStackTrace();
-            }
+            String act = request.getParameter("act");
+            String start = request.getParameter("start");
+            String amount = request.getParameter("amount");
+            
+            HttpSession session = request.getSession();
+            Person person = (Person) session.getAttribute("person");       
+            Event newEvent = new Event(person.getId(),act, start,person.getLocation(),conn,amount);
+            
+            newEvent.creatAct();
+            
         }
     }
 
