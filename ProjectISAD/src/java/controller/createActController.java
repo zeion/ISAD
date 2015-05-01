@@ -52,7 +52,11 @@ public class createActController extends HttpServlet {
             Person person = (Person) session.getAttribute("person");       
             Event newEvent = new Event(person.getId(),act, start,person.getLocation(),conn,amount);
             
-            newEvent.creatAct();
+            if(newEvent.creatAct()){
+                response.sendRedirect("userAdmin/createAct.jsp?st='true'");
+            }else{
+                response.sendRedirect("userAdmin/createAct.jsp");
+            }
             
         }
     }

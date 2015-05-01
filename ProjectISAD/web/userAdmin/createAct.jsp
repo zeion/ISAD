@@ -236,6 +236,9 @@
 
                                     <div class="box-footer">
                                         <button type="submit" class="btn btn-primary">Submit</button>
+                                        <c:if test="${not empty param.st}">
+                                            &nbsp สร้างกิจกรรมสำเร็จ
+                                        </c:if>
                                     </div>
                                 </form>
                             </div><!-- /.box -->

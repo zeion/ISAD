@@ -32,7 +32,7 @@ public class Event {
     private String detail;
     private int amount;
 
-    private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    private DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
     
     public Event(int member_id,String event, String start, String location, Connection conn, String amount) {
         try {
@@ -47,7 +47,7 @@ public class Event {
         }
     }
 
-    public void creatAct() {
+    public boolean creatAct() {
 
         try {
             
@@ -60,10 +60,13 @@ public class Event {
             pstmtup.setInt(3,this.member_id);
             pstmtup.setDate(4,new java.sql.Date(this.start.getTime()));
             pstmtup.setInt(5,this.amount);
-            
+           
             pstmtup.executeUpdate();
+            
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(Event.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
     }
 
