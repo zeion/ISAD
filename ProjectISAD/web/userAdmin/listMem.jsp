@@ -203,8 +203,8 @@
                                                         <td>${member.member_nickname}</td>
                                                         <td>${member.member_province}</td>
                                                         <td>${member.member_job}</td>
-                                                        <td><a class="btn btn-default btn-xs" href="printMemReport.jsp?selected=${member.member_id}"><i class="fa fa-info-circle"></i></a>
-                                                            <a class="btn btn-default btn-xs" href="printMemReport.jsp?selected=${member.member_id}"><i class="fa fa-wrench"></i></a>
+                                                        <td><a class="btn btn-default btn-xs" href="showProfile.jsp?id=${member.member_id}"><i class="fa fa-info-circle"></i></a>
+                                                            <a class="btn btn-default btn-xs" href="showProfile.jsp?id=${member.member_id}"><i class="fa fa-wrench"></i></a>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>
