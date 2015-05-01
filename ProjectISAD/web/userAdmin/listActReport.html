@@ -137,8 +137,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> รายงานข้อมูลส่วนบุคคล</a></li>
-                                <li><a href="listReport.html"><i class="fa fa-circle-o"></i>รายงานกิจกรรม</a></li>
+                                <li><a href="listMemReport.html"><i class="fa fa-circle-o"></i> รายงานข้อมูลส่วนบุคคล</a></li>
+                                <li><a href="listActReport.html"><i class="fa fa-circle-o"></i>รายงานกิจกรรม</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -151,85 +151,108 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        หมิงเต้าปัน 1
+                        จัดทำรายงาน
                     </h1>
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
-                    <div class="row">
+                  <div class="row">
                         <div class="col-xs-12">
                             <div class="box box-primary box-success">
-                                <div class="box-body" id="printableArea">
-                                    <h1 style="text-align: center;">รายงานผู้เข้าร่วมกิจกรรม</h1>
-                                    <h1 style="text-align: center;">หมิงเต้าปัน 1</h1>
+                                <div class="box-header">
+                                    <h3 class="box-title">รายชื่อกิจกรรม</h3>
+                                </div><!-- /.box-header -->
+                                <form role="form">
                                     <div class="box-body">
-                                        <table class="table table-bordered" align="center">
-                                            <thead style="background-color: #0099FF; color: white;" >
+                                        <table id="example2" class="table table-bordered table-hover">
+                                            <thead>
                                                 <tr>
-                                                    <th style="text-align: center;" class="col-xs-1">รหัส</th>
-                                                    <th style="text-align: center;" class="col-xs-2">ชื่อ</th>
-                                                    <th style="text-align: center;" class="col-xs-2">นามสกุล</th>
-                                                    <th style="text-align: center;" class="col-xs-1">เพศ</th>
-                                                    <th style="text-align: center;" class="col-xs-1">อายุ</th>
-                                                    <th style="text-align: center;" class="col-xs-2">เบอร์โทรศัพท์ </th>
-                                                    <th style="text-align: center;" class="col-xs-2">เขต</th>
+                                                    <th> เลือก </th>
+                                                    <th>ชื่อกิจกรรม</th>
+ 
+                                                    <th>รายละเอียด</th>
                                                 </tr>
                                             </thead>
-                                            <tbody style="text-align: center;">
+                                            <tbody>
                                                 <tr>
-                                                    <td>01</td>
-                                                    <td>สมหมาย</td>
-                                                    <td>ขายของเก่า</td>
-                                                    <td>ชาย</td>
-                                                    <td>22</td> 
-                                                    <td>081-234-5678</td> 
-                                                    <td>ตะวันออก</td> 
+                                                    <td><input type="radio" name="act" class="flat-red" value="1" checked/></td>
+                                                    <td>หมิงเต้าปัน1</td>
+                                                    
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
                                                 </tr>
                                                 <tr>
-                                                    <td>06</td>
-                                                    <td>อารยา</td>
-                                                    <td>อัมราพร</td>
-                                                    <td>หญิง</td> 
-                                                    <td>25</td> 
-                                                    <td>089-876-5432</td> 
-                                                    <td>ตะวันออก</td>                            
+                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
+                                                    <td>หมิงเต้าปัน2</td>
+                                            
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
                                                 </tr>  
                                                 <tr>
-                                                    <td>10</td>
-                                                    <td>ติน่า</td>
-                                                    <td>ล่าขุมนรก</td>
-                                                    <td>หญิง</td>
-                                                    <td>26</td> 
-                                                    <td>081-444-4365</td> 
-                                                    <td>กลาง</td>                             
+                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
+                                                    <td>หมิงเต้าปัน3</td>
+                                                    
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
                                                 </tr>  
                                                 <tr>
-                                                    <td>18</td>
-                                                    <td>สมิธ</td>
-                                                    <td>คิดมาก</td>
-                                                    <td>ชาย</td> 
-                                                    <td>30</td> 
-                                                    <td>081-789-9076</td> 
-                                                    <td>ใต้</td>                
+                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
+                                                    <td>หมิงเต้าปัน4</td>
+                                      
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
                                                 </tr>  
                                                 <tr>
-                                                    <td>29</td>
-                                                    <td>ยาใจ</td>
-                                                    <td>สมัยเก่า</td>
-                                                    <td>หญิง</td> 
-                                                    <td>35</td> 
-                                                    <td>089-333-4434</td> 
-                                                    <td>เหนือ</td>                            
+                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
+                                                    <td>หมิงเต้าปัน5</td>
+                                  
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
                                                 </tr>  
-
+                                                <tr>
+                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
+                                                    <td>หมิงเต้าปัน6</td>
+                                                 
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
+                                                </tr>  
+                                                <tr>
+                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
+                                                    <td>หมิงเต้าปัน7</td>
+                               
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
+                                                </tr>  
+                                                <tr>
+                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
+                                                    <td>หมิงเต้าปัน8</td>
+                                        
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
+                                                </tr>  
+                                                <tr>
+                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
+                                                    <td>หมิงเต้าปัน9</td>
+                                             
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
+                                                </tr>  
+                                                <tr>
+                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
+                                                    <td>หมิงเต้าปัน10</td>
+        
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
+                                                </tr>  
+                                                <tr>
+                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
+                                                    <td>หมิงเต้าปัน11</td>
+                                                
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
+                                                </tr>  
+                                                <tr>
+                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
+                                                    <td>หมิงเต้าปัน10</td>
+                              
+                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
+                                                </tr>  
                                             </tbody>
                                         </table>                                     
-                                    </div>
-                                </div><!-- /.box-body -->       
+                                    </div><!-- /.box-body -->       
+                                </form>
                             </div><!-- /.box -->
-                            <button type="submit" class="btn btn-primary pull-right" style="margin-left: 1%;" onclick="printDiv('printableArea')">พิมพ์รายงาน</button>
-                            <a class="btn btn-default pull-right" href="listReport.html">ยกเลิก</a>
+                              <a class="btn btn-primary pull-right" href="printReport.html">จัดทำรายงาน</a>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </section><!-- /.content -->
@@ -259,38 +282,26 @@
         <script src="../template/dist/js/combodate.js"></script>
         <!-- combodate -->
         <script type="text/javascript">
-                                $(function () {
-                                    $("#example1").dataTable();
-                                    $('#example2').dataTable({
-                                        "bPaginate": true,
-                                        "bLengthChange": false,
-                                        "bFilter": false,
-                                        "bSort": true,
-                                        "bInfo": true,
-                                        "bAutoWidth": false
-                                    });
+            $(function () {
+                $("#example1").dataTable();
+                $('#example2').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
 
-                                    //Datemask dd/mm/yyyy
-                                    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
 
-                                    //Flat red color scheme for iCheck
-                                    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-                                        checkboxClass: 'icheckbox_flat-green',
-                                        radioClass: 'iradio_flat-green'
-                                    });
-                                });
-        </script>
-        <script>
-            function printDiv(divName) {
-                var printContents = document.getElementById(divName).innerHTML;
-                var originalContents = document.body.innerHTML;
-
-                document.body.innerHTML = printContents;
-
-                window.print();
-
-                document.body.innerHTML = originalContents;
-            }
+                //Flat red color scheme for iCheck
+                $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+                    checkboxClass: 'icheckbox_flat-green',
+                    radioClass: 'iradio_flat-green'
+                });
+            });
         </script>
     </body>
 </html>

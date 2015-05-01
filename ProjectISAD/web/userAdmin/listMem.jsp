@@ -150,7 +150,7 @@
                             </a>
                             <ul class="treeview-menu">
                                 <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> รายงานข้อมูลส่วนบุคคล</a></li>
-                                <li><a href="listReport.html"><i class="fa fa-circle-o"></i>รายงานกิจกรรม</a></li>
+                                <li><a href="listActReport.html"><i class="fa fa-circle-o"></i>รายงานกิจกรรม</a></li>
                             </ul>
                         </li>
                     </ul>

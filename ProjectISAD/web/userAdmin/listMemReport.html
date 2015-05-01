@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>รายงาน</title>
+        <title>รายงานข้อมูลส่วนบุคคล</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- Bootstrap 3.3.2 -->
         <link href="../template/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -137,8 +137,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                               <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> รายงานข้อมูลส่วนบุคคล</a></li>
-                                <li><a href="listReport.html"><i class="fa fa-circle-o"></i>รายงานกิจกรรม</a></li>
+                                <li><a href="listMemReport.html"><i class="fa fa-circle-o"></i> รายงานข้อมูลส่วนบุคคล</a></li>
+                                <li><a href="listActReport.html"><i class="fa fa-circle-o"></i>รายงานกิจกรรม</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -151,108 +151,62 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        จัดทำรายงาน
+                        จัดทำรายงานส่วนบุคคล
                     </h1>
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
-                  <div class="row">
+                    <div class="row">
                         <div class="col-xs-12">
                             <div class="box box-primary box-success">
                                 <div class="box-header">
-                                    <h3 class="box-title">รายชื่อกิจกรรม</h3>
+                                    <h3 class="box-title">รายชื่อสมาชิก</h3>
                                 </div><!-- /.box-header -->
                                 <form role="form">
                                     <div class="box-body">
                                         <table id="example2" class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th> เลือก </th>
-                                                    <th>ชื่อกิจกรรม</th>
- 
-                                                    <th>รายละเอียด</th>
+                                                    <th class="col-xs-1" style="text-align: center;">เลือก</th>
+                                                    <th class="col-xs-1" style="text-align: center;">รหัส</th>
+                                                    <th class="col-xs-2" style="text-align: center;">ชื่อ</th>
+                                                    <th class="col-xs-2" style="text-align: center;">นามสกุล</th>
+                                                    <th class="col-xs-1" style="text-align: center;">อายุ</th>
+                                                    <th class="col-xs-1" style="text-align: center;">จังหวัด</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody style="text-align: center;">
                                                 <tr>
                                                     <td><input type="radio" name="act" class="flat-red" value="1" checked/></td>
-                                                    <td>หมิงเต้าปัน1</td>
-                                                    
-                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
+                                                    <td>01</td>
+                                                    <td>วีระ</td>
+                                                    <td>แย้มเดช</td>
+                                                    <td>20</td>
+                                                    <td>กรุงเทพ</td>          
                                                 </tr>
                                                 <tr>
                                                     <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>หมิงเต้าปัน2</td>
-                                            
-                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
+                                                    <td>02</td>
+                                                    <td>ธีระพล</td>
+                                                    <td>เทศเวทินากร</td>
+                                                    <td>35</td>
+                                                    <td>ปธุมธานี</td>                         
                                                 </tr>  
                                                 <tr>
                                                     <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>หมิงเต้าปัน3</td>
-                                                    
-                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
-                                                </tr>  
-                                                <tr>
-                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>หมิงเต้าปัน4</td>
-                                      
-                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
-                                                </tr>  
-                                                <tr>
-                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>หมิงเต้าปัน5</td>
-                                  
-                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
-                                                </tr>  
-                                                <tr>
-                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>หมิงเต้าปัน6</td>
-                                                 
-                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
-                                                </tr>  
-                                                <tr>
-                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>หมิงเต้าปัน7</td>
-                               
-                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
-                                                </tr>  
-                                                <tr>
-                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>หมิงเต้าปัน8</td>
-                                        
-                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
-                                                </tr>  
-                                                <tr>
-                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>หมิงเต้าปัน9</td>
-                                             
-                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
-                                                </tr>  
-                                                <tr>
-                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>หมิงเต้าปัน10</td>
-        
-                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
-                                                </tr>  
-                                                <tr>
-                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>หมิงเต้าปัน11</td>
-                                                
-                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
-                                                </tr>  
-                                                <tr>
-                                                    <td><input type="radio" name="act" class="flat-red" value="1"/></td>
-                                                    <td>หมิงเต้าปัน10</td>
-                              
-                                                    <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>                                  
+                                                    <td>03</td>
+                                                    <td>กิติคุณ</td>
+                                                    <td>ขาวล้ำเลิศ</td>
+                                                    <td>18</td>
+                                                    <td>กรุงเทพ</td>                              
                                                 </tr>  
                                             </tbody>
                                         </table>                                     
                                     </div><!-- /.box-body -->       
                                 </form>
                             </div><!-- /.box -->
-                              <a class="btn btn-primary pull-right" href="printReport.html">จัดทำรายงาน</a>
+                            <a class="btn btn-primary pull-right" href="printReport.html">จัดทำรายงาน</a>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </section><!-- /.content -->
