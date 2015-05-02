@@ -36,7 +36,7 @@
     <body class="skin-blue">
         <div class="wrapper">
 
-            <header class="main-header">
+                        <header class="main-header">
                 <!-- Logo -->
                 <a href="index2.html" class="logo">มูลนิธิธรรมกิจไพศาล</a>
                 <!-- Header Navbar: style can be found in header.less -->
@@ -53,36 +53,23 @@
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="../template/dist/img/user0.jpg" class="user-image" alt="User Image"/>
-                                    <span class="hidden-xs">สมหมาย ขายหอยทะเล</span>
+                                    <span class="hidden-xs">${sessionScope.person.firstname} ${sessionScope.person.lastname}</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
                                         <img src="../template/dist/img/user0.jpg" class="img-circle" alt="User Image" />
                                         <p>
-                                            สมหมาย ขายหอยทะเล
+                                            ${sessionScope.person.firstname} ${sessionScope.person.lastname}
                                             <small>สมาชิก</small>
                                         </p>
                                     </li>
-                                    <!-- Menu Body -->
-                                    <!-- <li class="user-body">
-                                      <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                      </div>
-                                      <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                      </div>
-                                      <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                      </div>
-                                    </li> -->
-                                    <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
                                             <a href="profile.jsp" class="btn btn-default btn-flat">ข้อมูลส่วนตัว</a>
                                         </div>
                                         <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">ออกจากระบบ</a>
+                                            <a href="../login.html" class="btn btn-default btn-flat">ออกจากระบบ</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -101,7 +88,7 @@
                             <img src="../template/dist/img/user0.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>สมหมาย ขายหอยทะเล</p>
+                            <p>${sessionScope.person.firstname} ${sessionScope.person.lastname}</p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -110,7 +97,7 @@
                     <ul class="sidebar-menu">
                         <li class="header">เมนู</li>
                         <li class="active">
-                            <a href="mainpage.html">
+                            <a href="mainpage.jsp">
                                 <i class="fa fa-home"></i> <span>ตารางกิจกรรม</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>
@@ -120,17 +107,6 @@
                                 <span>ตรวจสอบสิทธิ์เข้ากิจกรรม</span><i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>
-                        <!-- <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-user"></i>
-                                <span>จัดการข้อมูลส่วนตัว</span>
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> ดูข้อมูลส่วนตัว</a></li>
-                                <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> แก้ไขข้อมูลส่วนตัว</a></li>
-                            </ul>
-                        </li> -->
                     </ul>
                 </section>
                 <!-- /.sidebar -->

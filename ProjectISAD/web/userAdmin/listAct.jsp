@@ -39,7 +39,7 @@
     <body class="skin-blue">
         <div class="wrapper">
 
-           <header class="main-header">
+            <header class="main-header">
                 <!-- Logo -->
                 <a href="mainpage.html" class="logo">มูลนิธิธรรมกิจไพศาล</a>
                 <!-- Header Navbar: style can be found in header.less -->
@@ -56,14 +56,14 @@
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <img src="../template/dist/img/admin.jpg" class="user-image" alt="User Image"/>
-                                    <span class="hidden-xs">สมหมาย ใจดีจัง</span>
+                                    <span class="hidden-xs">${sessionScope.person.firstname} ${sessionScope.person.lastname}</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
                                         <img src="../template/dist/img/admin.jpg" class="img-circle" alt="User Image" />
                                         <p>
-                                            สมหมาย ใจดีจัง
+                                            ${sessionScope.person.firstname} ${sessionScope.person.lastname}
                                             <small>เจ้าหน้าที่ส่วนกลาง</small>
                                         </p>
                                     </li>
@@ -85,7 +85,7 @@
                                             <a href="#" class="btn btn-default btn-flat">ข้อมูลส่วนตัว</a>
                                         </div>-->
                                         <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">ออกจากระบบ</a>
+                                            <a href="../login.html" class="btn btn-default btn-flat">ออกจากระบบ</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -104,7 +104,7 @@
                             <img src="../template/dist/img/admin.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>สมหมาย ใจดีจัง</p>
+                            <p>${sessionScope.person.firstname} ${sessionScope.person.lastname}</p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -113,7 +113,7 @@
                     <ul class="sidebar-menu">
                         <li class="header">เมนู</li>
                         <li class="active">
-                            <a href="mainpage.html">
+                            <a href="mainpage.jsp">
                                 <i class="fa fa-home"></i> <span>ตารางกิจกรรม</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>

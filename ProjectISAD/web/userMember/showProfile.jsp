@@ -1,36 +1,12 @@
-<%-- 
-    Document   : detailAct
-    Created on : Apr 30, 2015, 8:41:57 PM
-    Author     : Admin
---%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<sql:query dataSource="test" var ="event">
-    SELECT * 
-    FROM Event_Active
-    JOIN Event_List
-    USING (event_ID)
-    JOIN Location
-    USING (location_ID)
-    WHERE event_active_ID = ${param.id}
-</sql:query>
-
-<sql:query dataSource="test" var ="ev_num">
-    SELECT count(*) AS count
-    FROM Event_Request
-    GROUP BY event_active_ID
-    HAVING event_active_ID = ${param.id}
-</sql:query>
-
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>รายละเอียดกิจกรรม</title>
+        <title>ข้อมูลส่วนตัว</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- Bootstrap 3.3.2 -->
         <link href="../template/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -44,7 +20,7 @@
         <link href="../template/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- iCheck for checkboxes and radio inputs -->
         <link href="../template/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
-        <!-- AdminLTE Skins. Choose a skin from the css/skins
+        <!-- AdminLTE Skins. Choose a skin from the css/skins 
              folder instead of downloading all of them to reduce the load. -->
         <link href="../template/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
@@ -139,46 +115,95 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        รายละเอียดกิจกรรม
+                        ข้อมูลส่วนตัว
                     </h1>
                 </section>
 
+                <sql:query dataSource="test" var ="member">
+                    SELECT * 
+                    FROM Member_Data
+                    WHERE member_id = ${sessionScope.person.id};
+                </sql:query>
                 <!-- Main content -->
                 <section class="content">
-                    <c:forEach var="row" items="${event.rows}"> 
-                        <div class="col-md-12">
-                            <div class="box box-solid">                    
-                                <div class="box-header with-border">
-                                    <h3 class="box-title">${row.event_name}</h3>
-                                </div><!-- /.box-header -->
-                                <div class="box-body">
-                                    <dl class="dl-horizontal">
-                                        <dt><span class="glyphicon glyphicon-calendar"></span></dt>
-                                        <dd>${row.event_start}</dd>
-                                        <dt><span class="glyphicon glyphicon-time"></span></dt>
-                                        <dd>ระยะเวลา ${row.event_day} วัน</dd>
-                                        <dt><span class="glyphicon glyphicon-map-marker"></span></dt>
-                                        <dd>${row.location_name} - ${row.location_area}</dd>
-                                        <dd class="text-muted">${row.location_address} ${row.location_province}</dd>
-                                        <dt>สมัคร / ทั้งหมด</dt>
-                                        <dd><span class="text-success"><c:forEach var="num" items="${ev_num.rows}">${num.count}</c:forEach></span> / <span class="text-danger">${row.event_amount}</span></dd>
-                                        </dl>
-                                    </div><!-- /.box-body -->
-
-                                </div><!-- /.box -->
-                            </div>
-                            <div class="col-md-12">
-                                <div class="box box-solid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box">
+                                <form class="form-horizontal" role="form">
                                     <div class="box-body">
-                                        <dl class="dl-horizontal">
-                                            <dt>รายละเอียด</dt>
-                                            <dd>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรก โดยจะมีการอธิบายเกี่ยวกับสถานธรรม</dd>
-                                        </dl>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-2" for="fname">ชื่อ:</label>
+                                        <div class="col-sm-10">
+                                          <p class="form-control-static">${member.rows[0].member_firstname}</p>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-2" for="lname">นามสกุล:</label>
+                                        <div class="col-sm-10">
+                                          <p class="form-control-static">${member.rows[0].member_lastname}</p>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-2" for="memberID">ชื่อเล่น:</label>
+                                        <div class="col-sm-10">
+                                          <p class="form-control-static">${member.rows[0].member_nickname}</p>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-2" for="sex">เพศ:</label>
+                                        <div class="col-sm-10">
+                                            <p class="form-control-static">
+                                                <c:if test="${member.rows[0].member_sex == 1}">
+                                                    ชาย
+                                                </c:if>
+                                                    <c:if test="${member.rows[0].member_sex == 0}">
+                                                    หญิง
+                                                </c:if>
+                                          </p>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-2" for="birth">วันเกิด:</label>
+                                        <div class="col-sm-10">
+                                          <p class="form-control-static">${member.rows[0].member_bd}</p>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-2" for="email">อีเมล:</label>
+                                        <div class="col-sm-10">
+                                          <p class="form-control-static">${member.rows[0].member_email}</p>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-2" for="educate">การศึกษา:</label>
+                                        <div class="col-sm-10">
+                                          <p class="form-control-static">${member.rows[0].member_edu}</p>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-2" for="ocupation">อาชีพ:</label>
+                                        <div class="col-sm-10">
+                                          <p class="form-control-static">${member.rows[0].member_job}</p>
+                                        </div>
+                                      </div>
+                                      <div class="form-group">
+                                        <label class="control-label col-sm-2" for="address">ที่อยู่:</label>
+                                        <div class="col-sm-10">
+                                          <p class="form-control-static">${member.rows[0].member_address} ${member.rows[0].member_province}</p>
+                                        </div>
+                                      </div>
+                                        <div class="form-group">
+                                          <label class="control-label col-sm-2" for="phone">โทรศัพท์:</label>
+                                          <div class="col-sm-10">
+                                            <p class="form-control-static">${member.rows[0].member_phone}</p>
+                                          </div>
+                                        </div>
                                     </div><!-- /.box-body -->
-                                </div><!-- /.box -->
-                                <a class="btn btn-primary pull-right" href="../memDetailAct.do?id=${row.event_active_ID}">ลงทะเบียน</a>
-                            </div>
-                    </c:forEach> 
+                                </form>
+                            </div><!-- /.box -->
+                            <a class="btn btn-primary pull-right" href="editProfile.jsp?id=${sessionScope.person.id}">แก้ไข</a>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
         </div><!-- ./wrapper -->
@@ -218,12 +243,17 @@
                 //Datemask dd/mm/yyyy
                 $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
 
-                //Flat red color scheme for iCheck
-                $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-                    checkboxClass: 'icheckbox_flat-green',
-                    radioClass: 'iradio_flat-green'
+                //Red color scheme for iCheck
+                $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                    checkboxClass: 'icheckbox_minimal-red',
+                    radioClass: 'iradio_minimal-red'
                 });
             });
+
+
+
+
         </script>
     </body>
 </html>
+

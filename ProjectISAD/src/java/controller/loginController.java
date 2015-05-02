@@ -26,9 +26,11 @@ import model.Person;
 public class loginController extends HttpServlet {
 
     Connection conn;
+
     public void init() {
         conn = (Connection) getServletContext().getAttribute("connection");
     }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -45,20 +47,26 @@ public class loginController extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            try{
-            String sql = "SELECT member_ID FROM Member_User WHERE member_user =\""+username+"\" AND member_pass =\""+password+"\" AND member_status = true";
-            Statement stmt = conn.createStatement();
-            ResultSet resultSet = stmt.executeQuery(sql);
-            if(resultSet.next()){
-                Person person = model.Person.getLoginData(resultSet.getInt("member_ID"),conn);
-                HttpSession session = request.getSession();
-                session.setAttribute("person", person);
-                response.sendRedirect("userAdmin/mainpage.html");
-            }else{
-                response.sendRedirect("login.html");
-            }
-                
-            }catch(Exception e){
+            try {
+                String sql = "SELECT member_ID FROM Member_User WHERE member_user =\"" + username + "\" AND member_pass =\"" + password + "\" AND member_status = true";
+                Statement stmt = conn.createStatement();
+                ResultSet resultSet = stmt.executeQuery(sql);
+                if (resultSet.next()) {
+                    Person person = model.Person.getLoginData(resultSet.getInt("member_ID"), conn);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("person", person);
+                    System.out.println(person.getType());
+                    if (person.getType().equals("0")) {
+                        response.sendRedirect("userMember/mainpage.jsp");
+                    } else {
+                        response.sendRedirect("userAdmin/mainpage.jsp");
+                    }
+
+                } else {
+                    response.sendRedirect("login.html");
+                }
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

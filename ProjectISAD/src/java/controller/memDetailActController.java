@@ -7,18 +7,31 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Person;
 
 /**
  *
  * @author Admin
  */
-@WebServlet(name = "memDetailActController", urlPatterns = {"/memDetailActController"})
+@WebServlet(name = "memDetailActController", urlPatterns = {"/memDetailAct.do"})
 public class memDetailActController extends HttpServlet {
+
+    Connection conn;
+
+    public void init() {
+        conn = (Connection) getServletContext().getAttribute("connection");
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,15 +47,22 @@ public class memDetailActController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet memDetailActController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet memDetailActController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            String id = request.getParameter("id");
+            HttpSession session = request.getSession();
+            Person person = (Person) session.getAttribute("person");
+
+            try {
+                PreparedStatement pstmtup;
+                String sql = "INSERT INTO  Event_Request values(null,?,?,0)";
+                pstmtup = conn.prepareStatement(sql);
+                pstmtup.setInt(1, 1);
+                pstmtup.setString(2, id);
+                pstmtup.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(confirmActController.class.getName()).log(Level.SEVERE, null, ex);
+
+            }
+            response.sendRedirect("userMember/mainpage.html");
         }
     }
 
