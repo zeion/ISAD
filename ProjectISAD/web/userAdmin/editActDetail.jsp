@@ -179,7 +179,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">ชื่อกิจกรรม :</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" placeholder="หมิงเต้าปัน 2">
+                                                <p class="form-control-static">หมิงเต้าปัน 2</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -199,7 +199,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">สถานที่ :</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" placeholder="มูลนิธิธรรมกิจไพศาล">
+                                                <p class="form-control-static">มูลนิธิธรรมกิจไพศาล</p>
                                             </div>
                                         </div>
                                        
@@ -212,7 +212,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">รายละเอียด :</label>
                                             <div class="col-sm-5">
-                                                <textarea class="form-control" rows="3">เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรก โดยจะมีการอธิบายเกี่ยวกับสถานธรรม</textarea>
+                                                <p class="form-control-static">เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรก โดยจะมีการอธิบายเกี่ยวกับสถานธรรม</p>
                                             </div>
                                         </div>
                                 </div><!-- /.box-body -->
