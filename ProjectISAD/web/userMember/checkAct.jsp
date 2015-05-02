@@ -5,6 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<sql:query dataSource="test" var ="request">
+    SELECT * 
+    FROM Event_Active
+    JOIN Event_List
+    USING (event_ID)
+    JOIN Event_Request
+    USING (event_active_ID)
+    WHERE Event_Request.member_ID = ${sessionScope.person.id}
+</sql:query>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,7 +47,7 @@
     <body class="skin-blue">
         <div class="wrapper">
 
-                        <header class="main-header">
+            <header class="main-header">
                 <!-- Logo -->
                 <a href="index2.html" class="logo">มูลนิธิธรรมกิจไพศาล</a>
                 <!-- Header Navbar: style can be found in header.less -->
@@ -137,41 +148,42 @@
                                     <thead>
                                     <th style="text-align: center;">ชื่อกิจกรรม</th>
                                     <th style="text-align: center;">วันที่จัดกิจกรรม</th>
-                                    <th style="text-align: center;">วันที่สมัคร</th>
                                     <th style="text-align: center;">จำนวนคนที่สมัคร</th>
                                     <th style="text-align: center;">รายละเอียด</th>
                                     <th style="text-align: center;">สถานะ</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>หมิงเต้าปัน1</td>
-                                            <td>1 มกราคม 2558</td>
-                                            <td>20 ธันวาคม 2557</td>
-                                            <td style="text-align: center;">7</td>
-                                            <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>
-                                            <td><p class="text-success">ผ่าน</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td>หมิงเต้าปัน2</td>
-                                            <td>2 กุมภาพันธ์ 2558</td>
-                                            <td>27 มกราคม 2558</td>
-                                            <td style="text-align: center;">15</td>
-                                            <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>
-                                            <td><p class="text-muted">รอ</p></td>
-                                        </tr>
-                                        <tr>
-                                            <td>หมิงเต้าปัน10</td>
-                                            <td>4 มีนาคม 2558</td>
-                                            <td>14 กุมภาพันธ์ 2558</td>
-                                            <td style="text-align: center;">9</td>
-                                            <td>เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรกโดยจะมีการอธิบายถึงสถานธรรมเรา</td>
-                                            <td><p class="text-danger">ไม่ผ่าน</p></td>
-                                        </tr>
+                                        <c:forEach  items="${request.rows}" var="row">
+                                            <sql:query dataSource="test" var ="ev_num">
+                                                SELECT count(*) AS count
+                                                FROM Event_Request
+                                                GROUP BY event_active_ID
+                                                HAVING event_active_ID = ${row.event_active_ID}
+                                            </sql:query>
+                                            <tr>
+                                                <td>${row.event_name}</td>
+                                                <td>${row.event_start}</td>
+                                                <td><c:if test="${not empty ev_num.rows[0].count}">
+                                                        ${ev_num.rows[0].count}
+                                                    </c:if>
+                                                    <c:if test="${empty ev_num.rows[0].count}">
+                                                        0
+                                                    </c:if>
+                                                </td>
+                                                <td>${row.event_detail}</td>
+                                                <td><c:if test="${row.Request_status}">
+                                                        ผ่าน
+                                                    </c:if>
+                                                    <c:if test="${not row.Request_status}">
+                                                        รอ
+                                                    </c:if>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>                                       
                                     </tbody>
                                 </table>
                             </div><!-- /.box-body -->
-                            <button type="button" class="btn btn-primary pull-right" style="margin: 1%;">ล้างข้อมูล</button>
                         </form>
                     </div><!-- /.box -->
                 </section><!-- /.content -->
