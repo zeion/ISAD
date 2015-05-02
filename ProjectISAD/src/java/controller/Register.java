@@ -24,10 +24,11 @@ import model.Member;
 public class Register extends HttpServlet {
 
     Connection conn;
-    
+
     public void init() {
         conn = (Connection) getServletContext().getAttribute("connection");
     }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -41,7 +42,7 @@ public class Register extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             request.setCharacterEncoding("UTF-8");
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
@@ -55,22 +56,20 @@ public class Register extends HttpServlet {
             int year = Integer.parseInt(request.getParameter("year"));
             String sex = request.getParameter("sex");
             String province = request.getParameter("province");
-            
-            Date birthday = new Date(year-1900, month-1, day);
-            
-            Member person = new Member(email,password,"1",true,firstname,lastname,nickname,birthday ,sex,province,phone,email, conn);
-            
-            boolean sucess = person.regMem();
-            
-            if(sucess){
+
+            Date birthday = new Date(year - 1900, month - 1, day);
+
+            Member person = new Member(email, password, "1", true, firstname, lastname, nickname, birthday, sex, province, phone, email, conn);
+
+            boolean success = person.regMem();
+
+            if (success) {
                 response.sendRedirect("login.html");
-            }else{
+            } else {
                 response.sendRedirect("register.html");
             }
-            
-            
-//            out.println("sucess");
-            
+
+            out.println("sucess");
         }
     }
 
