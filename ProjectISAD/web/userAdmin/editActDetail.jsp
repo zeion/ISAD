@@ -171,7 +171,7 @@
                         <div class="col-xs-12">
                             <div class="box">
                                 <div class="box-body">
-                                    <form class="form-horizontal" role="form">
+                                    <form class="form-horizontal" role="form" action=>
                                         <sql:query dataSource="test" var ="act">
                                             SELECT * 
                                             FROM Event_List
@@ -216,7 +216,7 @@
                                 </div><!-- /.box-body -->
                                 </form>
                             </div><!-- /.box -->
-                            <button type="button" class="btn btn-primary pull-right" style="margin-left: 1%;">ยืนยัน</button>
+                            <a type="button" class="btn btn-primary pull-right" href="detailAct.jsp?id=${param.id}" style="margin-left: 1%;">ยืนยัน</a>
                             
                         </div><!-- /.col -->
                     </div><!-- /.row -->
