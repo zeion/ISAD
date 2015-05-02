@@ -54,10 +54,11 @@ public class Register extends HttpServlet {
             int month = Integer.parseInt(request.getParameter("month"));
             int year = Integer.parseInt(request.getParameter("year"));
             String sex = request.getParameter("sex");
+            String province = request.getParameter("province");
             
             Date birthday = new Date(year-1900, month-1, day);
             
-            Member person = new Member(email,password,"1",true,firstname,lastname,nickname,birthday ,sex,"bkk",phone,email, conn);
+            Member person = new Member(email,password,"1",true,firstname,lastname,nickname,birthday ,sex,province,phone,email, conn);
             
             boolean sucess = person.regMem();
             
