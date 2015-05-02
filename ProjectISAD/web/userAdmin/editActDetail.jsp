@@ -190,17 +190,10 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">วันที่เริ่ม :</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" placeholder="01-ม.ค.-2558">
-                                                <span class="help-block">DD-M.M.-YYYY</span>
+                                                <input type="text" class="form-control" value="${act.rows[0].event_start}">
+                                                <span class="help-block">yyyy-mm-dd</span>
                                             </div>
                                         </div>
-<!--                                        <div class="form-group">
-                                            <label class="control-label col-sm-2" for="fname">วันที่สิ้นสุด :</label>
-                                            <div class="col-sm-2">
-                                                <input type="text" class="form-control" placeholder="01-ม.ค.-2558">
-                                                <span class="help-block">DD-M.M.-YYYY</span>
-                                            </div>
-                                        </div>-->
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">สถานที่ :</label>
                                             <div class="col-sm-2">
@@ -211,7 +204,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">จำนวนที่รับ :</label>
                                             <div class="col-sm-1">
-                                                <input type="text" class="form-control" placeholder="20">
+                                                <input type="text" class="form-control" value="${act.rows[0].event_amount}">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -253,28 +246,6 @@
         <!-- page script -->
         <script src="../template/dist/js/combodate.js"></script>
         <!-- combodate -->
-        <script type="text/javascript">
-                                $(function () {
-                                    $("#example1").dataTable();
-                                    $('#example2').dataTable({
-                                        "bPaginate": true,
-                                        "bLengthChange": false,
-                                        "bFilter": false,
-                                        "bSort": true,
-                                        "bInfo": true,
-                                        "bAutoWidth": false
-                                    });
-
-                                    //Datemask dd/mm/yyyy
-                                    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
-
-                                    //Flat red color scheme for iCheck
-                                    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-                                        checkboxClass: 'icheckbox_flat-green',
-                                        radioClass: 'iradio_flat-green'
-                                    });
-                                });
-        </script>
         <script>
             function notAllow() {
                 alert("ยังใช้งานไม่ได้");
