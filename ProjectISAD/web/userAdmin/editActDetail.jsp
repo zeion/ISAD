@@ -246,11 +246,6 @@
         <!-- page script -->
         <script src="../template/dist/js/combodate.js"></script>
         <!-- combodate -->
-        <script>
-            function notAllow() {
-                alert("ยังใช้งานไม่ได้");
-            }
-        </script>
     </body>
 </html>
 
