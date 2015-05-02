@@ -1,11 +1,12 @@
-<%-- 
-    Document   : editProfile
-    Created on : May 2, 2015, 12:00:18 AM
-    Author     : Nichnon
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<sql:query dataSource="test" var ="member">
+    SELECT * 
+    FROM Member_Data
+    WHERE member_id = ${param.id};
+</sql:query>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,12 +19,13 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!-- Ionicons -->
         <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-        <!-- fullCalendar 2.2.5-->
-        <link href="../template/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
-        <link href="../template/plugins/fullcalendar/fullcalendar.print.css" rel="stylesheet" type="text/css" media='print' />
         <!-- Theme style -->
         <link href="../template/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-        <!-- AdminLTE Skins. Choose a skin from the css/skins
+        <!-- DATA TABLES -->
+        <link href="../template/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
+        <!-- iCheck for checkboxes and radio inputs -->
+        <link href="../template/plugins/iCheck/all.css" rel="stylesheet" type="text/css" />
+        <!-- AdminLTE Skins. Choose a skin from the css/skins 
              folder instead of downloading all of them to reduce the load. -->
         <link href="../template/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
@@ -39,7 +41,7 @@
 
             <header class="main-header">
                 <!-- Logo -->
-                <a href="index2.html" class="logo">มูลนิธิธรรมกิจไพศาล</a>
+                <a href="mainpage.html" class="logo">มูลนิธิธรรมกิจไพศาล</a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
                     <!-- Sidebar toggle button-->
@@ -53,16 +55,16 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <img src="../template/dist/img/user0.jpg" class="user-image" alt="User Image"/>
-                                    <span class="hidden-xs">สมหมาย ขายหอยทะเล</span>
+                                    <img src="../template/dist/img/admin.jpg" class="user-image" alt="User Image"/>
+                                    <span class="hidden-xs">สมหมาย ใจดีจัง</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
-                                        <img src="../template/dist/img/user0.jpg" class="img-circle" alt="User Image" />
+                                        <img src="../template/dist/img/admin.jpg" class="img-circle" alt="User Image" />
                                         <p>
-                                            สมหมาย ขายหอยทะเล
-                                            <small>สมาชิก</small>
+                                            สมหมาย ใจดีจัง
+                                            <small>เจ้าหน้าที่ส่วนกลาง</small>
                                         </p>
                                     </li>
                                     <!-- Menu Body -->
@@ -79,9 +81,9 @@
                                     </li> -->
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="profile.jsp" class="btn btn-default btn-flat">ข้อมูลส่วนตัว</a>
-                                        </div>
+<!--                                        <div class="pull-left">
+                                            <a href="#" class="btn btn-default btn-flat">ข้อมูลส่วนตัว</a>
+                                        </div>-->
                                         <div class="pull-right">
                                             <a href="#" class="btn btn-default btn-flat">ออกจากระบบ</a>
                                         </div>
@@ -99,10 +101,10 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="../template/dist/img/user0.jpg" class="img-circle" alt="User Image" />
+                            <img src="../template/dist/img/admin.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>สมหมาย ขายหอยทะเล</p>
+                            <p>สมหมาย ใจดีจัง</p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -115,23 +117,39 @@
                                 <i class="fa fa-home"></i> <span>ตารางกิจกรรม</span> <i class="fa fa-angle-left pull-right"></i>
                             </a>
                         </li>
-                        <li>
-                            <a href="checkAct.jsp">
-                                <i class="fa fa-pencil"></i>
-                                <span>ตรวจสอบสิทธิ์เข้ากิจกรรม</span><i class="fa fa-angle-left pull-right"></i>
-                            </a>
-                        </li>
-                        <!-- <li class="treeview">
+                        <li class="treeview">
                             <a href="#">
-                                <i class="fa fa-user"></i>
-                                <span>จัดการข้อมูลส่วนตัว</span>
+                                <i class="fa fa-pencil"></i>
+                                <span>จัดการกิจกรรม</span><i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="createAct.jsp"><i class="fa fa-circle-o"></i> สร้างกิจกรรม</a></li>
+                                <li><a href="listAct.jsp"><i class="fa fa-circle-o"></i> กิจกรรมที่กำลังดำเนินการ</a></li>
+                                <li><a href="confirmAct.jsp"><i class="fa fa-circle-o"></i> ยืนยันการเข้าร่วมกิจกรรม</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-users"></i>
+                                <span>จัดการสมาชิก</span>
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> ดูข้อมูลส่วนตัว</a></li>
-                                <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> แก้ไขข้อมูลส่วนตัว</a></li>
+                                <li><a href="listMem.jsp"><i class="fa fa-circle-o"></i> รายชื่อสมาชิก</a></li>
+                                <li><a href="confirmMem.jsp"><i class="fa fa-circle-o"></i> ยืนยันการสมัครสมาชิก</a></li>
                             </ul>
-                        </li> -->
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-file-text"></i>
+                                <span>สร้างเอกสารรายงาน</span>
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="listMemReport.jsp"><i class="fa fa-circle-o"></i> รายงานข้อมูลส่วนบุคคล</a></li>
+                                <li><a href="listActReport.jsp"><i class="fa fa-circle-o"></i>รายงานกิจกรรม</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->
@@ -149,91 +167,76 @@
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
-                        <div class="col-xs-12">
-                            <div class="box">
-                                <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" action="../editProfile.do" method="post">
+                            <div class="col-xs-12">
+                                <div class="box">
                                     <div class="box-body">
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="fname">ชื่อ:</label>
+                                            <label class="control-label col-sm-2">ชื่อ:</label>
                                             <div class="col-sm-10">
-                                                <p class="form-control-static">สมหมาย</p>
+                                                <p class="form-control-static">${member.rows[0].member_firstname}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="lname">นามสกุล:</label>
+                                            <label class="control-label col-sm-2" >นามสกุล:</label>
                                             <div class="col-sm-10">
-                                                <p class="form-control-static">ขายหอยทะเล</p>
+                                                <p class="form-control-static">${member.rows[0].member_lastname}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="memberID">ชื่อเล่น:</label>
+                                            <label class="control-label col-sm-2" >ชื่อเล่น:</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" placeholder="สายไหม">
+                                                <input type="text" class="form-control" name="nickname" value="${member.rows[0].member_nickname}">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="sex">เพศ:</label>
+                                            <label class="control-label col-sm-2" >เพศ:</label>
                                             <div class="col-sm-10">
-                                                <p class="form-control-static">ชาย</p>
+                                                <p class="form-control-static">
+                                                    <c:if test="${member.rows[0].member_sex == 1}">
+                                                        ชาย
+                                                    </c:if>
+                                                    <c:if test="${member.rows[0].member_sex == 0}">
+                                                        หญิง
+                                                    </c:if></p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="birth">วันเกิด:</label>
+                                            <label class="control-label col-sm-2">วันเกิด:</label>
                                             <div class="col-sm-10">
-                                                <p class="form-control-static">01/11/1994</p>
+                                                <p class="form-control-static">${member.rows[0].member_bd}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="email">อีเมล:</label>
+                                            <label class="control-label col-sm-2" >อีเมล:</label>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" placeholder="sommhai01@gmail.com">
+                                                <p class="form-control-static">${member.rows[0].member_email}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="educate">รหัสผ่าน:</label>
-                                            <div class="col-sm-5">
-                                                <div class="form-inline">
-                                                    <input type="password" class="form-control" placeholder="รหัสผ่าน">
-                                                    <input type="password" class="form-control" placeholder="ยืนยันรหัสผ่าน">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-2" for="educate">การศึกษา:</label>
+                                            <label class="control-label col-sm-2" >การศึกษา:</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" placeholder="ปริญญาเอก">
+                                                <input type="text" class="form-control" name="edu" value="${member.rows[0].member_edu}">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="ocupation">อาชีพ:</label>
+                                            <label class="control-label col-sm-2" >อาชีพ:</label>
                                             <div class="col-sm-3">
-                                                <input type="text" class="form-control" placeholder="นักวิชาการ">
+                                                <input type="text" class="form-control" name="job" value="${member.rows[0].member_job}">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="address">ที่อยู่:</label>
+                                            <label class="control-label col-sm-2" >ที่อยู่:</label>
                                             <div class="col-sm-5">
-                                                <textarea class="form-control" rows="3">123/4 ต.บ้านเสย อ.เมือง จ.บุรัมรีย์ 2010</textarea>
+                                                <textarea class="form-control" name="address" rows="3">${member.rows[0].member_address}</textarea>
 
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="address">ตำบล/แขวง:</label>
-                                            <div class="col-sm-3">
-                                                <input type="text" class="form-control" placeholder="บ้านเสย">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-2" for="address">อำเภอ/เขต:</label>
-                                            <div class="col-sm-3">
-                                                <input type="text" class="form-control" placeholder="เมือง">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-2" for="ocupation">จังหวัด:</label>
+                                            <label class="control-label col-sm-2" >จังหวัด:</label>
                                             <div class="col-sm-2">
-                                                <select class="form-control">
-                                                    <option selected="selected" style="display: none;">เลือก...</option>
+                                                <select class="form-control" name="province">
+                                                    <option selected="selected" style="display: none;" value="${member.rows[0].member_address}">${member.rows[0].member_province}</option>
                                                     <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
                                                     <option value="กระบี่">กระบี่ </option>
                                                     <option value="กาญจนบุรี">กาญจนบุรี </option>
@@ -315,23 +318,17 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="address">รหัสไปรษณีย์:</label>
-                                            <div class="col-sm-3">
-                                                <input type="text" class="form-control" placeholder="2010">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-sm-2" for="phone">โทรศัพท์:</label>
+                                            <label class="control-label col-sm-2" >โทรศัพท์:</label>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" placeholder="099-9998888">
+                                                <input type="text" class="form-control" name="phone" value="${member.rows[0].member_phone}">
                                             </div>
                                         </div>
-                                    </div><!-- /.box-body -->
-                                </form>
-                            </div><!-- /.box -->
-                            <button type="button" class="btn btn-primary pull-right" style="margin-left: 1%;" onclick="notAllow();">ยืนยัน</button>
-                            <a class="btn btn-default pull-right" href="profile.jsp">ยกเลิก</a>
-                        </div><!-- /.col -->
+                                    </div><!-- /.box-body -->                               
+                                </div><!-- /.box -->
+                                <button type="submit" class="btn btn-primary pull-right" style="margin-left: 1%;"  name="id" value="${param.id}">ยืนยัน</button>
+                                <a class="btn btn-default pull-right" href="Profile.jsp">ยกเลิก</a>
+                            </div><!-- /.col -->
+                        </form>
                     </div><!-- /.row -->
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
@@ -358,32 +355,31 @@
         <script src="../template/plugins/input-mask/jquery.inputmask.extensions.js" type="text/javascript"></script>
         <!-- page script -->
         <script type="text/javascript">
-                                $(function () {
-                                    $("#example1").dataTable();
-                                    $('#example2').dataTable({
-                                        "bPaginate": true,
-                                        "bLengthChange": false,
-                                        "bFilter": false,
-                                        "bSort": true,
-                                        "bInfo": true,
-                                        "bAutoWidth": false
-                                    });
+            $(function () {
+                $("#example1").dataTable();
+                $('#example2').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
 
-                                    //Datemask dd/mm/yyyy
-                                    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+                //Datemask dd/mm/yyyy
+                $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
 
-                                    //Red color scheme for iCheck
-                                    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-                                        checkboxClass: 'icheckbox_minimal-red',
-                                        radioClass: 'iradio_minimal-red'
-                                    });
-                                });
-        </script>
-        <!-- Alert Dialog -->
-        <script>
-            function notAllow() {
-                alert("ยังใช้งานไม่ได้");
-            }
+                //Red color scheme for iCheck
+                $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+                    checkboxClass: 'icheckbox_minimal-red',
+                    radioClass: 'iradio_minimal-red'
+                });
+            });
+
+
+
+
         </script>
     </body>
 </html>
+

@@ -10,7 +10,7 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>userAdmin/mainpage.html</welcome-file>
+        <welcome-file>login.html</welcome-file>
     </welcome-file-list>
     <resource-ref>
         <description>jdbc:mysql://database.it.kmitl.ac.th:3306/it_56070048?zeroDateTimeBehavior=convertToNull</description>

@@ -6,6 +6,7 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
@@ -187,10 +188,19 @@ public class Person {
 
     public static Person getLoginData(int id ,Connection conn){
         try{
-            String sql = "SELECT * FROM Member_User JOIN Member_Data USING (member_id) JOIN Location USING (location_id)";
-            Statement stmt = conn.createStatement();
-            ResultSet member = stmt.executeQuery(sql);
+            String sql = "SELECT * "
+                    + "FROM Member_User "
+                    + "JOIN Member_Data "
+                    + "USING (member_id) "
+                    + "JOIN Location "
+                    + "USING (location_id) "
+                    + "WHERE member_id = "+id;
+            PreparedStatement pstmtup;
+            pstmtup = conn.prepareStatement(sql);
+            System.out.println("id : " + id);
+            ResultSet member = pstmtup.executeQuery(sql);        
             member.next();
+            System.out.println("Type : "+member.getString("member_type"));
             Person person = new Person(member.getString("member_type"),member.getBoolean("member_status"), member.getInt("member_ID"),member.getString("location_ID"), member.getString("member_firstname"),member.getString("member_lastname"), member.getString("member_email"));
             return person;
         }catch(Exception e){
