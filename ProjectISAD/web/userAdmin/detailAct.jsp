@@ -216,7 +216,7 @@
                                         </dl>
                                     </div><!-- /.box-body -->
                                 </div><!-- /.box -->
-                                <a class="btn btn-primary pull-right" href="editActDetail.jsp">แก้ไข</a>
+                                <a class="btn btn-primary pull-right" href="editActDetail.jsp?id=${row.event_id}">แก้ไข</a>
                             </div>
                     </c:forEach> 
                 </section><!-- /.content -->

@@ -7,11 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<sql:query dataSource="test" var ="member">
-    SELECT * 
-    FROM Member_Data
-    WHERE member_id = ${param.id};
-</sql:query>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -86,9 +82,9 @@
                                     </li> -->
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-<!--                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">ข้อมูลส่วนตัว</a>
-                                        </div>-->
+                                        <!--                                        <div class="pull-left">
+                                                                                    <a href="#" class="btn btn-default btn-flat">ข้อมูลส่วนตัว</a>
+                                                                                </div>-->
                                         <div class="pull-right">
                                             <a href="../login.html" class="btn btn-default btn-flat">ออกจากระบบ</a>
                                         </div>
@@ -176,10 +172,19 @@
                             <div class="box">
                                 <div class="box-body">
                                     <form class="form-horizontal" role="form">
+                                        <sql:query dataSource="test" var ="act">
+                                            SELECT * 
+                                            FROM Event_List
+                                            JOIN Event_Active
+                                            USING (event_id)
+                                            JOIN Location
+                                            USING (location_id)
+                                            WHERE event_id = ${param.id};
+                                        </sql:query>
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">ชื่อกิจกรรม :</label>
                                             <div class="col-sm-2">
-                                                <p class="form-control-static">หมิงเต้าปัน 2</p>
+                                                <p class="form-control-static">${act.rows[0].event_name}</p>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -189,20 +194,20 @@
                                                 <span class="help-block">DD-M.M.-YYYY</span>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+<!--                                        <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">วันที่สิ้นสุด :</label>
                                             <div class="col-sm-2">
                                                 <input type="text" class="form-control" placeholder="01-ม.ค.-2558">
                                                 <span class="help-block">DD-M.M.-YYYY</span>
                                             </div>
-                                        </div>
+                                        </div>-->
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">สถานที่ :</label>
                                             <div class="col-sm-2">
-                                                <p class="form-control-static">มูลนิธิธรรมกิจไพศาล</p>
+                                                <p class="form-control-static">${act.rows[0].location_name}</p>
                                             </div>
                                         </div>
-                                       
+
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">จำนวนที่รับ :</label>
                                             <div class="col-sm-1">
@@ -212,14 +217,14 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">รายละเอียด :</label>
                                             <div class="col-sm-5">
-                                                <p class="form-control-static">เป็นกิจกรรมที่จัดขึ้นสำหรับผู้ที่เข้ามาสถานธรรมครั้งแรก โดยจะมีการอธิบายเกี่ยวกับสถานธรรม</p>
+                                                <p class="form-control-static">${act.rows[0].event_detail}</p>
                                             </div>
                                         </div>
                                 </div><!-- /.box-body -->
                                 </form>
                             </div><!-- /.box -->
-                            <button type="button" class="btn btn-primary pull-right" style="margin-left: 1%;" onclick="notAllow();">ยืนยัน</button>
-                            <a class="btn btn-default pull-right" href="detailAct.jsp">ยกเลิก</a>
+                            <button type="button" class="btn btn-primary pull-right" style="margin-left: 1%;">ยืนยัน</button>
+                            
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </section><!-- /.content -->
