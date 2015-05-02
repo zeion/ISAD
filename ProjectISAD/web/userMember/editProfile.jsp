@@ -69,7 +69,7 @@
                                     </li>
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="profile.jsp" class="btn btn-default btn-flat">ข้อมูลส่วนตัว</a>
+                                            <a href="showProfile.jsp" class="btn btn-default btn-flat">ข้อมูลส่วนตัว</a>
                                         </div>
                                         <div class="pull-right">
                                             <a href="../login.html" class="btn btn-default btn-flat">ออกจากระบบ</a>
@@ -127,7 +127,7 @@
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
-                        <form class="form-horizontal" action="../editProfile.do" method="post">
+                        <form class="form-horizontal" action="#" method="post">
                             <div class="col-xs-12">
                                 <div class="box">
                                     <div class="box-body">
@@ -286,7 +286,7 @@
                                     </div><!-- /.box-body -->                               
                                 </div><!-- /.box -->
                                 <button type="submit" class="btn btn-primary pull-right" style="margin-left: 1%;"  name="id" value="${param.id}">ยืนยัน</button>
-                                <a class="btn btn-default pull-right" href="Profile.jsp">ยกเลิก</a>
+                                <a class="btn btn-default pull-right" href="showProfile.jsp">ยกเลิก</a>
                             </div><!-- /.col -->
                         </form>
                     </div><!-- /.row -->
