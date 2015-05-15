@@ -144,7 +144,7 @@ public class Member extends Person {
             pstmtup.setString(4, this.getLastname());
             pstmtup.setString(5, this.getNickname());
             pstmtup.setDate(6, new java.sql.Date(this.getBirthday().getTime()));
-            pstmtup.setInt(7, this.getSex().equals("male") ? 0 : 1);
+            pstmtup.setInt(7, this.getSex().equals("male") ? 1 : 0);
             pstmtup.setString(8, this.getProvince());
             pstmtup.setString(9, this.getPhone());
             pstmtup.setString(10, this.getEmail());

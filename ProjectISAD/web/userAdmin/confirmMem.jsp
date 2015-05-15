@@ -199,7 +199,13 @@
                                                         <td>${user.member_firstname}</td>
                                                         <td>${user.member_lastname}</td>
                                                         <td>${user.member_nickname}</td>
-                                                        <td>${user.member_sex}</td>
+                                                        <td>
+                                                            <c:if test="${user.member_sex}">
+                                                                ชาย
+                                                            </c:if>
+                                                            <c:if test="${user.member_sex}">
+                                                                หญิง
+                                                            </c:if>${user.member_sex}</td>
                                                         <td>${user.member_province}</td>
                                                         <td>${user.member_job}</td>
                                                         <td>
