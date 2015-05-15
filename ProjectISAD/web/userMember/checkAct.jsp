@@ -140,18 +140,12 @@
                         <form role="form">
                             <div class="box-body">
                                 <table id="example1" class="table table-bordered table-hover">
-                                    <col style="width:10%">
-                                    <col style="width:14%">
-                                    <col style="width:14%">
-                                    <col style="width:13%">
-                                    <col style="width:45%">
                                     <thead>
                                     <th style="text-align: center;">ชื่อกิจกรรม</th>
                                     <th style="text-align: center;">วันที่จัดกิจกรรม</th>
                                     <th style="text-align: center;">จำนวนคนที่สมัคร</th>
                                     <th style="text-align: center;">รายละเอียด</th>
                                     <th style="text-align: center;">สถานะ</th>
-                                    </tr>
                                     </thead>
                                     <tbody>
                                         <c:forEach  items="${request.rows}" var="row">
@@ -172,7 +166,8 @@
                                                     </c:if>
                                                 </td>
                                                 <td>${row.event_detail}</td>
-                                                <td><c:if test="${row.Request_status}">
+                                                <td>
+                                                    <c:if test="${row.Request_status}">
                                                         ผ่าน
                                                     </c:if>
                                                     <c:if test="${not row.Request_status}">

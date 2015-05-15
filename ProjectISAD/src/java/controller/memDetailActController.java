@@ -55,7 +55,7 @@ public class memDetailActController extends HttpServlet {
                 PreparedStatement pstmtup;
                 String sql = "INSERT INTO  Event_Request values(null,?,?,0)";
                 pstmtup = conn.prepareStatement(sql);
-                pstmtup.setInt(1, 1);
+                pstmtup.setInt(1, person.getId());
                 pstmtup.setString(2, id);
                 pstmtup.executeUpdate();
             } catch (SQLException ex) {
