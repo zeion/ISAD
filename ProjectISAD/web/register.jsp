@@ -36,8 +36,8 @@
             <div class="register-box-body" style="border-radius: 3%; opacity: 0.90;">
                 <p class="login-box-msg">มูลนิธิธรรมกิจไพศาล</p>
                 <c:if test="${param.status eq 'fail'}">
-                                                <p class="danger" style="color: red">โปรดใส่ข้อมูลให้ถูกต้อง</p>
-                                            </c:if>
+                    <p class="danger" style="color: red">โปรดใส่ข้อมูลให้ถูกต้อง</p>
+                </c:if>
                 
                 <form action="Register.do" method="post">
                     <div class="row">
