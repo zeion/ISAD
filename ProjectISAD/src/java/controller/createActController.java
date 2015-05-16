@@ -58,6 +58,8 @@ public class createActController extends HttpServlet {
                 response.sendRedirect("userAdmin/createAct.jsp");
             }
             
+        }catch(Exception e){
+            response.sendRedirect("userAdmin/createAct.jsp");
         }
     }
 

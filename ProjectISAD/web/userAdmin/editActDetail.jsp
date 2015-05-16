@@ -176,10 +176,10 @@
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
-                        <div class="col-xs-12">
-                            <div class="box">
-                                <div class="box-body">
-                                    <form class="form-horizontal" role="form" action=>
+                        <form class="form-horizontal" action="../editAct.do">
+                            <div class="col-xs-12">
+                                <div class="box">
+                                    <div class="box-body">
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">ชื่อกิจกรรม :</label>
                                             <div class="col-sm-2">
@@ -189,7 +189,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">วันที่เริ่ม :</label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control" value="${act.rows[0].event_start}">
+                                                <input type="text" class="form-control" name="start" value="${act.rows[0].event_start}">
                                                 <span class="help-block">yyyy-mm-dd</span>
                                             </div>
                                         </div>
@@ -203,7 +203,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">จำนวนที่รับ :</label>
                                             <div class="col-sm-4">
-                                                <input type="text" class="form-control" value="${act.rows[0].event_amount}">
+                                                <input type="text" class="form-control" name="amount" value="${act.rows[0].event_amount}">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -212,12 +212,11 @@
                                                 <p class="form-control-static">${act.rows[0].event_detail}</p>
                                             </div>
                                         </div>
-                                </div><!-- /.box-body -->
-                                </form>
-                            </div><!-- /.box -->
-                            <a type="button" class="btn btn-primary pull-right" href="detailAct.jsp?id=${param.id}" style="margin-left: 1%;">ยืนยัน</a>
-                            
-                        </div><!-- /.col -->
+                                    </div><!-- /.box-body -->
+                                </div><!-- /.box -->
+                                <button type="submit" class="btn btn-primary pull-right" style="margin-left: 1%;"  name="id" value="${param.id}">ยืนยัน</button>
+                            </div><!-- /.col -->
+                        </form>
                     </div><!-- /.row -->
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->

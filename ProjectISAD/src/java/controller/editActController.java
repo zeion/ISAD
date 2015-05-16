@@ -7,19 +7,25 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Event;
 
 /**
  *
  * @author Admin
  */
-@WebServlet(name = "detailActController", urlPatterns = {"/detailActController"})
-public class detailActController extends HttpServlet {
+@WebServlet(name = "editActController", urlPatterns = {"/editAct.do"})
+public class editActController extends HttpServlet {
 
+        Connection conn;
+    public void init() {
+        conn = (Connection) getServletContext().getAttribute("connection");
+    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,15 +40,14 @@ public class detailActController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet detailActController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet detailActController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            int id = Integer.parseInt(request.getParameter("id"));
+            String start = request.getParameter("start");
+            int amount = Integer.parseInt(request.getParameter("amount"));
+            
+            Event event = new Event(id,start,amount,conn);
+            
+            out.println(event.editAct());
+            response.sendRedirect("userAdmin/editActDetail.jsp?id="+id);
         }
     }
 

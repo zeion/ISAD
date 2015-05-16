@@ -47,10 +47,14 @@ public class loginController extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            out.println(username +" 1 "+ password);
             try {
+                out.println(username +" 2 "+ password);
                 String sql = "SELECT member_ID FROM Member_User WHERE member_user =\"" + username + "\" AND member_pass =\"" + password + "\" AND member_status = true";
                 Statement stmt = conn.createStatement();
+                out.println(username +" 3 "+ password);
                 ResultSet resultSet = stmt.executeQuery(sql);
+                out.println(username +" 4 "+ password);
                 if (resultSet.next()) {
                     Person person = model.Person.getLoginData(resultSet.getInt("member_ID"), conn);
                     HttpSession session = request.getSession();
