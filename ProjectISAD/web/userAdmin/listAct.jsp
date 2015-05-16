@@ -214,7 +214,7 @@
                                                         <td>${event.event_detail}</td>
                                                         <td>                                                            
                                                             <a class="btn btn-default btn-xs" href="../listAct.do?button=edit&id=${event.event_active_ID}"><i class="fa fa-wrench"></i></a>
-                                                            <a class="btn btn-default btn-xs" href="../listAct.do?button=delete&id=${event.event_active_ID}" onclick="return confirm('Are you sure!?')"><i class="fa fa-trash"></i></a>
+                                                            <a class="btn btn-default btn-xs" href="../listAct.do?button=delete&id=${event.event_active_ID}" onclick="return confirm('ต้องการลบกิจกรรม?')"><i class="fa fa-trash"></i></a>
                                                         </td>
                                                     </tr>
                                                 </c:forEach>                                               

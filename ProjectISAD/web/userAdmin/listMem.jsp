@@ -8,6 +8,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<sql:query dataSource="test" var ="memlist">
+    SELECT * 
+    FROM Member_Data
+    WHERE member_status = 0;
+</sql:query>
 <!DOCTYPE html>
 <html>
     <head>
@@ -187,12 +192,7 @@
                                                     <th>ตัวเลือก</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <sql:query dataSource="test" var ="memlist">
-                                                    SELECT * 
-                                                    FROM Member_Data;
-                                                </sql:query>
-                                                    
+                                            <tbody>                                                  
                                                 <c:forEach var="member" items="${memlist.rows}">
                                                     <tr>
                                                         <td>${member.member_id}</td>

@@ -45,7 +45,8 @@ public class listActController extends HttpServlet {
             String button = request.getParameter("button");
             String id = request.getParameter("id");
             if (button.equals("delete")) {
-                deleteAct(id, conn);
+                deleteAct(id, conn);//userAdmin/listAct.jsp
+                response.sendRedirect("userAdmin/listAct.jsp");
             } else {
                 out.println(id);
                 response.sendRedirect("userAdmin/editActDetail.jsp?id=" + id);
