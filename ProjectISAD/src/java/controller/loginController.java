@@ -73,6 +73,8 @@ public class loginController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }catch(Exception e){
+            response.sendRedirect("login.html");
         }
     }
 

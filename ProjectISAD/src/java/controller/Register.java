@@ -42,7 +42,8 @@ public class Register extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
+            
+            try{
             request.setCharacterEncoding("UTF-8");
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
@@ -66,10 +67,11 @@ public class Register extends HttpServlet {
             if (success) {
                 response.sendRedirect("login.html");
             } else {
-                response.sendRedirect("register.html");
+                response.sendRedirect("register.jsp?status=fail");
             }
-
-            out.println("sucess");
+            }catch(Exception e){
+                response.sendRedirect("register.jsp?status=fail");
+            }
         }
     }
 
