@@ -92,7 +92,7 @@
                                             <a href="#" class="btn btn-default btn-flat">ข้อมูลส่วนตัว</a>
                                         </div>-->
                                         <div class="pull-right">
-                                            <a href="../login.html" class="btn btn-default btn-flat">ออกจากระบบ</a>
+                                            <a href="../logout.do" class="btn btn-default btn-flat">ออกจากระบบ</a>
                                         </div>
                                     </li>
                                 </ul>
