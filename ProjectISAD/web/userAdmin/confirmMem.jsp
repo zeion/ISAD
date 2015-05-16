@@ -48,7 +48,7 @@
 
             <header class="main-header">
                 <!-- Logo -->
-                <a href="mainpage.html" class="logo">มูลนิธิธรรมกิจไพศาล</a>
+                <a href="mainpage.jsp" class="logo">มูลนิธิธรรมกิจไพศาล</a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
                     <!-- Sidebar toggle button-->
@@ -200,12 +200,13 @@
                                                         <td>${user.member_lastname}</td>
                                                         <td>${user.member_nickname}</td>
                                                         <td>
-                                                            <c:if test="${user.member_sex}">
+                                                            <c:if test="${user.member_sex == 1}">
                                                                 ชาย
                                                             </c:if>
-                                                            <c:if test="${user.member_sex}">
+                                                            <c:if test="${user.member_sex == 0}">
                                                                 หญิง
-                                                            </c:if>${user.member_sex}</td>
+                                                            </c:if>
+                                                        </td>
                                                         <td>${user.member_province}</td>
                                                         <td>${user.member_job}</td>
                                                         <td>
