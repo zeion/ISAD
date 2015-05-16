@@ -22,7 +22,7 @@ import model.Person;
  *
  * @author Admin
  */
-@WebServlet(name = "loginController", urlPatterns = {"/loginController"})
+@WebServlet(name = "loginController", urlPatterns = {"/login.do"})
 public class loginController extends HttpServlet {
 
     Connection conn;

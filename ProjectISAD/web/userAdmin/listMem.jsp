@@ -10,8 +10,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <sql:query dataSource="test" var ="memlist">
     SELECT * 
-    FROM Member_Data
-    WHERE member_status = 0;
+    FROM Member_User
+    JOIN Member_Data
+    USING (member_id)
+    WHERE member_status = 1;
 </sql:query>
 <!DOCTYPE html>
 <html>
