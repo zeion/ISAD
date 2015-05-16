@@ -127,7 +127,7 @@
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
-                        <form class="form-horizontal" action="#" method="post">
+                        <form class="form-horizontal" action="../editProfile.do" method="post">
                             <div class="col-xs-12">
                                 <div class="box">
                                     <div class="box-body">

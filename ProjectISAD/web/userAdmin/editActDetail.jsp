@@ -7,7 +7,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-
+<sql:query dataSource="test" var ="act">
+    SELECT * 
+    FROM Event_List
+    JOIN Event_Active
+    USING (event_id)
+    JOIN Location
+    USING (location_id)
+    WHERE event_active_id = ${param.id};
+</sql:query>
 <!DOCTYPE html>
 <html>
     <head>
@@ -172,15 +180,6 @@
                             <div class="box">
                                 <div class="box-body">
                                     <form class="form-horizontal" role="form" action=>
-                                        <sql:query dataSource="test" var ="act">
-                                            SELECT * 
-                                            FROM Event_List
-                                            JOIN Event_Active
-                                            USING (event_id)
-                                            JOIN Location
-                                            USING (location_id)
-                                            WHERE event_id = ${param.id};
-                                        </sql:query>
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">ชื่อกิจกรรม :</label>
                                             <div class="col-sm-2">
@@ -189,7 +188,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">วันที่เริ่ม :</label>
-                                            <div class="col-sm-2">
+                                            <div class="col-sm-4">
                                                 <input type="text" class="form-control" value="${act.rows[0].event_start}">
                                                 <span class="help-block">yyyy-mm-dd</span>
                                             </div>
@@ -203,7 +202,7 @@
 
                                         <div class="form-group">
                                             <label class="control-label col-sm-2" for="fname">จำนวนที่รับ :</label>
-                                            <div class="col-sm-1">
+                                            <div class="col-sm-4">
                                                 <input type="text" class="form-control" value="${act.rows[0].event_amount}">
                                             </div>
                                         </div>
