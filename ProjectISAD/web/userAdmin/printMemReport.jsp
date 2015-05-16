@@ -8,7 +8,11 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<sql:query dataSource="test" var ="mem">
+    SELECT * 
+    FROM Member_Data
+    WHERE member_id = ${param.selected} ;
+</sql:query>
 
 
 <!DOCTYPE html>
@@ -175,13 +179,7 @@
                             <div class="box box-primary box-success">
                                 <div class="box-body" id="printableArea">
                                     <h1 style="text-align: center;">รายงานข้อมูลส่วนบุคคล</h1>
-                                    <div class="box-body">
-                                        <sql:query dataSource="test" var ="mem">
-                                            SELECT * 
-                                            FROM Member_Data
-                                            WHERE member_id = ${param.selected} ;
-                                        </sql:query>
-                                            
+                                    <div class="box-body">                                            
                                         <dl class="dl-horizontal">
                                             <dt>รหัสสมาชิก :</dt>
                                             <dd>${mem.rows[0].member_id}</dd>

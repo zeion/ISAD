@@ -24,6 +24,11 @@
     GROUP BY event_active_ID
     HAVING event_active_ID = ${param.id}
 </sql:query>
+<sql:query dataSource="test" var ="reg">
+    SELECT *
+    FROM Event_Request
+    WHERE event_active_ID = ${param.id} AND member_id = ${sessionScope.person.id}
+</sql:query>
 
 
 <!DOCTYPE html>
@@ -156,7 +161,13 @@
                                         <dt><span class="glyphicon glyphicon-calendar"></span></dt>
                                         <dd>${row.event_start}</dd>
                                         <dt><span class="glyphicon glyphicon-time"></span></dt>
-                                        <dd>ระยะเวลา ${row.event_day} วัน</dd>
+                                        <dd>
+                                            ระยะเวลา 
+                                            <c:if test="${empty row.event_day}">
+                                                0
+                                            </c:if>
+                                            ${row.event_day} วัน
+                                        </dd>
                                         <dt><span class="glyphicon glyphicon-map-marker"></span></dt>
                                         <dd>${row.location_name} - ${row.location_area}</dd>
                                         <dd class="text-muted">${row.location_address} ${row.location_province}</dd>
@@ -176,8 +187,13 @@
                                         </dl>
                                     </div><!-- /.box-body -->
                                 </div><!-- /.box -->
-                                <a class="btn btn-primary pull-right" href="../memDetailAct.do?id=${row.event_active_ID}">ลงทะเบียน</a>
-                            </div>
+                            <c:if test="${not empty reg.rows[0].member_id}">
+                                <a class="btn btn-primary pull-right disabled " href="../memDetailAct.do?id=${row.event_active_ID}">ลงทะเบียนแล้ว</a>
+                            </c:if>
+                            <c:if test="${empty reg.rows[0]}">
+                                <a class="btn btn-primary pull-right " href="../memDetailAct.do?id=${row.event_active_ID}">ลงทะเบียน</a>
+                            </c:if>
+                        </div>
                     </c:forEach> 
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
