@@ -77,13 +77,14 @@ public class CalendarDTO {
         this.end = end;
     }
 
-    public CalendarDTO(int id, String title, String start, String end, String url) {
+    public CalendarDTO(int id, String title, String start, String end, String url,String color) {
         
         this.id = id;
         this.title = title;
         this.start = start;
         this.end = end;
         this.url = url;
+        this.color = color;
     }
 
     public CalendarDTO() {
@@ -94,7 +95,11 @@ public class CalendarDTO {
         List l = new ArrayList();
 
         try {
-            String sql = "SELECT event_active_ID, event_name, event_day,event_start FROM Event_Active JOIN Event_List USING (event_ID)";//INSERT INTO  Member_User(member_user,member_pass,member_type,member_status) values("lalala","lalala",0,true)
+            
+            String sql = "SELECT event_active_ID, event_name, event_day,event_start, event_color "
+                    + "FROM Event_Active "
+                    + "JOIN Event_List "
+                    + "USING (event_ID)";
 
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             
@@ -108,12 +113,13 @@ public class CalendarDTO {
                 int day = member.getInt("event_day");
                 String start = df.format(member.getDate("event_start"));
                 Calendar c = Calendar.getInstance();
+                String color = member.getString("event_color");
                 c.setTime(df.parse(start));
                 c.add(Calendar.DATE, day);
                 String end = df.format(c.getTime());
                 String url = "detailAct.jsp?id=\"" + id + "\"";
 
-                l.add(new CalendarDTO(id, title, start, end, url));
+                l.add(new CalendarDTO(id, title, start, end, url,color));
 
             }
 

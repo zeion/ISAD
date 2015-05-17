@@ -18,7 +18,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>รายชื่อสมาชิก</title>
+        <title>ยืนยันการสมัครสมาชิก</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- Bootstrap 3.3.2 -->
         <link href="../template/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -167,7 +167,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        รายชื่อสมาชิก
+                        ยืนยันการสมัครสมาชิก
                     </h1>                    
                 </section>
 
@@ -177,7 +177,7 @@
                         <div class="col-xs-12" >
                             <div class="box">
                                 <div class="box-header">
-                                    <h3 class="box-title">รายชื่อสมาชิก</h3>
+                                    <h3 class="box-title">รายชื่อผู้สมัครสมาชิก</h3>
                                 </div><!-- /.box-header -->
                                 <form role="form">
                                     <div class="box-body">

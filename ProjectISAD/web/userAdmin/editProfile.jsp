@@ -236,7 +236,7 @@
                                             <label class="control-label col-sm-2" >จังหวัด:</label>
                                             <div class="col-sm-2">
                                                 <select class="form-control" name="province">
-                                                    <option selected="selected" style="display: none;" value="${member.rows[0].member_address}">${member.rows[0].member_province}</option>
+                                                    <option selected="selected" value="${member.rows[0].member_province}">${member.rows[0].member_province}</option>
                                                     <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
                                                     <option value="กระบี่">กระบี่ </option>
                                                     <option value="กาญจนบุรี">กาญจนบุรี </option>

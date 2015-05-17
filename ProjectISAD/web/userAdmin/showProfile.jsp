@@ -164,6 +164,7 @@
                     FROM Member_Data
                     WHERE member_id = ${param.id};
                 </sql:query>
+                    
                 <!-- Main content -->
                 <section class="content">
                     <div class="row">
