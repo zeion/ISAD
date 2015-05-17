@@ -50,10 +50,13 @@ public class memEditProfileController1 extends HttpServlet {
             String province = request.getParameter("province");
             String phone = request.getParameter("phone");
             int id = Integer.parseInt(request.getParameter("id"));
-                       
+            try{
             Member mem = new Member(id,nickname, edu, job, address, province, phone,conn);
             out.print(mem.editMem());
             response.sendRedirect("userMember/showProfile.jsp?id="+id);
+            }catch(Exception e){
+                response.sendRedirect("userMember/showProfile.jsp?id="+id);
+            }
         }
     }
 

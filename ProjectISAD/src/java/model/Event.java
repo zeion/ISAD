@@ -120,6 +120,7 @@ public class Event {
     }
 
     private DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+    private DateFormat d2 = new SimpleDateFormat("yyyy-MM-dd");
     
     public Event(int member_id,String event, String start, String location, Connection conn, String amount) {
         try {
@@ -137,7 +138,7 @@ public class Event {
     public Event(int id, String start, int amount, Connection conn) {
         try {
             this.id = id;
-            this.start = df.parse(start);
+            this.start = d2.parse(start);
             this.amount = amount;
             this.conn = conn;
         } catch (ParseException ex) {

@@ -41,6 +41,7 @@ public class editActController extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             int id = Integer.parseInt(request.getParameter("id"));
+            try{
             String start = request.getParameter("start");
             int amount = Integer.parseInt(request.getParameter("amount"));
             
@@ -48,6 +49,9 @@ public class editActController extends HttpServlet {
             
             out.println(event.editAct());
             response.sendRedirect("userAdmin/editActDetail.jsp?id="+id);
+            }catch(Exception e){
+                response.sendRedirect("userAdmin/editActDetail.jsp?id="+id);
+            }
         }
     }
 
